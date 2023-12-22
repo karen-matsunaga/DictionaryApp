@@ -1,0 +1,100 @@
+// ignore_for_file: prefer_const_constructors, file_names
+
+import 'package:dictionary/style.dart';
+import 'package:flutter/material.dart';
+
+class AppTheme {
+  // Configurações do TEMA CLARO
+  static final lightTheme = ThemeData(
+    brightness: Brightness.light,
+    // FUNDO do aplicativo
+    scaffoldBackgroundColor: mainThemeApp,
+    // Menu de CONFIGURAÇÕES do aplicativo
+    drawerTheme: DrawerThemeData(backgroundColor: drawer),
+    // Definição da palavra no LIST TILE
+    listTileTheme: ListTileThemeData(
+      iconColor: Colors.black,
+      textColor: Colors.black,
+    ),
+    // Configurações da APPBAR
+    appBarTheme: AppBarTheme(
+        backgroundColor: backgroundAppBarLight,
+        titleTextStyle: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          decorationColor: backgroundAppBarSearch,
+        ),
+        iconTheme: const IconThemeData(color: Colors.black),
+        centerTitle: true),
+    // Configurações gerais do tema claro
+    colorScheme: ColorScheme.light(
+        brightness: Brightness.light,
+        background: Colors.white,
+        onBackground: Colors.black,
+        // APPBAR
+        primary: Colors.black,
+        onPrimary: Colors.white,
+        // CARD
+        surface: Colors.white,
+        onSurface: Colors.black,
+        // CHIP
+        secondary: Colors.white,
+        onSecondary: Colors.black,
+        // ERRO
+        onError: Colors.red,
+        error: Colors.white,
+        // CONTAINER
+        primaryContainer: Colors.white,
+        onPrimaryContainer: Colors.white,
+        secondaryContainer: Colors.white54,
+        onSecondaryContainer: Colors.black),
+  );
+
+  // Configurações do TEMA ESCURO
+  static final darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    primarySwatch: Colors.grey,
+    // FUNDO do aplicativo
+    scaffoldBackgroundColor: Colors.grey[75],
+    // Menu de CONFIGURAÇÕES do aplicativo
+    drawerTheme: DrawerThemeData(backgroundColor: Colors.grey),
+    // Definição da palavra no LIST TILE
+    listTileTheme: ListTileThemeData(
+      iconColor: Colors.white,
+      textColor: Colors.white,
+    ),
+    // Configurações da APPBAR
+    appBarTheme: AppBarTheme(
+        backgroundColor: Colors.grey[60],
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          decorationColor: backgroundAppBarSearch,
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
+        centerTitle: true),
+    // Configurações gerais do tema ESCURO
+    colorScheme: ColorScheme.dark(
+      brightness: Brightness.dark,
+      background: Colors.black,
+      onBackground: Colors.white,
+      // APPBAR
+      primary: Colors.white,
+      onPrimary: Colors.white,
+      // CARD
+      surface: Colors.black,
+      onSurface: Colors.white,
+      // CHIP
+      secondary: Colors.black,
+      onSecondary: Colors.white,
+      // ERRO
+      onError: Colors.red,
+      error: Colors.black,
+      // CONTAINER
+      primaryContainer: Colors.black,
+      onPrimaryContainer: Colors.white,
+      secondaryContainer: Colors.black45,
+      onSecondaryContainer: Colors.white,
+    ),
+  );
+}
