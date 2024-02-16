@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, file_names;, file_names, sort_child_properties_last, use_build_context_synchronously
 import 'package:dictionary/provider/fontsize-provider.dart';
 import 'package:dictionary/menu/menu_page.dart';
-import 'package:dictionary/search/search_page.dart';
+import 'package:dictionary/homepage/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/style.dart';
 import 'package:provider/provider.dart' as provider;
-// import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HomeSearchPage extends StatefulWidget {
   const HomeSearchPage({super.key});
@@ -16,7 +15,6 @@ class HomeSearchPage extends StatefulWidget {
 
 class _HomeSearchPageState extends State<HomeSearchPage> {
   final _searchController = TextEditingController();
-  // final supabase = Supabase.instance.client;
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +28,15 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
               : backgroundAppBarIcons,
         ),
         // Nome do aplicativo
-        title: Text("Códex do Programador",
+        title: Text("Códex do Programador".toUpperCase(),
             style: TextStyle(
+                letterSpacing: 1,
                 fontSize:
                     provider.Provider.of<FontSizeConfig>(context).fontSize)),
         centerTitle: true,
         // Fundo do aplicativo da AppBar
         backgroundColor: Theme.of(context).brightness == Brightness.dark
-            ? Colors.grey
+            ? appLogo
             : Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
       ),
@@ -59,8 +58,10 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
                     fontSize:
                         provider.Provider.of<FontSizeConfig>(context).fontSize),
                 // Icone de pesquisa e fechar da barra de pesquisa
-                prefixIcon: Icon(Icons.search_rounded),
-                suffixIcon: Icon(Icons.clear),
+                prefixIcon: Icon(
+                  Icons.search_rounded,
+                  size: provider.Provider.of<FontSizeConfig>(context).fontSize,
+                ),
                 hintText: 'Search',
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
@@ -69,17 +70,12 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
                 filled: true,
               ),
               onSubmitted: (value) async {
-                // Adicionar o recurso do filtro de pesquisa
-                // final text = await supabase.rpc(_searchController.text);
-                // final data = await supabase.rpc('search_function',
-                // params: {'search_texto_input': text});
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const DictionarySearchPage()),
+                    builder: (context) => const DictionarySearchPage(),
+                  ),
                 );
-
-                // return data;
               },
             ),
           ),

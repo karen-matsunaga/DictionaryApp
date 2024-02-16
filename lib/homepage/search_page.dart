@@ -5,7 +5,6 @@ import 'package:dictionary/menu/menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/style.dart';
 import 'package:provider/provider.dart' as provider;
-// import 'package:supabase_flutter/supabase_flutter.dart';
 
 class DictionarySearchPage extends StatefulWidget {
   const DictionarySearchPage({super.key});
@@ -15,8 +14,7 @@ class DictionarySearchPage extends StatefulWidget {
 }
 
 class _DictionarySearchPageState extends State<DictionarySearchPage> {
-  // final _searchController = TextEditingController();
-  // final supabase = Supabase.instance.client;
+  final searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +27,15 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
               : backgroundAppBarIcons,
         ),
         // Nome do aplicativo
-        title: Text("Códex do Programador",
+        title: Text("Códex do Programador".toUpperCase(),
             style: TextStyle(
                 fontSize:
                     provider.Provider.of<FontSizeConfig>(context).fontSize)),
         centerTitle: true,
         // Fundo do aplicativo da AppBar
         backgroundColor: Theme.of(context).brightness == Brightness.dark
-            ? Colors.grey
+            // ? Colors.grey
+            ? appLogo
             : Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
       ),
@@ -44,7 +43,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
       // Opções do Menu de configurações
       drawer: HomePage(),
 
-      // Texto com a definição da palavra pesquisada com o supabase
+      // Texto com a definição da palavra pesquisada com o SQLite
       body: SingleChildScrollView(
         child: StreamBuilder<Object>(
             stream: null,
@@ -56,12 +55,14 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                   children: [
                     // Comando pesquisado e sua função
                     ListTile(
-                      title: Text('Print',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize:
-                                  provider.Provider.of<FontSizeConfig>(context)
-                                      .fontSize)),
+                      title: Text(
+                        'Print'.toUpperCase(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize:
+                                provider.Provider.of<FontSizeConfig>(context)
+                                    .fontSize),
+                      ),
                       subtitle: Text(
                         'Função principal mostrar na tela.',
                         style: TextStyle(
@@ -70,28 +71,43 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                     .fontSize),
                       ),
                       // Implementação da palavra na tabela FAVORITOS
-                      trailing: IconButton(
-                        onPressed: () {},
-                        icon: CircleAvatar(
-                          backgroundColor:
-                              Theme.of(context).brightness == Brightness.dark
-                                  ? Colors.white
-                                  : Color.fromRGBO(217, 217, 217, 1.0),
-                          child: Icon(Icons.favorite_border_rounded,
-                              color: Colors.red, size: 20),
+                      trailing: InkWell(
+                        onTap: () {},
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(8),
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Color.fromRGBO(217, 217, 217, 1.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                              ),
+                            ],
+                          ),
+                          child: Icon(Icons.favorite_rounded,
+                              color: Colors.red,
+                              size:
+                                  provider.Provider.of<FontSizeConfig>(context)
+                                      .fontSize),
                         ),
                       ),
                     ),
 
                     // Refatoração da primeira box PYTHON
                     Container(
-                      width: 400,
-                      height: 400,
+                      width: MediaQuery.of(context).size.width * .9,
+                      height: MediaQuery.of(context).size.height * .9,
                       margin: EdgeInsets.all(20),
                       padding: EdgeInsets.only(left: 16, top: 19, right: 16),
                       decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
-                              ? Colors.grey
+                              ? appLogo
                               : columns,
                           borderRadius: BorderRadius.circular(10)),
                       child: Column(
@@ -101,7 +117,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                               Padding(padding: EdgeInsets.only(bottom: 40)),
                               Expanded(
                                 child: Text(
-                                  'Python',
+                                  'Python'.toUpperCase(),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -136,13 +152,13 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
 
                     // Refatoração da segunda box C#
                     Container(
-                      width: 400,
-                      height: 400,
+                      width: MediaQuery.of(context).size.width * .9,
+                      height: MediaQuery.of(context).size.height * .9,
                       margin: EdgeInsets.all(20),
                       padding: EdgeInsets.only(left: 16, top: 19, right: 16),
                       decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
-                              ? Colors.grey
+                              ? appLogo
                               : columns,
                           borderRadius: BorderRadius.circular(10)),
                       child: Column(
@@ -152,7 +168,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                               Padding(padding: EdgeInsets.only(bottom: 40)),
                               Expanded(
                                 child: Text(
-                                  'C#',
+                                  'C#'.toUpperCase(),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -187,13 +203,13 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
 
                     // Refatoração da terceira box JAVA
                     Container(
-                      width: 400,
-                      height: 400,
+                      width: MediaQuery.of(context).size.width * .9,
+                      height: MediaQuery.of(context).size.height * .9,
                       margin: EdgeInsets.all(20),
                       padding: EdgeInsets.only(left: 16, top: 19, right: 16),
                       decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
-                              ? Colors.grey
+                              ? appLogo
                               : columns,
                           borderRadius: BorderRadius.circular(10)),
                       child: Column(
@@ -203,7 +219,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                               Padding(padding: EdgeInsets.only(bottom: 40)),
                               Expanded(
                                 child: Text(
-                                  'Java',
+                                  'Java'.toUpperCase(),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -238,13 +254,14 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
 
                     // Refatoração da quarta box SAÍDA DE DADOS
                     Container(
-                      width: 400,
-                      height: 400,
+                      width: MediaQuery.of(context).size.width * .9,
+                      height: MediaQuery.of(context).size.height * .9,
                       margin: EdgeInsets.all(20),
                       padding: EdgeInsets.only(left: 16, top: 19, right: 16),
                       decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
-                              ? Colors.grey
+                              ? appLogo
+                              // ? Colors.grey
                               : columns,
                           borderRadius: BorderRadius.circular(10)),
                       child: Column(
@@ -254,7 +271,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                               Padding(padding: EdgeInsets.only(bottom: 40)),
                               Expanded(
                                 child: Text(
-                                  'Saída de Dados',
+                                  'Saída de Dados'.toUpperCase(),
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
