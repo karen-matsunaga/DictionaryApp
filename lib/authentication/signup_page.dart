@@ -2,11 +2,10 @@
 
 import 'package:dictionary/JsonModels/users.dart';
 import 'package:dictionary/SQLite/sqlite.dart';
-// import 'package:dictionary/widgets/email_input_button.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/style.dart';
 import 'package:dictionary/authentication/login_page.dart';
-import 'package:provider/provider.dart' as provider;
+import 'package:provider/provider.dart';
 import 'package:dictionary/provider/fontsize-provider.dart';
 
 class AccountCreatePage extends StatefulWidget {
@@ -73,8 +72,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
 
                 // ENTRADA DE DADOS CAMPO NOME
@@ -99,8 +97,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     // CONTROLADOR DO NOME
                     controller: username,
                     style: TextStyle(
-                        fontSize: provider.Provider.of<FontSizeConfig>(context)
-                            .fontSize),
+                        fontSize:
+                            Provider.of<FontSizeConfig>(context).fontSize),
                     decoration: InputDecoration(
                         icon: Icon(Icons.person),
                         border: InputBorder.none,
@@ -143,8 +141,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     // CONTROLADOR EMAIL
                     controller: email,
                     style: TextStyle(
-                        fontSize: provider.Provider.of<FontSizeConfig>(context)
-                            .fontSize),
+                        fontSize:
+                            Provider.of<FontSizeConfig>(context).fontSize),
                     decoration: InputDecoration(
                         icon: Icon(Icons.email_rounded),
                         border: InputBorder.none,
@@ -184,8 +182,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     // VISUALIZAÇÃO DA SENHA
                     obscureText: !isVisible,
                     style: TextStyle(
-                        fontSize: provider.Provider.of<FontSizeConfig>(context)
-                            .fontSize),
+                        fontSize:
+                            Provider.of<FontSizeConfig>(context).fontSize),
                     decoration: InputDecoration(
                       icon: Icon(Icons.lock_outline_rounded),
                       border: InputBorder.none,
@@ -240,8 +238,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     // VISUALIZAÇÃO DA SENHA
                     obscureText: !isVisible,
                     style: TextStyle(
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize,
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize,
                     ),
                     decoration: InputDecoration(
                       icon: Icon(Icons.lock_outline_rounded),
@@ -305,8 +302,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                       'Cadastrar'.toUpperCase(),
                       style: TextStyle(
                         letterSpacing: 1,
-                        fontSize: provider.Provider.of<FontSizeConfig>(context)
-                            .fontSize,
+                        fontSize: Provider.of<FontSizeConfig>(context).fontSize,
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).brightness == Brightness.dark
                             ? Colors.white
@@ -326,9 +322,9 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                       'Já possui uma conta?',
                       style: TextStyle(
                         letterSpacing: 1,
-                        fontSize: provider.Provider.of<FontSizeConfig>(context)
-                                .fontSize /
-                            1.25,
+                        fontSize:
+                            Provider.of<FontSizeConfig>(context).fontSize /
+                                1.25,
                       ),
                     ),
                     const SizedBox(
@@ -349,8 +345,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                         style: TextStyle(
                             letterSpacing: 1,
                             fontSize:
-                                provider.Provider.of<FontSizeConfig>(context)
-                                        .fontSize /
+                                Provider.of<FontSizeConfig>(context).fontSize /
                                     1.25,
                             fontWeight: FontWeight.bold,
                             color:

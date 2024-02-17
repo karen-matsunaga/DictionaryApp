@@ -8,7 +8,6 @@ import 'package:dictionary/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/style.dart';
 import 'package:dictionary/authentication/signup_page.dart';
-import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/provider/fontsize-provider.dart';
 import 'package:provider/provider.dart';
 
@@ -241,8 +240,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                           letterSpacing: 1,
                           fontSize:
-                              provider.Provider.of<FontSizeConfig>(context)
-                                      .fontSize /
+                              Provider.of<FontSizeConfig>(context).fontSize /
                                   1.50,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).brightness == Brightness.dark
