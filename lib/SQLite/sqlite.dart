@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:dictionary/JsonModels/users.dart';
@@ -49,23 +48,4 @@ class DatabaseHelper {
     List<Map<String, Object?>> result = await db.query('users');
     return result.map((e) => Users.fromMap(e)).toList();
   }
-
-  // BANCO DE DADOS - FORGET PASSWORD (ATUALIZAR A CONTA)
-  // Future<int> updateUser(Users user) async {
-  //   final Database db = await initDB();
-
-  //   return await db.update(
-  //     'users',
-  //     user.toMap(),
-  //     where: "userId = ?",
-  //     whereArgs: [user.userId],
-  //     conflictAlgorithm: ConflictAlgorithm.replace,
-  //   );
-  // }
-
-  // Future<int> updateUser(password) async {
-  //   final Database db = await initDB();
-  //   return await db.rawUpdate(
-  //       'update users set userPassword = ? where userId = ?', [password]);
-  // }
 }

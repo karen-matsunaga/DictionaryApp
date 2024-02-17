@@ -42,7 +42,7 @@ class AppTheme {
         onSecondary: Colors.black,
         // ERRO
         onError: Colors.red,
-        error: Colors.white,
+        error: Colors.red,
         // CONTAINER
         primaryContainer: Colors.white,
         onPrimaryContainer: Colors.white,
@@ -89,7 +89,7 @@ class AppTheme {
       onSecondary: Colors.white,
       // ERRO
       onError: Colors.red,
-      error: Colors.black,
+      error: Colors.red,
       // CONTAINER
       primaryContainer: Colors.black,
       onPrimaryContainer: Colors.white,

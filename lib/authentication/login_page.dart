@@ -2,7 +2,7 @@
 // sort_child_properties_last, use_build_context_synchronously, prefer_final_fields
 
 import 'package:dictionary/JsonModels/users.dart';
-import 'package:dictionary/SQLite/SQLite_database.dart';
+import 'package:dictionary/SQLite/sqlite.dart';
 import 'package:dictionary/homepage/homepage_page.dart';
 import 'package:dictionary/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -77,6 +77,10 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // ESPAÇAMENTO ENTRE O TEXTO
+                const SizedBox(
+                  height: 30,
+                ),
                 // TÍTULO DO APLICATIVO
                 Text(
                   "Códex do Programador".toUpperCase(),
@@ -84,8 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
 
                 // ENTRADA DE DADOS CAMPO E-MAIL
@@ -212,9 +215,9 @@ class _LoginPageState extends State<LoginPage> {
                     Text(
                       "Não possui conta?",
                       style: TextStyle(
-                        fontSize: provider.Provider.of<FontSizeConfig>(context)
-                                .fontSize /
-                            1.25,
+                        fontSize:
+                            Provider.of<FontSizeConfig>(context).fontSize /
+                                1.25,
                         letterSpacing: 1,
                       ),
                     ),

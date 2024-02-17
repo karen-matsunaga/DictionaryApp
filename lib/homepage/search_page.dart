@@ -4,7 +4,7 @@ import 'package:dictionary/provider/fontsize-provider.dart';
 import 'package:dictionary/menu/menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/style.dart';
-import 'package:provider/provider.dart' as provider;
+import 'package:provider/provider.dart';
 
 class DictionarySearchPage extends StatefulWidget {
   const DictionarySearchPage({super.key});
@@ -29,8 +29,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
         // Nome do aplicativo
         title: Text("Códex do Programador".toUpperCase(),
             style: TextStyle(
-                fontSize:
-                    provider.Provider.of<FontSizeConfig>(context).fontSize)),
+                fontSize: Provider.of<FontSizeConfig>(context).fontSize)),
         centerTitle: true,
         // Fundo do aplicativo da AppBar
         backgroundColor: Theme.of(context).brightness == Brightness.dark
@@ -60,15 +59,13 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize:
-                                provider.Provider.of<FontSizeConfig>(context)
-                                    .fontSize),
+                                Provider.of<FontSizeConfig>(context).fontSize),
                       ),
                       subtitle: Text(
                         'Função principal mostrar na tela.',
                         style: TextStyle(
                             fontSize:
-                                provider.Provider.of<FontSizeConfig>(context)
-                                    .fontSize),
+                                Provider.of<FontSizeConfig>(context).fontSize),
                       ),
                       // Implementação da palavra na tabela FAVORITOS
                       trailing: InkWell(
@@ -92,9 +89,8 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                           ),
                           child: Icon(Icons.favorite_rounded,
                               color: Colors.red,
-                              size:
-                                  provider.Provider.of<FontSizeConfig>(context)
-                                      .fontSize),
+                              size: Provider.of<FontSizeConfig>(context)
+                                  .fontSize),
                         ),
                       ),
                     ),
@@ -122,8 +118,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -138,8 +133,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -173,8 +167,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -189,8 +182,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -224,8 +216,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -240,8 +231,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -276,8 +266,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -292,8 +281,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),

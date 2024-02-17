@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, file_names, prefer_const_literals_to_create_immutables, sort_child_properties_last, use_build_context_synchronously, curly_braces_in_flow_control_structures
 
 import 'package:dictionary/JsonModels/users.dart';
-import 'package:dictionary/SQLite/SQLite_database.dart';
+import 'package:dictionary/SQLite/sqlite.dart';
 // import 'package:dictionary/widgets/email_input_button.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/style.dart';
@@ -63,6 +63,10 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // ESPAÇAMENTO ENTRE O TEXTO
+                const SizedBox(
+                  height: 30,
+                ),
                 // TITULO DO APLICATIVO
                 Text(
                   "Códex do Programador".toUpperCase(),
