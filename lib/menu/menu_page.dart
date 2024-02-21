@@ -2,6 +2,7 @@
 // use_build_context_synchronously, prefer_const_literals_to_create_immutables,
 // sort_child_properties_last
 
+import 'package:dictionary/JsonModels/users.dart';
 import 'package:dictionary/widgets/icons_drawer.dart';
 import 'package:dictionary/widgets/user_drawer.dart';
 import 'package:dictionary/authentication/login_page.dart';
@@ -10,14 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:dictionary/menu/favorite_page.dart';
 import 'package:dictionary/menu/configuration_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  final Users? profile;
+  // const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key, this.profile});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -27,7 +25,8 @@ class _HomePageState extends State<HomePage> {
       child: ListView(
         children: [
           UserDrawer(
-            name: 'Fulano Ciclano',
+            // name: 'Fulano Ciclano',
+            name: profile?.userName ?? "",
           ),
 
           // REFATORADA - PÁGINA INICIAL

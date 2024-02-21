@@ -193,6 +193,22 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
 
+                // MENSAGEM CASO O E-MAIL E/OU SENHA FORAM PREENCHIDAS INCORRETAMENTE
+                isLoginTrue
+                    ? Container(
+                        margin: EdgeInsets.only(
+                          top: 16,
+                        ),
+                        child: Text(
+                          "E-mail ou Senha estão incorretos".toUpperCase(),
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
+                    : const SizedBox(),
+
                 const SizedBox(height: 20),
 
                 // BOTÃO LOGAR
@@ -255,17 +271,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-
-                // MENSAGEM CASO O E-MAIL E/OU SENHA FORAM PREENCHIDAS INCORRETAMENTE
-                isLoginTrue
-                    ? const Text(
-                        "E-mail ou Senha estão incorretos",
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    : const SizedBox(),
 
                 // **FIM DA COLUNA**
               ],

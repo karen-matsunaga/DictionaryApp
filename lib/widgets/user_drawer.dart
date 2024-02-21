@@ -17,6 +17,7 @@ class UserDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return DrawerHeader(
       padding: EdgeInsets.all(8),
+      margin: EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(color: Color.fromARGB(245, 20, 99, 218)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

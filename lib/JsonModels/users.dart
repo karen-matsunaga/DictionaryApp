@@ -4,13 +4,13 @@
 
 class Users {
   final int? userId;
-  final String? userName;
+  final String userName;
   final String email;
   final String userPassword;
 
   Users({
     this.userId,
-    this.userName,
+    required this.userName,
     required this.email,
     required this.userPassword,
   });

@@ -1,4 +1,6 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, body_might_complete_normally_nullable
+
+import 'dart:async';
 
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -43,9 +45,8 @@ class DatabaseHelper {
   }
 
   // BANCO DE DADOS - VISUALIZAR OS DADOS (PERFIL)
-  Future<List<Users>> getNotes() async {
+  FutureOr<Users?> getUser(Users users, String userName) async {
     final Database db = await initDB();
-    List<Map<String, Object?>> result = await db.query('users');
-    return result.map((e) => Users.fromMap(e)).toList();
+    await db.query("users", where: "userName = ?", whereArgs: [users.userName]);
   }
 }
