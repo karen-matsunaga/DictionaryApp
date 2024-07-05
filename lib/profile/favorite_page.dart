@@ -17,14 +17,22 @@ class Favorite extends StatelessWidget {
         // Retornar todos os comandos favoritos salvos no botão de pesquisa
         return ListTile(
           leading: Text(
+<<<<<<< HEAD
             palavras[index],
+=======
+            '${palavras[index]}',
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
             style: TextStyle(
               fontSize: Provider.of<FontSizeConfig>(context).fontSize,
             ),
           ),
           trailing: IconButton(
             onPressed: () {},
+<<<<<<< HEAD
             icon: const Icon(
+=======
+            icon: Icon(
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
               Icons.delete_forever_sharp,
             ),
           ),

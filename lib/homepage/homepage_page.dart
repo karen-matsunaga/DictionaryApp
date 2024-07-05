@@ -3,7 +3,11 @@ import 'package:dictionary/menu/menu_page.dart';
 import 'package:dictionary/homepage/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/style.dart';
+<<<<<<< HEAD
 import 'package:provider/provider.dart' as provider;
+=======
+import 'package:provider/provider.dart';
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 
 class HomeSearchPage extends StatefulWidget {
   const HomeSearchPage({super.key});
@@ -30,8 +34,12 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
         title: Text("Códex do Programador".toUpperCase(),
             style: TextStyle(
                 letterSpacing: 1,
+<<<<<<< HEAD
                 fontSize:
                     provider.Provider.of<FontSizeConfig>(context).fontSize)),
+=======
+                fontSize: Provider.of<FontSizeConfig>(context).fontSize)),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
         centerTitle: true,
         // Fundo do aplicativo da AppBar
         backgroundColor: Theme.of(context).brightness == Brightness.dark
@@ -54,12 +62,15 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 hintStyle: TextStyle(
-                    fontSize:
-                        provider.Provider.of<FontSizeConfig>(context).fontSize),
+                    fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                 // Icone de pesquisa e fechar da barra de pesquisa
                 prefixIcon: Icon(
                   Icons.search_rounded,
+<<<<<<< HEAD
                   size: provider.Provider.of<FontSizeConfig>(context).fontSize,
+=======
+                  size: Provider.of<FontSizeConfig>(context).fontSize,
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                 ),
                 hintText: 'Search',
                 border: OutlineInputBorder(

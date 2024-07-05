@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import 'package:dictionary/provider/fontsize_provider.dart';
+=======
+// ignore_for_file: prefer_const_constructors
+
+import 'package:dictionary/provider/fontsize-provider.dart';
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

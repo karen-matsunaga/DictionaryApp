@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers,
+// use_build_context_synchronously, prefer_const_literals_to_create_immutables,
+// sort_child_properties_last
+
+import 'package:dictionary/JsonModels/users.dart';
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 import 'package:dictionary/widgets/icons_drawer.dart';
 import 'package:dictionary/widgets/user_drawer.dart';
 import 'package:dictionary/authentication/login_page.dart';
@@ -6,14 +14,11 @@ import 'package:flutter/material.dart';
 import 'package:dictionary/menu/favorite_page.dart';
 import 'package:dictionary/menu/configuration_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  final Users? profile;
+  // const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key, this.profile});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -22,8 +27,14 @@ class _HomePageState extends State<HomePage> {
           : Theme.of(context).appBarTheme.backgroundColor,
       child: ListView(
         children: [
+<<<<<<< HEAD
           const UserDrawer(
             name: 'Fulano Ciclano',
+=======
+          UserDrawer(
+            // name: 'Fulano Ciclano',
+            name: profile?.userName ?? "",
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
           ),
 
           // REFATORADA - PÁGINA INICIAL
@@ -33,7 +44,11 @@ class _HomePageState extends State<HomePage> {
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
+<<<<<<< HEAD
                   builder: (context) => const HomeSearchPage(),
+=======
+                  builder: (context) => HomeSearchPage(),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                 ),
               );
             },
@@ -46,7 +61,11 @@ class _HomePageState extends State<HomePage> {
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
+<<<<<<< HEAD
                   builder: (context) => const FavoritePage(),
+=======
+                  builder: (context) => FavoritePage(),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                 ),
               );
             },
@@ -59,7 +78,11 @@ class _HomePageState extends State<HomePage> {
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
+<<<<<<< HEAD
                   builder: (context) => const MenuConfigurationPage(),
+=======
+                  builder: (context) => MenuConfigurationPage(),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                 ),
               );
             },
@@ -72,7 +95,11 @@ class _HomePageState extends State<HomePage> {
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
+<<<<<<< HEAD
                   builder: (context) => const LoginPage(),
+=======
+                  builder: (context) => LoginPage(),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                 ),
               );
             },

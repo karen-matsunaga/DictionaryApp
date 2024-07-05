@@ -2,7 +2,11 @@ import 'package:dictionary/provider/fontsize_provider.dart';
 import 'package:dictionary/menu/menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/style.dart';
+<<<<<<< HEAD
 import 'package:provider/provider.dart' as provider;
+=======
+import 'package:provider/provider.dart';
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 
 class DictionarySearchPage extends StatefulWidget {
   const DictionarySearchPage({super.key});
@@ -27,8 +31,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
         // Nome do aplicativo
         title: Text("Códex do Programador".toUpperCase(),
             style: TextStyle(
-                fontSize:
-                    provider.Provider.of<FontSizeConfig>(context).fontSize)),
+                fontSize: Provider.of<FontSizeConfig>(context).fontSize)),
         centerTitle: true,
         // Fundo do aplicativo da AppBar
         backgroundColor: Theme.of(context).brightness == Brightness.dark
@@ -58,29 +61,41 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize:
+<<<<<<< HEAD
                                 provider.Provider.of<FontSizeConfig>(context)
                                     .fontSize),
+=======
+                                Provider.of<FontSizeConfig>(context).fontSize),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                       ),
                       subtitle: Text(
                         'Função principal mostrar na tela.',
                         style: TextStyle(
                             fontSize:
-                                provider.Provider.of<FontSizeConfig>(context)
-                                    .fontSize),
+                                Provider.of<FontSizeConfig>(context).fontSize),
                       ),
                       // Implementação da palavra na tabela FAVORITOS
                       trailing: InkWell(
                         onTap: () {},
                         child: Container(
+<<<<<<< HEAD
                           padding: const EdgeInsets.all(8),
+=======
+                          padding: EdgeInsets.all(8),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                           decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.circular(8),
                             color:
                                 Theme.of(context).brightness == Brightness.dark
                                     ? Colors.white
+<<<<<<< HEAD
                                     : const Color.fromRGBO(217, 217, 217, 1.0),
                             boxShadow: const [
+=======
+                                    : Color.fromRGBO(217, 217, 217, 1.0),
+                            boxShadow: [
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                               BoxShadow(
                                 color: Colors.grey,
                                 spreadRadius: 2,
@@ -90,9 +105,14 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                           ),
                           child: Icon(Icons.favorite_rounded,
                               color: Colors.red,
+<<<<<<< HEAD
                               size:
                                   provider.Provider.of<FontSizeConfig>(context)
                                       .fontSize),
+=======
+                              size: Provider.of<FontSizeConfig>(context)
+                                  .fontSize),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                         ),
                       ),
                     ),
@@ -101,9 +121,14 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                     Container(
                       width: MediaQuery.of(context).size.width * .9,
                       height: MediaQuery.of(context).size.height * .9,
+<<<<<<< HEAD
                       margin: const EdgeInsets.all(20),
                       padding:
                           const EdgeInsets.only(left: 16, top: 19, right: 16),
+=======
+                      margin: EdgeInsets.all(20),
+                      padding: EdgeInsets.only(left: 16, top: 19, right: 16),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                       decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? appLogo
@@ -122,8 +147,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -138,8 +162,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -154,9 +177,14 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                     Container(
                       width: MediaQuery.of(context).size.width * .9,
                       height: MediaQuery.of(context).size.height * .9,
+<<<<<<< HEAD
                       margin: const EdgeInsets.all(20),
                       padding:
                           const EdgeInsets.only(left: 16, top: 19, right: 16),
+=======
+                      margin: EdgeInsets.all(20),
+                      padding: EdgeInsets.only(left: 16, top: 19, right: 16),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                       decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? appLogo
@@ -175,8 +203,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -191,8 +218,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -207,9 +233,14 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                     Container(
                       width: MediaQuery.of(context).size.width * .9,
                       height: MediaQuery.of(context).size.height * .9,
+<<<<<<< HEAD
                       margin: const EdgeInsets.all(20),
                       padding:
                           const EdgeInsets.only(left: 16, top: 19, right: 16),
+=======
+                      margin: EdgeInsets.all(20),
+                      padding: EdgeInsets.only(left: 16, top: 19, right: 16),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                       decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? appLogo
@@ -228,8 +259,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -244,8 +274,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -260,9 +289,14 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                     Container(
                       width: MediaQuery.of(context).size.width * .9,
                       height: MediaQuery.of(context).size.height * .9,
+<<<<<<< HEAD
                       margin: const EdgeInsets.all(20),
                       padding:
                           const EdgeInsets.only(left: 16, top: 19, right: 16),
+=======
+                      margin: EdgeInsets.all(20),
+                      padding: EdgeInsets.only(left: 16, top: 19, right: 16),
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                       decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? appLogo
@@ -282,8 +316,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),
@@ -298,8 +331,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       fontSize:
-                                          provider.Provider.of<FontSizeConfig>(
-                                                  context)
+                                          Provider.of<FontSizeConfig>(context)
                                               .fontSize),
                                   maxLines: 20,
                                 ),

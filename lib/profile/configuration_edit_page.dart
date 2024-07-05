@@ -1,12 +1,23 @@
+<<<<<<< HEAD
 // import 'package:dictionary/controllers/app-theme.dart';
 import 'package:dictionary/provider/darktheme_provider.dart';
 import 'package:dictionary/provider/fontsize_provider.dart';
+=======
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, must_be_immutable, prefer_const_constructors_in_immutables, prefer_typing_uninitialized_variables, non_constant_identifier_names, use_key_in_widget_constructors, prefer_final_fields, camel_case_types, use_build_context_synchronously, unused_element
+// import 'package:dictionary/controllers/app-theme.dart';
+import 'package:dictionary/provider/darktheme-provider.dart';
+import 'package:dictionary/provider/fontsize-provider.dart';
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 import 'package:dictionary/style.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ConfigurationPage extends StatefulWidget {
+<<<<<<< HEAD
   const ConfigurationPage({super.key});
+=======
+  ConfigurationPage({super.key});
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 
   @override
   State<ConfigurationPage> createState() => _ConfigurationPageState();
@@ -61,6 +72,21 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                               ? backgroundAppBar
                               : Colors.grey,
                       fillColor: Colors.white70,
+<<<<<<< HEAD
+=======
+                      children: <Widget>[
+                        // OPÇÕES DE TAMANHO DA FONTE
+                        Text('P',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold)),
+                        Text('M',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text('G',
+                            style: TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold)),
+                      ],
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                       isSelected: [
                         fontSizeConfig.fontSize == 16,
                         fontSizeConfig.fontSize == 20,
@@ -79,6 +105,7 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                           fontSizeConfig.saveFontSize(newSize);
                         });
                       },
+<<<<<<< HEAD
                       children: const <Widget>[
                         // OPÇÕES DE TAMANHO DA FONTE
                         Text('P',
@@ -91,6 +118,8 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold)),
                       ],
+=======
+>>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                     ),
                   ],
                 ),
