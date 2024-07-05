@@ -1,13 +1,12 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names
-
-import 'package:dictionary/pages/configuration_edit_page.dart';
-import 'package:dictionary/provider/fontsize-provider.dart';
+import 'package:dictionary/profile/configuration_edit_page.dart';
+import 'package:dictionary/provider/fontsize_provider.dart';
+import 'package:dictionary/style.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/menu/menu_page.dart';
 import 'package:provider/provider.dart';
 
-class ThirdPage extends StatelessWidget {
-  const ThirdPage({Key? key}) : super(key: key);
+class MenuConfigurationPage extends StatelessWidget {
+  const MenuConfigurationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +14,23 @@ class ThirdPage extends StatelessWidget {
       // AppBar do aplicativo
       appBar: AppBar(
         backgroundColor: Theme.of(context).brightness == Brightness.dark
-            ? Colors.grey
+            ? appLogo
             : Theme.of(context).appBarTheme.backgroundColor,
-        title: Text("Configurações",
-            style: TextStyle(
-                fontSize: Provider.of<FontSizeConfig>(context).fontSize)),
+        title: Text(
+          "Configurações".toUpperCase(),
+          style: TextStyle(
+            fontSize: Provider.of<FontSizeConfig>(context).fontSize,
+          ),
+        ),
         centerTitle: true,
         elevation: 0,
       ),
 
       // Opções do Menu de configurações
-      drawer: HomePage(),
+      drawer: const HomePage(),
 
       // Configurações do TAMANHO DA FONTE e TEMA CLARO / ESCURO
-      body: ConfigurationPage(),
+      body: const ConfigurationPage(),
     );
   }
 }

@@ -1,6 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace, unnecessary_string_interpolations, prefer_const_constructors, file_names
-
-import 'package:dictionary/provider/fontsize-provider.dart';
+import 'package:dictionary/provider/fontsize_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,16 +11,23 @@ class Favorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       itemCount: palavras.length,
       itemBuilder: (context, int index) {
         // Retornar todos os comandos favoritos salvos no botão de pesquisa
         return ListTile(
-          leading: Text('${palavras[index]}',
-              style: TextStyle(
-                  fontSize: Provider.of<FontSizeConfig>(context).fontSize)),
+          leading: Text(
+            palavras[index],
+            style: TextStyle(
+              fontSize: Provider.of<FontSizeConfig>(context).fontSize,
+            ),
+          ),
           trailing: IconButton(
-              onPressed: () {}, icon: Icon(Icons.delete_forever_sharp)),
+            onPressed: () {},
+            icon: const Icon(
+              Icons.delete_forever_sharp,
+            ),
+          ),
         );
       },
     );

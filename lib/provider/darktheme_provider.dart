@@ -1,5 +1,3 @@
-// ignore_for_file: file_names
-
 import 'package:dictionary/controllers/mytheme_preference.dart';
 import 'package:flutter/material.dart';
 

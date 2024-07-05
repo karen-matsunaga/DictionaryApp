@@ -1,14 +1,12 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names
-
-import 'package:dictionary/provider/fontsize-provider.dart';
-// import 'package:dictionary/style.dart';
+import 'package:dictionary/provider/fontsize_provider.dart';
+import 'package:dictionary/style.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/menu/menu_page.dart';
-import 'package:dictionary/favorite/favorite_page.dart';
+import 'package:dictionary/profile/favorite_page.dart';
 import 'package:provider/provider.dart';
 
-class SecondPage extends StatelessWidget {
-  const SecondPage({Key? key}) : super(key: key);
+class FavoritePage extends StatelessWidget {
+  const FavoritePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +14,9 @@ class SecondPage extends StatelessWidget {
       // AppBar do aplicativo
       appBar: AppBar(
         backgroundColor: Theme.of(context).brightness == Brightness.dark
-            ? Colors.grey
+            ? appLogo
             : Theme.of(context).appBarTheme.backgroundColor,
-        title: Text("Favoritos",
+        title: Text("Favoritos".toUpperCase(),
             style: TextStyle(
                 fontSize: Provider.of<FontSizeConfig>(context).fontSize)),
         centerTitle: true,
@@ -26,10 +24,10 @@ class SecondPage extends StatelessWidget {
       ),
 
       // Opções do Menu de configurações
-      drawer: HomePage(),
+      drawer: const HomePage(),
 
       // Lista de todas as palavras salvas
-      body: Favorite(),
+      body: const Favorite(),
     );
   }
 }

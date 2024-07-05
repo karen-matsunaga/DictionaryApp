@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, file_names
-
 import 'package:dictionary/style.dart';
 import 'package:flutter/material.dart';
 
@@ -10,24 +8,24 @@ class AppTheme {
     // FUNDO do aplicativo
     scaffoldBackgroundColor: mainThemeApp,
     // Menu de CONFIGURAÇÕES do aplicativo
-    drawerTheme: DrawerThemeData(backgroundColor: drawer),
+    drawerTheme: const DrawerThemeData(backgroundColor: drawer),
     // Definição da palavra no LIST TILE
-    listTileTheme: ListTileThemeData(
+    listTileTheme: const ListTileThemeData(
       iconColor: Colors.black,
       textColor: Colors.black,
     ),
     // Configurações da APPBAR
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
         backgroundColor: backgroundAppBarLight,
-        titleTextStyle: const TextStyle(
+        titleTextStyle: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
           decorationColor: backgroundAppBarSearch,
         ),
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true),
     // Configurações gerais do tema claro
-    colorScheme: ColorScheme.light(
+    colorScheme: const ColorScheme.light(
         brightness: Brightness.light,
         background: Colors.white,
         onBackground: Colors.black,
@@ -57,9 +55,9 @@ class AppTheme {
     // FUNDO do aplicativo
     scaffoldBackgroundColor: Colors.grey[75],
     // Menu de CONFIGURAÇÕES do aplicativo
-    drawerTheme: DrawerThemeData(backgroundColor: Colors.grey),
+    drawerTheme: const DrawerThemeData(backgroundColor: Colors.grey),
     // Definição da palavra no LIST TILE
-    listTileTheme: ListTileThemeData(
+    listTileTheme: const ListTileThemeData(
       iconColor: Colors.white,
       textColor: Colors.white,
     ),
@@ -74,7 +72,7 @@ class AppTheme {
         iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true),
     // Configurações gerais do tema ESCURO
-    colorScheme: ColorScheme.dark(
+    colorScheme: const ColorScheme.dark(
       brightness: Brightness.dark,
       background: Colors.black,
       onBackground: Colors.white,
