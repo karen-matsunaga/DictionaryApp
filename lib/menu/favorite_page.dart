@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 import 'package:dictionary/provider/fontsize_provider.dart';
-=======
-// ignore_for_file: prefer_const_constructors,
-// prefer_const_literals_to_create_immutables, file_names
-
-import 'package:dictionary/provider/fontsize-provider.dart';
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 import 'package:dictionary/style.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/menu/menu_page.dart';

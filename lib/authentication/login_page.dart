@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:dictionary/JsonModels/users.dart';
 import 'package:dictionary/SQLite/dbhelper.dart';
 import 'package:dictionary/homepage/homepage_page.dart';
@@ -9,20 +8,6 @@ import 'package:dictionary/style.dart';
 import 'package:dictionary/authentication/signup_page.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/provider/fontsize_provider.dart';
-=======
-// ignore_for_file: prefer_const_constructors, file_names, prefer_const_literals_to_create_immutables,
-// sort_child_properties_last, use_build_context_synchronously, prefer_final_fields
-
-import 'package:dictionary/JsonModels/users.dart';
-import 'package:dictionary/SQLite/sqlite.dart';
-import 'package:dictionary/homepage/homepage_page.dart';
-import 'package:dictionary/widgets/button.dart';
-import 'package:flutter/material.dart';
-import 'package:dictionary/style.dart';
-import 'package:dictionary/authentication/signup_page.dart';
-import 'package:dictionary/provider/fontsize-provider.dart';
-import 'package:provider/provider.dart';
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -32,23 +17,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-<<<<<<< HEAD
   // VISUALIZAÇÃO DA SENHA
   bool isVisible = false;
 
-=======
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
   // CONTROLADORES
   final email = TextEditingController();
   final password = TextEditingController();
   final username = TextEditingController();
-<<<<<<< HEAD
   final teste = TextEditingController();
-=======
-
-  // VISUALIZAÇÃO DE SENHA
-  bool isVisible = false;
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 
   // VERIFICAR SE ESTÁ LOGADO
   bool isLoginTrue = false;
@@ -58,10 +34,7 @@ class _LoginPageState extends State<LoginPage> {
 
   // FUNÇÃO LOGIN PARA VERIFICAÇÃO DOS DADOS
   login() async {
-<<<<<<< HEAD
     // Users? userDetails = await db.getUser(username.text);
-=======
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
     var response = await db.login(
       Users(
         userName: username.text,
@@ -75,11 +48,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-<<<<<<< HEAD
           builder: (context) => const HomeSearchPage(),
-=======
-          builder: (context) => HomeSearchPage(),
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
         ),
       );
     } else {
@@ -93,7 +62,6 @@ class _LoginPageState extends State<LoginPage> {
   // CHAVE GLOBAL PARA O FORMULÁRIO DE PREENCHIMENTO
   final formKey = GlobalKey<FormState>();
 
-<<<<<<< HEAD
   // VALIDAÇÃO DA SENHA
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
@@ -105,8 +73,6 @@ class _LoginPageState extends State<LoginPage> {
     return null;
   }
 
-=======
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,23 +81,12 @@ class _LoginPageState extends State<LoginPage> {
           : backgroundApp,
       body: SingleChildScrollView(
         child: Padding(
-<<<<<<< HEAD
           padding: const EdgeInsets.all(20),
-=======
-          padding: EdgeInsets.all(20),
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
           child: Form(
             key: formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-<<<<<<< HEAD
-=======
-                // ESPAÇAMENTO ENTRE O TEXTO
-                const SizedBox(
-                  height: 30,
-                ),
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                 // TÍTULO DO APLICATIVO
                 Text(
                   "Códex do Programador".toUpperCase(),
@@ -139,17 +94,12 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                       letterSpacing: 1,
                       fontWeight: FontWeight.bold,
-<<<<<<< HEAD
                       fontSize: provider.Provider.of<FontSizeConfig>(context)
                           .fontSize),
-=======
-                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                 ),
 
                 // ENTRADA DE DADOS CAMPO E-MAIL
                 Container(
-<<<<<<< HEAD
                   margin: const EdgeInsets.all(8),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -157,14 +107,6 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(8),
                     color: appLogo,
                     boxShadow: const [
-=======
-                  margin: EdgeInsets.all(8),
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: appLogo,
-                    boxShadow: [
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                       BoxShadow(
                         color: Color.fromRGBO(0, 0, 0, 0.25),
                         offset: Offset(0.0, 4.0),
@@ -177,7 +119,6 @@ class _LoginPageState extends State<LoginPage> {
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     maxLines: 1,
-<<<<<<< HEAD
                     // CONTROLADOR E-MAIL
                     controller: email,
                     style: TextStyle(
@@ -193,114 +134,17 @@ class _LoginPageState extends State<LoginPage> {
                       // CAMPO E-MAIL VAZIO
                       if (value!.isEmpty) {
                         return "Obrigatório preencher o campo E-mail";
-=======
-                    controller: email,
-                    style: TextStyle(
-                        fontSize:
-                            Provider.of<FontSizeConfig>(context).fontSize),
-                    // ICONE
-                    decoration: InputDecoration(
-                      fillColor: null,
-                      icon: Icon(
-                        Icons.email_rounded,
-                      ),
-                      border: InputBorder.none,
-                      hintText: "fulanociclano@email.com",
-                      labelText: "E-mail",
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Obrigatório preencher o campo E-mail";
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
-                ),
-
-                // ENTRADA DE DADOS CAMPO SENHA
-                Container(
-                  margin: EdgeInsets.all(8),
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: appLogo,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.25),
-                        offset: Offset(0.0, 4.0),
-                        blurRadius: 4.0,
-                        spreadRadius: 0.0,
-                      ),
-                    ],
-                  ),
-                  child: TextFormField(
-                    keyboardType: TextInputType.visiblePassword,
-                    textInputAction: TextInputAction.next,
-                    maxLines: 1,
-                    controller: password,
-                    obscureText: !isVisible,
-                    style: TextStyle(
-                        fontSize:
-                            Provider.of<FontSizeConfig>(context).fontSize),
-                    // ICONE
-                    decoration: InputDecoration(
-                      fillColor: null,
-                      icon: Icon(
-                        Icons.lock_outline_rounded,
-                      ),
-                      border: InputBorder.none,
-                      hintText: "Senha",
-                      labelText: "Senha",
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(
-                            () {
-                              isVisible = !isVisible;
-                            },
-                          );
-                        },
-                        icon: Icon(isVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                      ),
-                    ),
-                    // VALIDAÇÃO DE SENHA
-                    validator: (String? value) {
-                      if (value!.isEmpty) {
-                        return 'Obrigatório preencher o campo Senha';
-                      } else if (value.length < 4) {
-                        return 'Preencher mínimo 4 caracteres no campo Senha';
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                       }
                       return null;
                     },
                   ),
                 ),
 
-<<<<<<< HEAD
                 // ENTRADA DE DADOS CAMPO SENHA
                 PasswordField(
                     controller: password,
                     label: 'Senha',
                     validator: _validatePassword),
-=======
-                // MENSAGEM CASO O E-MAIL E/OU SENHA FORAM PREENCHIDAS INCORRETAMENTE
-                isLoginTrue
-                    ? Container(
-                        margin: EdgeInsets.only(
-                          top: 16,
-                        ),
-                        child: Text(
-                          "E-mail ou Senha estão incorretos".toUpperCase(),
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )
-                    : const SizedBox(),
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
 
                 const SizedBox(height: 20),
 
@@ -323,15 +167,9 @@ class _LoginPageState extends State<LoginPage> {
                     Text(
                       "Não possui conta?",
                       style: TextStyle(
-<<<<<<< HEAD
                         fontSize: provider.Provider.of<FontSizeConfig>(context)
                                 .fontSize /
                             1.25,
-=======
-                        fontSize:
-                            Provider.of<FontSizeConfig>(context).fontSize /
-                                1.25,
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                         letterSpacing: 1,
                       ),
                     ),
@@ -355,12 +193,8 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                           letterSpacing: 1,
                           fontSize:
-<<<<<<< HEAD
                               provider.Provider.of<FontSizeConfig>(context)
                                       .fontSize /
-=======
-                              Provider.of<FontSizeConfig>(context).fontSize /
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                                   1.50,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).brightness == Brightness.dark
@@ -376,7 +210,6 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
 
-<<<<<<< HEAD
                 // MENSAGEM CASO O E-MAIL E/OU SENHA FORAM PREENCHIDAS INCORRETAMENTE
                 isLoginTrue
                     ? const Text(
@@ -388,8 +221,6 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     : const SizedBox(),
 
-=======
->>>>>>> 400a6f1a4c61598388e296e26b18d40d51543b58
                 // **FIM DA COLUNA**
               ],
             ),
