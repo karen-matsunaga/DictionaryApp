@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_constructors_in_immutables
-
 import 'package:flutter/material.dart';
 
 // CRIAÇÃO DA CONTA
@@ -51,3 +49,9 @@ const Color buttonDarkOne = Color.fromRGBO(255, 255, 255, 0.50);
 // Tema dos CAMPOS de preenchimento
 const Color campoclaro = Color.fromRGBO(255, 255, 255, 75);
 const Color campoescuro = Color.fromRGBO(237, 237, 237, 93);
+
+// ESPAÇO DA COLUNA DO COMPONENTE
+const SizedBox espacoComponentes = SizedBox(height: 20);
+
+// ESPAÇO DA LINHA DO COMPONENTE
+const SizedBox espacoladoComponentes = SizedBox(width: 10);

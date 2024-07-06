@@ -1,28 +1,34 @@
-import 'package:dictionary/provider/fontsize_provider.dart';
-import 'package:dictionary/style.dart';
+import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class PasswordField extends StatefulWidget {
+class FieldComponent extends StatefulWidget {
   final TextEditingController controller;
   final String label;
+  final String hint;
   final Function(String?) validator;
+  final TextInputType textInputType;
+  final Icon icon;
 
-  const PasswordField(
-      {super.key,
-      required this.controller,
-      required this.label,
-      required this.validator});
+  const FieldComponent({
+    super.key,
+    required this.icon,
+    required this.textInputType,
+    required this.controller,
+    required this.label,
+    required this.hint,
+    required this.validator,
+  });
 
   @override
-  State<PasswordField> createState() => _PasswordFieldState();
+  State<FieldComponent> createState() => _FieldComponentState();
 }
 
-class _PasswordFieldState extends State<PasswordField> {
-  bool _obscureText = true;
-
+class _FieldComponentState extends State<FieldComponent> {
   @override
   Widget build(BuildContext context) {
+    // DESIGNER DO CAMPO
     return Container(
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -38,30 +44,20 @@ class _PasswordFieldState extends State<PasswordField> {
           ),
         ],
       ),
+      // CONFIGURAÇÃO DO CAMPO
       child: TextFormField(
-        keyboardType: TextInputType.visiblePassword,
+        keyboardType: widget.textInputType,
         textInputAction: TextInputAction.next,
         maxLines: 1,
         style:
             TextStyle(fontSize: Provider.of<FontSizeConfig>(context).fontSize),
         controller: widget.controller,
-        obscureText: _obscureText,
         validator: (value) => widget.validator(value),
         decoration: InputDecoration(
           fillColor: null,
-          icon: const Icon(
-            Icons.lock_outline_rounded,
-          ),
+          icon: widget.icon,
           border: InputBorder.none,
           labelText: widget.label,
-          suffixIcon: IconButton(
-            icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-            onPressed: () {
-              setState(() {
-                _obscureText = !_obscureText;
-              });
-            },
-          ),
         ),
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:dictionary/style.dart';
+import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {

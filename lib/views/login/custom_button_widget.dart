@@ -1,28 +1,31 @@
-import 'package:dictionary/provider/fontsize_provider.dart';
-import 'package:dictionary/style.dart';
+import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Button extends StatefulWidget {
+class ButtonComponent extends StatefulWidget {
   final String text;
+  final Color? color;
   final VoidCallback? callBack;
 
-  const Button({
+  const ButtonComponent({
     Key? key,
+    this.callBack,
     required this.text,
-    required this.callBack,
+    this.color,
   }) : super(key: key);
 
   @override
-  State<Button> createState() => _ButtonState();
+  State<ButtonComponent> createState() => _ButtonComponentState();
 }
 
-class _ButtonState extends State<Button> {
+class _ButtonComponentState extends State<ButtonComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       height: 55,
       width: MediaQuery.of(context).size.width * .9,
       decoration: BoxDecoration(
@@ -40,14 +43,15 @@ class _ButtonState extends State<Button> {
       child: TextButton(
         onPressed: widget.callBack!,
         child: Text(
-          widget.text,
+          widget.text.toUpperCase(),
           style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: Provider.of<FontSizeConfig>(context).fontSize,
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white
-                  : Colors.black,
-              letterSpacing: 2),
+            letterSpacing: 2,
+            fontWeight: FontWeight.bold,
+            fontSize: Provider.of<FontSizeConfig>(context).fontSize,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Colors.black,
+          ),
         ),
       ),
     );

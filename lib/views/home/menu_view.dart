@@ -1,10 +1,10 @@
-import 'package:dictionary/widgets/icons_drawer.dart';
-import 'package:dictionary/widgets/user_drawer.dart';
-import 'package:dictionary/authentication/login_page.dart';
-import 'package:dictionary/homepage/homepage_page.dart';
+import 'package:dictionary/views/home/custom_icon_widget.dart';
+import 'package:dictionary/views/home/custom_user_widget.dart';
+import 'package:dictionary/views/login/login_widget.dart';
+import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:dictionary/menu/favorite_page.dart';
-import 'package:dictionary/menu/configuration_page.dart';
+import 'package:dictionary/views/profile/favorite_view.dart';
+import 'package:dictionary/views/profile/configuration_update_view.dart';
 
 class HomePage extends StatelessWidget {
   // const HomePage({Key? key}) : super(key: key);

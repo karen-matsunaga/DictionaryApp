@@ -1,7 +1,7 @@
 // import 'package:dictionary/controllers/app-theme.dart';
-import 'package:dictionary/provider/darktheme_provider.dart';
-import 'package:dictionary/provider/fontsize_provider.dart';
-import 'package:dictionary/style.dart';
+import 'package:dictionary/controllers/darktheme_provider.dart';
+import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

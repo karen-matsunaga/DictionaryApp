@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:dictionary/JsonModels/users.dart';
+import 'package:dictionary/models/users.dart';
 
 class DatabaseHelper {
   // NOME DA TABELA

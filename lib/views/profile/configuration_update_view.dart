@@ -1,8 +1,8 @@
-import 'package:dictionary/profile/configuration_edit_page.dart';
-import 'package:dictionary/provider/fontsize_provider.dart';
-import 'package:dictionary/style.dart';
+import 'package:dictionary/views/profile/configuration_update_widget.dart';
+import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:dictionary/menu/menu_page.dart';
+import 'package:dictionary/views/home/menu_view.dart';
 import 'package:provider/provider.dart';
 
 class MenuConfigurationPage extends StatelessWidget {

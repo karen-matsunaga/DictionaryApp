@@ -1,7 +1,7 @@
-import 'package:dictionary/provider/fontsize_provider.dart';
-import 'package:dictionary/menu/menu_page.dart';
+import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/views/home/menu_view.dart';
 import 'package:flutter/material.dart';
-import 'package:dictionary/style.dart';
+import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 
 class DictionarySearchPage extends StatefulWidget {
