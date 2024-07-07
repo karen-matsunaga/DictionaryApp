@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class IconDrawer extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final VoidCallback callback;
+
   const IconDrawer({
     Key? key,
     required this.icon,
     required this.title,
     required this.callback,
   }) : super(key: key);
-
-  final IconData icon;
-  final String title;
-  final VoidCallback callback;
 
   @override
   Widget build(BuildContext context) {

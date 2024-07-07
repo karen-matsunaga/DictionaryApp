@@ -2,13 +2,13 @@ import 'package:dictionary/models/users.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/views/login/custom_button_widget.dart';
 import 'package:dictionary/views/login/custom_field_widget.dart';
-import 'package:dictionary/views/login/custom_message_widget.dart';
+import 'package:dictionary/views/login/custom_msg_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:dictionary/views/login/login_widget.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/views/login/custom_password_widget.dart';
+import 'package:dictionary/views/login/custom_pass_widget.dart';
 
 class AccountCreatePage extends StatefulWidget {
   const AccountCreatePage({Key? key}) : super(key: key);
@@ -98,6 +98,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
 
   @override
   Widget build(BuildContext context) {
+    // TELA DE CRIAR CONTA
     return Scaffold(
       backgroundColor: Theme.of(context).brightness == Brightness.dark
           ? Theme.of(context).scaffoldBackgroundColor
@@ -173,12 +174,16 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 espacoComponentes,
 
                 // Botão CONTA EXISTENTE
-                const LetterButtonComponent(text: 'Já possui uma conta?'),
 
-                espacoComponentes,
+                Text(
+                  'Já possui uma conta?',
+                  style: TextStyle(
+                      fontSize: provider.Provider.of<FontSizeConfig>(context)
+                          .fontSize),
+                ),
 
                 // BOTÃO PARA VOLTAR
-                ButtonComponent(
+                LetterButtonComponent(
                   text: 'Logar'.toUpperCase(),
                   callBack: () {
                     Navigator.of(context).push(
@@ -187,7 +192,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                       ),
                     );
                   },
-                ),
+                )
               ],
             ),
           ),

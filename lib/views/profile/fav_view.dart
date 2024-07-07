@@ -1,12 +1,12 @@
-import 'package:dictionary/views/profile/configuration_update_widget.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/views/home/menu_view.dart';
+import 'package:dictionary/views/profile/fav_widget.dart';
 import 'package:provider/provider.dart';
 
-class MenuConfigurationPage extends StatelessWidget {
-  const MenuConfigurationPage({Key? key}) : super(key: key);
+class FavoritePage extends StatelessWidget {
+  const FavoritePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +16,9 @@ class MenuConfigurationPage extends StatelessWidget {
         backgroundColor: Theme.of(context).brightness == Brightness.dark
             ? appLogo
             : Theme.of(context).appBarTheme.backgroundColor,
-        title: Text(
-          "Configurações".toUpperCase(),
-          style: TextStyle(
-            fontSize: Provider.of<FontSizeConfig>(context).fontSize,
-          ),
-        ),
+        title: Text("Favoritos".toUpperCase(),
+            style: TextStyle(
+                fontSize: Provider.of<FontSizeConfig>(context).fontSize)),
         centerTitle: true,
         elevation: 0,
       ),
@@ -29,8 +26,8 @@ class MenuConfigurationPage extends StatelessWidget {
       // Opções do Menu de configurações
       drawer: const HomePage(),
 
-      // Configurações do TAMANHO DA FONTE e TEMA CLARO / ESCURO
-      body: const ConfigurationPage(),
+      // Lista de todas as palavras salvas
+      body: const Favorite(),
     );
   }
 }

@@ -58,6 +58,7 @@ class _FieldComponentState extends State<FieldComponent> {
           icon: widget.icon,
           border: InputBorder.none,
           labelText: widget.label,
+          hintText: widget.hint,
         ),
       ),
     );

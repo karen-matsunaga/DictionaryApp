@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, body_might_complete_normally_nullable
-
 import 'dart:async';
 
 import 'package:path/path.dart';
@@ -48,5 +46,6 @@ class DatabaseHelper {
   FutureOr<Users?> getUser(Users users, String userName) async {
     final Database db = await initDB();
     await db.query("users", where: "userName = ?", whereArgs: [users.userName]);
+    return null;
   }
 }

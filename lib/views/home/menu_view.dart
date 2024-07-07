@@ -3,12 +3,13 @@ import 'package:dictionary/views/home/custom_user_widget.dart';
 import 'package:dictionary/views/login/login_widget.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:dictionary/views/profile/favorite_view.dart';
-import 'package:dictionary/views/profile/configuration_update_view.dart';
+import 'package:dictionary/views/profile/fav_view.dart';
+import 'package:dictionary/views/profile/config_update_view.dart';
 
 class HomePage extends StatelessWidget {
-  // const HomePage({Key? key}) : super(key: key);
   const HomePage({super.key});
+
+  // final db = DatabaseHelper();
 
   @override
   Widget build(BuildContext context) {

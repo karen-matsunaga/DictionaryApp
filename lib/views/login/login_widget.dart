@@ -1,11 +1,11 @@
 import 'package:dictionary/models/users.dart';
+import 'package:dictionary/views/login/custom_pass_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/login/custom_button_widget.dart';
 import 'package:dictionary/views/login/custom_field_widget.dart';
-import 'package:dictionary/views/login/custom_message_widget.dart';
-import 'package:dictionary/views/login/custom_password_widget.dart';
+import 'package:dictionary/views/login/custom_msg_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
@@ -82,6 +82,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // TELA DE LOGIN
     return Scaffold(
       backgroundColor: Theme.of(context).brightness == Brightness.dark
           ? Theme.of(context).scaffoldBackgroundColor
@@ -140,10 +141,15 @@ class _LoginPageState extends State<LoginPage> {
                 espacoComponentes,
 
                 // TEXTO E BOTÃO PARA CRIAR CONTA
-                const LetterButtonComponent(text: 'Não possui conta?'),
+                Text(
+                  'Não possui conta?',
+                  style: TextStyle(
+                      fontSize: provider.Provider.of<FontSizeConfig>(context)
+                          .fontSize),
+                ),
 
-                ButtonComponent(
-                  text: 'Criar conta',
+                LetterButtonComponent(
+                  text: 'Criar conta'.toUpperCase(),
                   callBack: () {
                     Navigator.push(
                       context,
