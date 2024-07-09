@@ -16,21 +16,16 @@ class LetterButtonComponent extends StatefulWidget {
 class _LetterButtonComponentState extends State<LetterButtonComponent> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        GestureDetector(
-          onTap: widget.callBack,
-          child: Text(
-            widget.text,
-            style: TextStyle(
-              letterSpacing: 1,
-              fontSize:
-                  provider.Provider.of<FontSizeConfig>(context).fontSize / 1.50,
-            ),
-          ),
+    return GestureDetector(
+      onTap: widget.callBack,
+      child: Text(
+        widget.text,
+        style: TextStyle(
+          letterSpacing: 1,
+          fontSize:
+              provider.Provider.of<FontSizeConfig>(context).fontSize / 1.50,
         ),
-      ],
+      ),
     );
   }
 }

@@ -56,6 +56,7 @@ class _PasswordFieldState extends State<PasswordField> {
           ),
           border: InputBorder.none,
           labelText: widget.label,
+          hintText: widget.hint,
           suffixIcon: IconButton(
             icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
             onPressed: () {

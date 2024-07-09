@@ -142,22 +142,33 @@ class _LoginPageState extends State<LoginPage> {
                 espacoComponentes,
 
                 // TEXTO E BOTÃO PARA CRIAR CONTA
-                Text(
-                  'Não possui conta?',
-                  style: TextStyle(
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Não possui conta?',
+                      style: TextStyle(
+                          fontSize:
+                              provider.Provider.of<FontSizeConfig>(context)
+                                      .fontSize /
+                                  1.50),
+                    ),
 
-                LetterButtonComponent(
-                  text: 'Criar conta'.toUpperCase(),
-                  callBack: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AccountCreatePage()),
-                    );
-                  },
+                    // ESPAÇAMENTO ENTRE OS COMPONENTES
+                    espacoladoComponentes,
+
+                    // BOTÃO PERSONALIZADO PARA CRIAR CONTA
+                    LetterButtonComponent(
+                      text: 'Criar conta'.toUpperCase(),
+                      callBack: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AccountCreatePage()),
+                        );
+                      },
+                    ),
+                  ],
                 ),
 
                 // ESPAÇO ENTRE OS COMPONENTES
@@ -166,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                 // MENSAGEM CASO O E-MAIL E/OU SENHA FORAM PREENCHIDAS INCORRETAMENTE
                 isLoginTrue
                     ? const Text(
-                        "E-mail ou Senha estão incorretos",
+                        "O(s) campo(s) E-mail ou Senha estão incorretos",
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,

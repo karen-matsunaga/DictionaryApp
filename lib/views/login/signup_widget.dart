@@ -29,9 +29,9 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
     if (value == null || value.isEmpty) {
       return 'O campo Nome deve ser preenchido.';
     }
-    final isValid = RegExp(r'^[A-Za-z0-9_]{3,24}$').hasMatch(value);
+    final isValid = RegExp(r'^[A-Za-z0-9_]{3,15}$').hasMatch(value);
     if (!isValid) {
-      return 'O campo Nome deve conter no mínimo 3 e máximo 24 caracteres.';
+      return 'O campo Nome deve conter no mínimo 3 e máximo 15 caracteres.';
     }
     return null;
   }
@@ -62,10 +62,10 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
 // VALIDAÇÃO DA SENHA REESCRITA
   String? _validateConfirmPassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'O campo Reescreva a senha deve ser preenchido.';
+      return 'O campo Confirmar senha deve ser preenchido.';
     }
     if (value.length < 6) {
-      return 'O campo Reescreva a senha deve conter no mínimo 6 caracteres.';
+      return 'O campo Confirmar senha deve conter no mínimo 6 caracteres.';
     }
     if (value != _passwordController.text) {
       return 'As senhas digitadas não estão coerentes.';
@@ -90,6 +90,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
       if (!mounted) return;
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const LoginPage()));
+    } else {
+      return 'Conta existente';
     }
   }
 
@@ -149,7 +151,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 // ENTRADA DE DADOS CAMPO REESCREVA A SENHA
                 PasswordField(
                   controller: _confirmPasswordController,
-                  label: 'Confirme a senha',
+                  label: 'Confirmar senha',
                   hint: '1234',
                   validator: _validateConfirmPassword,
                 ),
@@ -172,14 +174,19 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
 
                 // Botão CONTA EXISTENTE
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Já possui uma conta?',
+                      'Já possui conta?',
                       style: TextStyle(
                           fontSize:
                               provider.Provider.of<FontSizeConfig>(context)
-                                  .fontSize),
+                                      .fontSize /
+                                  1.50),
                     ),
+
+                    // ESPAÇAMENTO DO LADO
+                    espacoladoComponentes,
 
                     // BOTÃO PARA VOLTAR
                     LetterButtonComponent(
