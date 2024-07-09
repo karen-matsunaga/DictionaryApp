@@ -1,9 +1,6 @@
 import 'package:dictionary/views/login/signup_widget.dart';
-// import 'package:dictionary/profile/configuration_edit_page.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/views/home/menu_view.dart';
-// import 'package:dictionary/authentication/forget_password_page.dart';
-import 'package:dictionary/views/profile/fav_view.dart';
 import 'package:dictionary/views/profile/config_update_view.dart';
 import 'package:dictionary/controllers/app_theme.dart';
 import 'package:dictionary/controllers/darktheme_provider.dart';
@@ -34,14 +31,12 @@ class CodexProgramador extends StatelessWidget {
       builder: (context, DynamicDarkMode themeProvider, child) {
         return MaterialApp(
           routes: {
-            '/homepage': (context) => const HomeSearchPage(),
+            '/homepage': (context) => HomeSearchPage(),
             '/search': (context) => const DictionarySearchPage(),
-            '/favorite': (context) => const FavoritePage(),
             '/menu': (context) => const HomePage(),
             '/config': (context) => const MenuConfigurationPage(),
             '/signin': (context) => const LoginPage(),
             '/signup': (context) => const AccountCreatePage(),
-            // '/passwordrecovery': (context) => PasswordConfirmation(),
           },
 
           // Tema do aplicativo

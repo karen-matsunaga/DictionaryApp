@@ -1,15 +1,11 @@
 import 'package:dictionary/views/home/custom_icon_widget.dart';
-import 'package:dictionary/views/home/custom_user_widget.dart';
 import 'package:dictionary/views/login/login_widget.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:dictionary/views/profile/fav_view.dart';
 import 'package:dictionary/views/profile/config_update_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  // final db = DatabaseHelper();
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +15,6 @@ class HomePage extends StatelessWidget {
           : Theme.of(context).appBarTheme.backgroundColor,
       child: ListView(
         children: [
-          const UserDrawer(
-            name: 'Fulano Ciclano',
-          ),
-
           // REFATORADA - PÁGINA INICIAL
           IconDrawer(
             icon: Icons.home,
@@ -30,20 +22,7 @@ class HomePage extends StatelessWidget {
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const HomeSearchPage(),
-                ),
-              );
-            },
-          ),
-
-          // REFATORADA - FAVORITOS
-          IconDrawer(
-            icon: Icons.star,
-            title: 'Favoritos',
-            callback: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const FavoritePage(),
+                  builder: (context) => HomeSearchPage(),
                 ),
               );
             },

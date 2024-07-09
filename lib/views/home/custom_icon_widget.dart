@@ -8,11 +8,11 @@ class IconDrawer extends StatelessWidget {
   final VoidCallback callback;
 
   const IconDrawer({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     required this.callback,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

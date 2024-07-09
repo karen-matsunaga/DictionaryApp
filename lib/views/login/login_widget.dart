@@ -1,8 +1,8 @@
 import 'package:dictionary/models/users.dart';
+import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/login/custom_pass_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/models/dbhelper.dart';
-import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/login/custom_button_widget.dart';
 import 'package:dictionary/views/login/custom_field_widget.dart';
 import 'package:dictionary/views/login/custom_msg_widget.dart';
@@ -32,8 +32,8 @@ class _LoginPageState extends State<LoginPage> {
 
   // FUNÇÃO LOGIN PARA VERIFICAÇÃO DOS DADOS
   login() async {
-    // Users? userDetails = await db.getUser(username.text);
-    var response = await db.login(
+    Users? userDetails = await db.getUser(usernameController.text);
+    var response = await db.authenticate(
       Users(
         userName: usernameController.text,
         email: emailController.text,
@@ -43,10 +43,10 @@ class _LoginPageState extends State<LoginPage> {
     if (response == true) {
       // SE OS DADOS ESTIVEREM CORRETOS
       if (!mounted) return;
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeSearchPage(),
+          builder: (context) => HomeSearchPage(profile: userDetails),
         ),
       );
     } else {
@@ -131,7 +131,8 @@ class _LoginPageState extends State<LoginPage> {
                 ButtonComponent(
                     text: "Logar".toUpperCase(),
                     color: buttonLight,
-                    callBack: () {
+                    callBack: () async {
+                      // e-mail e senha estão corretos
                       if (formKey.currentState!.validate()) {
                         login();
                       }

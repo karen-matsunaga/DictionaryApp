@@ -1,5 +1,5 @@
-import 'package:dictionary/models/users.dart';
 import 'package:dictionary/models/dbhelper.dart';
+import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/login/custom_button_widget.dart';
 import 'package:dictionary/views/login/custom_field_widget.dart';
 import 'package:dictionary/views/login/custom_msg_widget.dart';
@@ -81,19 +81,16 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
 
   // CADASTRO DA CONTA
   signUp() async {
-    final db = DatabaseHelper();
-    db
-        .signup(Users(
-          userName: _usernameController.text,
-          email: _emailController.text,
-          userPassword: _passwordController.text,
-        ))
-        .whenComplete(
-          () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const LoginPage()),
-          ),
-        );
+    var res = await db.createUser(Users(
+      userName: _usernameController.text,
+      email: _emailController.text,
+      userPassword: _passwordController.text,
+    ));
+    if (res > 0) {
+      if (!mounted) return;
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const LoginPage()));
+    }
   }
 
   @override
@@ -174,24 +171,28 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 espacoComponentes,
 
                 // Botão CONTA EXISTENTE
+                Row(
+                  children: [
+                    Text(
+                      'Já possui uma conta?',
+                      style: TextStyle(
+                          fontSize:
+                              provider.Provider.of<FontSizeConfig>(context)
+                                  .fontSize),
+                    ),
 
-                Text(
-                  'Já possui uma conta?',
-                  style: TextStyle(
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
-                ),
-
-                // BOTÃO PARA VOLTAR
-                LetterButtonComponent(
-                  text: 'Logar'.toUpperCase(),
-                  callBack: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
-                      ),
-                    );
-                  },
+                    // BOTÃO PARA VOLTAR
+                    LetterButtonComponent(
+                      text: 'Logar'.toUpperCase(),
+                      callBack: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 )
               ],
             ),

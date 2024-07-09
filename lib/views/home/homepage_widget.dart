@@ -1,20 +1,20 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/views/home/search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 
-class HomeSearchPage extends StatefulWidget {
-  const HomeSearchPage({super.key});
+class HomeSearchPage extends StatelessWidget {
+  // INICIALIZAR O BANCO DE DADOS
+  final Users? profile;
+  HomeSearchPage({super.key, this.profile});
 
-  @override
-  State<HomeSearchPage> createState() => _HomeSearchPageState();
-}
-
-class _HomeSearchPageState extends State<HomeSearchPage> {
+  // CONTROLADORES
   final _searchController = TextEditingController();
 
+  // @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +27,13 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
               : backgroundAppBarIcons,
         ),
         // Nome do aplicativo
-        title: Text("Códex do Programador".toUpperCase(),
+        title: Text(profile?.userName ?? "".toUpperCase(),
             style: TextStyle(
                 letterSpacing: 1,
                 fontSize:
                     provider.Provider.of<FontSizeConfig>(context).fontSize)),
         centerTitle: true,
+
         // Fundo do aplicativo da AppBar
         backgroundColor: Theme.of(context).brightness == Brightness.dark
             ? appLogo

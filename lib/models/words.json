@@ -2,7 +2,8 @@
     {
         "wordId": "1",
         "name": "Print",
-        "definition": "Função de mostrar na tela",
-        "languageId": "Python"
+        "synonyms": "Console.write",
+        "description": "Função de mostrar na tela",
+        "language": "Python"
     }
 ]

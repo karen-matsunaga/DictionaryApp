@@ -1,3 +1,9 @@
+import 'dart:convert';
+
+// CONVERSÃO DO ARQUIVO JSON PARA DART
+Users usersFromMap(String str) => Users.fromMap(json.decode(str));
+String usersToMap(Users data) => json.encode(data.toMap());
+
 // CLASSE USERS QUE SERÃO ARMAZENADOS OS DADOS
 // DOS USUÁRIOS CADASTRADOS EM ARQUIVO JSON
 // PARA SEREM GUARDADAS NO BANCO DE DADOS

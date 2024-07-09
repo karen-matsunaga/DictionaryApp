@@ -12,9 +12,16 @@ class DictionarySearchPage extends StatefulWidget {
 }
 
 class _DictionarySearchPageState extends State<DictionarySearchPage> {
+  // CONTROLADORES
   final searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    // HEIGHT AND WIDTH SIZES
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
+    // SEARCHBAR APPLICATION
     return Scaffold(
       // AppBar do aplicativo
       appBar: AppBar(
@@ -99,8 +106,8 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
 
                     // Refatoração da primeira box PYTHON
                     Container(
-                      width: MediaQuery.of(context).size.width * .9,
-                      height: MediaQuery.of(context).size.height * .9,
+                      width: width * .9,
+                      height: height * .9,
                       margin: const EdgeInsets.all(20),
                       padding:
                           const EdgeInsets.only(left: 16, top: 19, right: 16),
@@ -152,8 +159,8 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
 
                     // Refatoração da segunda box C#
                     Container(
-                      width: MediaQuery.of(context).size.width * .9,
-                      height: MediaQuery.of(context).size.height * .9,
+                      width: width * .9,
+                      height: height * .9,
                       margin: const EdgeInsets.all(20),
                       padding:
                           const EdgeInsets.only(left: 16, top: 19, right: 16),
@@ -205,8 +212,8 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
 
                     // Refatoração da terceira box JAVA
                     Container(
-                      width: MediaQuery.of(context).size.width * .9,
-                      height: MediaQuery.of(context).size.height * .9,
+                      width: width * .9,
+                      height: height * .9,
                       margin: const EdgeInsets.all(20),
                       padding:
                           const EdgeInsets.only(left: 16, top: 19, right: 16),
@@ -258,8 +265,8 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
 
                     // Refatoração da quarta box SAÍDA DE DADOS
                     Container(
-                      width: MediaQuery.of(context).size.width * .9,
-                      height: MediaQuery.of(context).size.height * .9,
+                      width: width * .9,
+                      height: height * .9,
                       margin: const EdgeInsets.all(20),
                       padding:
                           const EdgeInsets.only(left: 16, top: 19, right: 16),

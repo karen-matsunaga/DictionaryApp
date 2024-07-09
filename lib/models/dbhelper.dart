@@ -1,12 +1,13 @@
 import 'dart:async';
+import 'package:dictionary/models/users.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:dictionary/models/users.dart';
 
+// BANCO DE DADOS SQFLITE
 class DatabaseHelper {
   // NOME DA TABELA
   final databaseName = "users.db";
-  // CRIAÇÃO DA TABELA NO SQLITE
+  // CRIAÇÃO DA TABELA NO SQFLITE
   String users =
       "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT UNIQUE, email TEXT UNIQUE, userPassword TEXT)";
 
@@ -21,7 +22,7 @@ class DatabaseHelper {
   }
 
   // BANCO DE DADOS - LOGIN (VERIFICAÇÃO DA CONTA)
-  Future<bool> login(Users user) async {
+  Future<bool> authenticate(Users user) async {
     final Database db = await initDB();
 
     var result = await db.rawQuery(
@@ -35,35 +36,18 @@ class DatabaseHelper {
   }
 
   // BANCO DE DADOS - SIGN UP (CRIAR A CONTA)
-  Future<int> signup(Users user) async {
+  Future<int> createUser(Users user) async {
     final Database db = await initDB();
 
     return db.insert('users', user.toMap());
   }
 
-  // BANCO DE DADOS - VISUALIZAR OS DADOS (PERFIL)
-  Future<List<Users>> getNotes() async {
+  // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID -- NÃO IMPLEMENTADO
+
+  Future<Users?> getUser(String userName) async {
     final Database db = await initDB();
-    List<Map<String, Object?>> result = await db.query('users');
-    return result.map((e) => Users.fromMap(e)).toList();
+    var res =
+        await db.query('users', where: "userName = ?", whereArgs: [userName]);
+    return res.isNotEmpty ? Users.fromMap(res.first) : null;
   }
-
-  // BANCO DE DADOS - FORGET PASSWORD (ATUALIZAR A CONTA)
-  // Future<int> updateUser(Users user) async {
-  //   final Database db = await initDB();
-
-  //   return await db.update(
-  //     'users',
-  //     user.toMap(),
-  //     where: "userId = ?",
-  //     whereArgs: [user.userId],
-  //     conflictAlgorithm: ConflictAlgorithm.replace,
-  //   );
-  // }
-
-  // Future<int> updateUser(password) async {
-  //   final Database db = await initDB();
-  //   return await db.rawUpdate(
-  //       'update users set userPassword = ? where userId = ?', [password]);
-  // }
 }
