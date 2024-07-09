@@ -1,3 +1,4 @@
+import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/views/home/menu_view.dart';
@@ -14,6 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DynamicDarkMode();
   await FontSizeConfig.loadFontSize();
+  DatabaseHelper();
   runApp(
     provider.MultiProvider(providers: [
       provider.ChangeNotifierProvider(create: (context) => FontSizeConfig()),
@@ -31,12 +33,12 @@ class CodexProgramador extends StatelessWidget {
       builder: (context, DynamicDarkMode themeProvider, child) {
         return MaterialApp(
           routes: {
-            '/homepage': (context) => HomeSearchPage(),
-            '/search': (context) => const DictionarySearchPage(),
-            '/menu': (context) => const HomePage(),
-            '/config': (context) => const MenuConfigurationPage(),
-            '/signin': (context) => const LoginPage(),
-            '/signup': (context) => const AccountCreatePage(),
+            '/homepage': (_) => const HomeSearchPage(),
+            '/search': (_) => const DictionarySearchPage(),
+            '/menu': (_) => const HomePage(),
+            '/config': (_) => const MenuConfigurationPage(),
+            '/signin': (_) => const LoginPage(),
+            '/signup': (_) => const AccountCreatePage(),
           },
 
           // Tema do aplicativo

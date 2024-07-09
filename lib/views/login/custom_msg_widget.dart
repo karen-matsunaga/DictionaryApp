@@ -2,18 +2,17 @@ import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:flutter/material.dart';
 
-class LetterButtonComponent extends StatefulWidget {
+class LetterButton extends StatefulWidget {
   final String text;
   final VoidCallback callBack;
 
-  const LetterButtonComponent(
-      {super.key, required this.text, required this.callBack});
+  const LetterButton({super.key, required this.text, required this.callBack});
 
   @override
-  State<LetterButtonComponent> createState() => _LetterButtonComponentState();
+  State<LetterButton> createState() => _LetterButtonState();
 }
 
-class _LetterButtonComponentState extends State<LetterButtonComponent> {
+class _LetterButtonState extends State<LetterButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,7 +20,8 @@ class _LetterButtonComponentState extends State<LetterButtonComponent> {
       child: Text(
         widget.text,
         style: TextStyle(
-          letterSpacing: 1,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 2,
           fontSize:
               provider.Provider.of<FontSizeConfig>(context).fontSize / 1.50,
         ),

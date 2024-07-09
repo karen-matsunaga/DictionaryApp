@@ -20,9 +20,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // CONTROLADORES
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
 
   // VERIFICAR SE ESTÁ LOGADO
   bool isLoginTrue = false;
@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
 
   // FUNÇÃO LOGIN PARA VERIFICAÇÃO DOS DADOS
   login() async {
-    Users? userDetails = await db.getUser(usernameController.text);
+    Users? userDetails = await db.getUser(emailController.text);
     var response = await db.authenticate(
       Users(
         userName: usernameController.text,
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO E-MAIL
-                FieldComponent(
+                CustomField(
                   controller: emailController,
                   label: 'E-mail',
                   validator: _validateEmail,
@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                 espacoComponentes,
 
                 // BOTÃO LOGAR
-                ButtonComponent(
+                CustomButton(
                     text: "Logar".toUpperCase(),
                     color: buttonLight,
                     callBack: () async {
@@ -148,6 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                     Text(
                       'Não possui conta?',
                       style: TextStyle(
+                          letterSpacing: 2,
                           fontSize:
                               provider.Provider.of<FontSizeConfig>(context)
                                       .fontSize /
@@ -158,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                     espacoladoComponentes,
 
                     // BOTÃO PERSONALIZADO PARA CRIAR CONTA
-                    LetterButtonComponent(
+                    LetterButton(
                       text: 'Criar conta'.toUpperCase(),
                       callBack: () {
                         Navigator.push(

@@ -3,12 +3,12 @@ import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ButtonComponent extends StatefulWidget {
+class CustomButton extends StatefulWidget {
   final String text;
   final Color? color;
   final VoidCallback? callBack;
 
-  const ButtonComponent({
+  const CustomButton({
     Key? key,
     this.callBack,
     required this.text,
@@ -16,10 +16,10 @@ class ButtonComponent extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<ButtonComponent> createState() => _ButtonComponentState();
+  State<CustomButton> createState() => _CustomButtonState();
 }
 
-class _ButtonComponentState extends State<ButtonComponent> {
+class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return Container(

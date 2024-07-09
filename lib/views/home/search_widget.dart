@@ -32,7 +32,7 @@ class _DictionarySearchPageState extends State<DictionarySearchPage> {
               : backgroundAppBarIcons,
         ),
         // Nome do aplicativo
-        title: Text("Códex do Programador".toUpperCase(),
+        title: Text("Pesquisa".toUpperCase(),
             style: TextStyle(
                 fontSize:
                     provider.Provider.of<FontSizeConfig>(context).fontSize)),

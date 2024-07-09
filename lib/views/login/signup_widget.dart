@@ -121,7 +121,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO NOME
-                FieldComponent(
+                CustomField(
                   hint: 'Fulano Ciclano',
                   controller: _usernameController,
                   label: 'Nome',
@@ -131,7 +131,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO E-MAIL
-                FieldComponent(
+                CustomField(
                   controller: _emailController,
                   label: 'E-mail',
                   validator: _validateEmail,
@@ -160,7 +160,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 espacoComponentes,
 
                 // Botão CADASTRAR
-                ButtonComponent(
+                CustomButton(
                   text: 'Cadastrar'.toUpperCase(),
                   color: appLogo,
                   callBack: () {
@@ -179,6 +179,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     Text(
                       'Já possui conta?',
                       style: TextStyle(
+                          letterSpacing: 2,
                           fontSize:
                               provider.Provider.of<FontSizeConfig>(context)
                                       .fontSize /
@@ -189,7 +190,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     espacoladoComponentes,
 
                     // BOTÃO PARA VOLTAR
-                    LetterButtonComponent(
+                    LetterButton(
                       text: 'Logar'.toUpperCase(),
                       callBack: () {
                         Navigator.of(context).push(

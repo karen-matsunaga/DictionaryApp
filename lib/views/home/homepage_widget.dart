@@ -6,13 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 
-class HomeSearchPage extends StatelessWidget {
+class HomeSearchPage extends StatefulWidget {
   // INICIALIZAR O BANCO DE DADOS
   final Users? profile;
-  HomeSearchPage({super.key, this.profile});
 
+  const HomeSearchPage({super.key, this.profile});
+
+  @override
+  State<HomeSearchPage> createState() => _HomeSearchPageState();
+}
+
+class _HomeSearchPageState extends State<HomeSearchPage> {
   // CONTROLADORES
   final _searchController = TextEditingController();
+  Users? profile;
+  @override
+  void initState() {
+    super.initState();
+    profile = widget.profile;
+  }
 
   // @override
   @override

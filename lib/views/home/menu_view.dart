@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => HomeSearchPage(),
+                  builder: (context) => const HomeSearchPage(),
                 ),
               );
             },

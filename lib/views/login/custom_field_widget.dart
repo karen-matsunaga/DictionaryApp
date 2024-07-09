@@ -3,7 +3,7 @@ import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class FieldComponent extends StatefulWidget {
+class CustomField extends StatefulWidget {
   final TextEditingController controller;
   final String label;
   final String hint;
@@ -11,7 +11,7 @@ class FieldComponent extends StatefulWidget {
   final TextInputType textInputType;
   final Icon icon;
 
-  const FieldComponent({
+  const CustomField({
     super.key,
     required this.icon,
     required this.textInputType,
@@ -22,10 +22,10 @@ class FieldComponent extends StatefulWidget {
   });
 
   @override
-  State<FieldComponent> createState() => _FieldComponentState();
+  State<CustomField> createState() => _CustomFieldState();
 }
 
-class _FieldComponentState extends State<FieldComponent> {
+class _CustomFieldState extends State<CustomField> {
   @override
   Widget build(BuildContext context) {
     // DESIGNER DO CAMPO
