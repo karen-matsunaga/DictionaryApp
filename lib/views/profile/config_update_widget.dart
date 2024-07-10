@@ -20,7 +20,7 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
   @override
   Widget build(BuildContext context) {
     // BOTOES RESPONSIVOS
-    // final double height = MediaQuery.of(context).size.height;
+    final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
     // TELA DAS CONFIGURAÇÕES
@@ -29,8 +29,8 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
           FontSizeConfig fontSizeConfig, child) {
         // TELA DE CONFIGURAÇÕES
         return Center(
-          heightFactor: MediaQuery.of(context).size.height,
-          widthFactor: MediaQuery.of(context).size.width,
+          heightFactor: height,
+          widthFactor: width,
           child: Column(
             children: [
               // ITEM DA CONFIGURAÇÃO

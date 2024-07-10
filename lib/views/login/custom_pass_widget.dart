@@ -3,13 +3,14 @@ import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class PasswordField extends StatefulWidget {
+class PasswordForm extends StatefulWidget {
+  // ATRIBUTOS DA CLASSE PASSWORDFIELD
   final TextEditingController controller;
   final String label;
   final String hint;
   final Function(String?) validator;
 
-  const PasswordField(
+  const PasswordForm(
       {super.key,
       required this.hint,
       required this.controller,
@@ -17,14 +18,15 @@ class PasswordField extends StatefulWidget {
       required this.validator});
 
   @override
-  State<PasswordField> createState() => _PasswordFieldState();
+  State<PasswordForm> createState() => _PasswordFormState();
 }
 
-class _PasswordFieldState extends State<PasswordField> {
+class _PasswordFormState extends State<PasswordForm> {
   bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
+    // DESIGN DO FORMULÁRIO
     return Container(
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
@@ -40,6 +42,7 @@ class _PasswordFieldState extends State<PasswordField> {
           ),
         ],
       ),
+      // INSERÇÃO DOS DADOS NO SQFLITE
       child: TextFormField(
         keyboardType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.next,
@@ -57,6 +60,7 @@ class _PasswordFieldState extends State<PasswordField> {
           border: InputBorder.none,
           labelText: widget.label,
           hintText: widget.hint,
+          // VISUALIZAÇÃO DA SENHA
           suffixIcon: IconButton(
             icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
             onPressed: () {

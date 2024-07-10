@@ -4,7 +4,7 @@ import 'package:dictionary/views/login/custom_pass_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/views/login/custom_button_widget.dart';
-import 'package:dictionary/views/login/custom_field_widget.dart';
+import 'package:dictionary/views/login/custom_form_widget.dart';
 import 'package:dictionary/views/login/custom_msg_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomeSearchPage(profile: userDetails),
+          builder: (context) => HomePage(profile: userDetails),
         ),
       );
     } else {
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO E-MAIL
-                CustomField(
+                CustomForm(
                   controller: emailController,
                   label: 'E-mail',
                   validator: _validateEmail,
@@ -117,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO SENHA
-                PasswordField(
+                PasswordForm(
                   controller: passwordController,
                   label: 'Senha',
                   validator: _validatePassword,
@@ -159,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                     espacoladoComponentes,
 
                     // BOTÃO PERSONALIZADO PARA CRIAR CONTA
-                    LetterButton(
+                    CustomLetter(
                       text: 'Criar conta'.toUpperCase(),
                       callBack: () {
                         Navigator.push(

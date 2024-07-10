@@ -33,9 +33,9 @@ class CodexProgramador extends StatelessWidget {
       builder: (context, DynamicDarkMode themeProvider, child) {
         return MaterialApp(
           routes: {
-            '/homepage': (_) => const HomeSearchPage(),
-            '/search': (_) => const DictionarySearchPage(),
-            '/menu': (_) => const HomePage(),
+            '/homepage': (_) => const HomePage(),
+            '/search': (_) => const SearchPage(),
+            '/menu': (_) => const MenuPage(),
             '/config': (_) => const MenuConfigurationPage(),
             '/signin': (_) => const LoginPage(),
             '/signup': (_) => const AccountCreatePage(),

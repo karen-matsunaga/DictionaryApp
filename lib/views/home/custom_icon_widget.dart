@@ -1,6 +1,6 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' as provider;
 
 class IconDrawer extends StatelessWidget {
   final IconData icon;
@@ -16,14 +16,16 @@ class IconDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // MENU DA CONFIGURAÇÃO
     return ListTile(
-      leading: Icon(icon, size: Provider.of<FontSizeConfig>(context).fontSize),
+      leading: Icon(icon,
+          size: provider.Provider.of<FontSizeConfig>(context).fontSize),
       title: Text(
         title,
         style: TextStyle(
           letterSpacing: 2,
           fontWeight: FontWeight.bold,
-          fontSize: Provider.of<FontSizeConfig>(context).fontSize,
+          fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
         ),
       ),
       onTap: callback,

@@ -6,19 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 
-class HomeSearchPage extends StatefulWidget {
-  // INICIALIZAR O BANCO DE DADOS
+class HomePage extends StatefulWidget {
   final Users? profile;
-
-  const HomeSearchPage({super.key, this.profile});
+  const HomePage({super.key, this.profile});
 
   @override
-  State<HomeSearchPage> createState() => _HomeSearchPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeSearchPageState extends State<HomeSearchPage> {
+class _HomePageState extends State<HomePage> {
   // CONTROLADORES
   final _searchController = TextEditingController();
+
+  // INICIALIZAR O BANCO DE DADOS
+
   Users? profile;
   @override
   void initState() {
@@ -54,7 +55,7 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
       ),
 
       // Opções do Menu de configurações
-      drawer: const HomePage(),
+      drawer: const MenuPage(),
 
       // BARRA DE PESQUISA para pesquisar as palavras
       body: Center(
@@ -62,6 +63,7 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
           preferredSize: const Size(50.0, 50.0),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
+            // BARRA DE PESQUISA DESIGN
             child: TextField(
               controller: _searchController,
               keyboardType: TextInputType.text,
@@ -81,11 +83,12 @@ class _HomeSearchPageState extends State<HomeSearchPage> {
                 contentPadding: EdgeInsets.zero,
                 filled: true,
               ),
+              // PESQUISA DA PALAVRA
               onSubmitted: (value) async {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const DictionarySearchPage(),
+                    builder: (context) => const SearchPage(),
                   ),
                 );
               },

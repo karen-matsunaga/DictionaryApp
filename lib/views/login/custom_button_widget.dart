@@ -22,12 +22,13 @@ class CustomButton extends StatefulWidget {
 class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
     return Container(
       alignment: Alignment.center,
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       height: 55,
-      width: MediaQuery.of(context).size.width * .9,
+      width: width * .9,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: appLogo,

@@ -1,7 +1,7 @@
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/login/custom_button_widget.dart';
-import 'package:dictionary/views/login/custom_field_widget.dart';
+import 'package:dictionary/views/login/custom_form_widget.dart';
 import 'package:dictionary/views/login/custom_msg_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
@@ -121,7 +121,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO NOME
-                CustomField(
+                CustomForm(
                   hint: 'Fulano Ciclano',
                   controller: _usernameController,
                   label: 'Nome',
@@ -131,7 +131,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO E-MAIL
-                CustomField(
+                CustomForm(
                   controller: _emailController,
                   label: 'E-mail',
                   validator: _validateEmail,
@@ -141,7 +141,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO SENHA
-                PasswordField(
+                PasswordForm(
                   controller: _passwordController,
                   label: 'Senha',
                   hint: '1234',
@@ -149,7 +149,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ENTRADA DE DADOS CAMPO REESCREVA A SENHA
-                PasswordField(
+                PasswordForm(
                   controller: _confirmPasswordController,
                   label: 'Confirmar senha',
                   hint: '1234',
@@ -190,7 +190,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     espacoladoComponentes,
 
                     // BOTÃO PARA VOLTAR
-                    LetterButton(
+                    CustomLetter(
                       text: 'Logar'.toUpperCase(),
                       callBack: () {
                         Navigator.of(context).push(

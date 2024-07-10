@@ -2,17 +2,17 @@ import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:flutter/material.dart';
 
-class LetterButton extends StatefulWidget {
+class CustomLetter extends StatefulWidget {
   final String text;
   final VoidCallback callBack;
 
-  const LetterButton({super.key, required this.text, required this.callBack});
+  const CustomLetter({super.key, required this.text, required this.callBack});
 
   @override
-  State<LetterButton> createState() => _LetterButtonState();
+  State<CustomLetter> createState() => _CustomLetterState();
 }
 
-class _LetterButtonState extends State<LetterButton> {
+class _CustomLetterState extends State<CustomLetter> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

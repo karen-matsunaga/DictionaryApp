@@ -4,8 +4,8 @@ import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/views/profile/config_update_view.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MenuPage extends StatelessWidget {
+  const MenuPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,11 @@ class HomePage extends StatelessWidget {
           // REFATORADA - PÁGINA INICIAL
           IconDrawer(
             icon: Icons.home,
-            title: 'Início',
+            title: 'Início'.toUpperCase(),
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const HomeSearchPage(),
+                  builder: (context) => const HomePage(),
                 ),
               );
             },
@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
           // REFATORADA - CONFIGURAÇÕES
           IconDrawer(
             icon: Icons.settings,
-            title: 'Configurações',
+            title: 'Configurações'.toUpperCase(),
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
           // REFATORADA - DESLOGAR DA CONTA
           IconDrawer(
             icon: Icons.exit_to_app,
-            title: 'Sair',
+            title: 'Sair'.toUpperCase(),
             callback: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
