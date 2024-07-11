@@ -5,7 +5,7 @@ Integrantes: Christian Matsunaga e Karen Matsunaga
 Projeto: Aplicativo de dicionário de linguagem de programação.
 
 Objetivos: O projeto é um dicionário de linguagem de programação voltado para iniciantes da área de TI
-que necessitam a aprendizagem das ferramentas de forma mais intuita e prática com diversas linguagens de programação como Python, C# e Java as quais mostram os códigos de suas respectivas sintaxes que resultam a resposta final identicas, mas com maneiras distintas.
+que necessitam a aprendizagem das ferramentas de forma mais prática com diversas linguagens de programação como Python, C# e Java as quais são mostradas os códigos das suas respectivas sintaxes que resultam a resposta final identicas, mas com maneiras distintas.
 
 Ferramentas:
 * Linguagem de Programação Dart para construir o back-end e front-end do aplicativo;
