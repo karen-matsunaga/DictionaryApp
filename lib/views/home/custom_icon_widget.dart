@@ -23,7 +23,7 @@ class IconDrawer extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
-          letterSpacing: 2,
+          letterSpacing: 1,
           fontWeight: FontWeight.bold,
           fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
         ),

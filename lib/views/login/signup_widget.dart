@@ -3,6 +3,7 @@ import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/login/custom_button_widget.dart';
 import 'package:dictionary/views/login/custom_form_widget.dart';
 import 'package:dictionary/views/login/custom_msg_widget.dart';
+import 'package:dictionary/views/login/logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:dictionary/views/login/login_widget.dart';
@@ -120,6 +121,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                           .fontSize),
                 ),
 
+                const LogoApp(),
+
                 // ENTRADA DE DADOS CAMPO NOME
                 CustomForm(
                   hint: 'Fulano Ciclano',
@@ -144,7 +147,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 PasswordForm(
                   controller: _passwordController,
                   label: 'Senha',
-                  hint: '1234',
+                  hint: '123456',
                   validator: _validatePassword,
                 ),
 
@@ -152,7 +155,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 PasswordForm(
                   controller: _confirmPasswordController,
                   label: 'Confirmar senha',
-                  hint: '1234',
+                  hint: '123456',
                   validator: _validateConfirmPassword,
                 ),
 
@@ -170,38 +173,21 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                   },
                 ),
 
+                // ESPAÇAMENTO ENTRE COMPONENTES
                 espacoComponentes,
 
-                // Botão CONTA EXISTENTE
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Já possui conta?',
-                      style: TextStyle(
-                          letterSpacing: 2,
-                          fontSize:
-                              provider.Provider.of<FontSizeConfig>(context)
-                                      .fontSize /
-                                  1.50),
-                    ),
-
-                    // ESPAÇAMENTO DO LADO
-                    espacoladoComponentes,
-
-                    // BOTÃO PARA VOLTAR
-                    CustomLetter(
-                      text: 'Logar'.toUpperCase(),
-                      callBack: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const LoginPage(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                )
+                // TEXTO E BOTÃO PARA CONTA EXISTENTE
+                CustomLetter(
+                  message: 'Já possui conta?',
+                  text: 'Logar'.toUpperCase(),
+                  callBack: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPage(),
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ),

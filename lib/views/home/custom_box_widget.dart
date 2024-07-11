@@ -31,7 +31,6 @@ class CustomBox extends StatelessWidget {
               const Padding(padding: EdgeInsets.only(bottom: 40)),
               Expanded(
                 child: Text(
-                  // 'Python'
                   language.toUpperCase(),
                   textAlign: TextAlign.center,
                   style: TextStyle(

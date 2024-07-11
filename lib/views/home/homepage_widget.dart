@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               : backgroundAppBarIcons,
         ),
         // Nome do aplicativo
-        title: Text(profile?.userName ?? "".toUpperCase(),
+        title: Text(profile?.email ?? "".toUpperCase(),
             style: TextStyle(
                 letterSpacing: 1,
                 fontSize:
@@ -83,7 +83,8 @@ class _HomePageState extends State<HomePage> {
                 contentPadding: EdgeInsets.zero,
                 filled: true,
               ),
-              // PESQUISA DA PALAVRA
+
+              // === PESQUISA DA PALAVRA - CONTROLADOR E BANCO DE DADOS ===
               onSubmitted: (value) async {
                 Navigator.push(
                   context,

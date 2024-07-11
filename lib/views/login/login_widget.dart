@@ -1,6 +1,7 @@
 import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/login/custom_pass_widget.dart';
+import 'package:dictionary/views/login/logo_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/views/login/custom_button_widget.dart';
@@ -100,11 +101,12 @@ class _LoginPageState extends State<LoginPage> {
                   "Códex do Programador".toUpperCase(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      letterSpacing: 1,
                       fontWeight: FontWeight.bold,
                       fontSize: provider.Provider.of<FontSizeConfig>(context)
                           .fontSize),
                 ),
+
+                const LogoApp(),
 
                 // ENTRADA DE DADOS CAMPO E-MAIL
                 CustomForm(
@@ -121,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                   controller: passwordController,
                   label: 'Senha',
                   validator: _validatePassword,
-                  hint: '1234',
+                  hint: '123456',
                 ),
 
                 // ESPAÇAMENTO DOS COMPONENTES
@@ -141,35 +143,17 @@ class _LoginPageState extends State<LoginPage> {
                 // ESPAÇO ENTRE OS COMPONENTES
                 espacoComponentes,
 
-                // TEXTO E BOTÃO PARA CRIAR CONTA
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Não possui conta?',
-                      style: TextStyle(
-                          letterSpacing: 2,
-                          fontSize:
-                              provider.Provider.of<FontSizeConfig>(context)
-                                      .fontSize /
-                                  1.50),
-                    ),
-
-                    // ESPAÇAMENTO ENTRE OS COMPONENTES
-                    espacoladoComponentes,
-
-                    // BOTÃO PERSONALIZADO PARA CRIAR CONTA
-                    CustomLetter(
-                      text: 'Criar conta'.toUpperCase(),
-                      callBack: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AccountCreatePage()),
-                        );
-                      },
-                    ),
-                  ],
+                // TEXTO E BOTÃO PERSONALIZADO PARA CRIAR CONTA
+                CustomLetter(
+                  message: 'Não possui conta?',
+                  text: 'Criar conta'.toUpperCase(),
+                  callBack: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AccountCreatePage()),
+                    );
+                  },
                 ),
 
                 // ESPAÇO ENTRE OS COMPONENTES
