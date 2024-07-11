@@ -15,7 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DynamicDarkMode();
   await FontSizeConfig.loadFontSize();
-  DatabaseHelper();
+  DatabaseHelper().initDatabase();
   runApp(
     provider.MultiProvider(providers: [
       provider.ChangeNotifierProvider(create: (context) => FontSizeConfig()),

@@ -2,8 +2,8 @@ import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/views/home/custom_box_widget.dart';
 import 'package:dictionary/views/home/custom_fav_widget.dart';
 import 'package:dictionary/views/home/menu_view.dart';
+import 'package:dictionary/views/profile/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 
 class SearchPage extends StatefulWidget {
@@ -22,27 +22,7 @@ class _SearchPageState extends State<SearchPage> {
     // SEARCHBAR APPLICATION
     return Scaffold(
       // AppBar do aplicativo
-      appBar: AppBar(
-        // Icone do Menu de configurações
-        iconTheme: IconThemeData(
-          color: Theme.of(context).brightness == Brightness.dark
-              ? backgroundIconsWhite
-              : backgroundAppBarIcons,
-        ),
-        // Nome do aplicativo
-        title: Text(
-          "Pesquisa".toUpperCase(),
-          style: TextStyle(
-              fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize),
-        ),
-        centerTitle: true,
-        // Fundo do aplicativo da AppBar
-        backgroundColor: Theme.of(context).brightness == Brightness.dark
-            // ? Colors.grey
-            ? appLogo
-            : Theme.of(context).appBarTheme.backgroundColor,
-        elevation: 0,
-      ),
+      appBar: const CustomAppBar(title: "Códex do Programador"),
 
       // Opções do Menu de configurações
       drawer: const MenuPage(),

@@ -3,8 +3,8 @@ import 'package:dictionary/controllers/fontsize_provider.dart';
 // import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/views/home/search_widget.dart';
+import 'package:dictionary/views/profile/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 
 class HomePage extends StatefulWidget {
@@ -18,38 +18,13 @@ class _HomePageState extends State<HomePage> {
   // CONTROLADORES
   final _searchController = TextEditingController();
 
-  // INICIALIZAR O BANCO DE DADOS
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   // @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBar do aplicativo
-      appBar: AppBar(
-        // Icone do Menu de configurações
-        iconTheme: IconThemeData(
-          color: Theme.of(context).brightness == Brightness.dark
-              ? backgroundIconsWhite
-              : backgroundAppBarIcons,
-        ),
-        // Nome do aplicativo
-        title: Text("Fulano Ciclano".toUpperCase(),
-            style: TextStyle(
-                letterSpacing: 1,
-                fontSize:
-                    provider.Provider.of<FontSizeConfig>(context).fontSize)),
-        centerTitle: true,
-
-        // Fundo do aplicativo da AppBar
-        backgroundColor: Theme.of(context).brightness == Brightness.dark
-            ? appLogo
-            : Theme.of(context).appBarTheme.backgroundColor,
-        elevation: 0,
+      appBar: const CustomAppBar(
+        title: "Códex do Programador",
       ),
 
       // Opções do Menu de configurações

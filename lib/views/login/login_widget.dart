@@ -1,5 +1,5 @@
 import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/home/homepage_widget.dart';
+import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/views/login/custom_pass_widget.dart';
 import 'package:dictionary/views/login/logo_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
@@ -33,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
 
   // FUNÇÃO LOGIN PARA VERIFICAÇÃO DOS DADOS
   login() async {
-    // Users? userDetails = await db.getUser(emailController.text);
     var response = await db.authenticate(
       Users(
         userName: usernameController.text,
@@ -47,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) => const MenuPage(),
         ),
       );
     } else {
