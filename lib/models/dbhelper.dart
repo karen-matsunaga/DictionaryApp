@@ -42,11 +42,28 @@ class DatabaseHelper {
     return db.insert('users', user.toMap());
   }
 
-  // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID -- NÃO IMPLEMENTADO --
-  Future<List<Users>> getUser() async {
-    final Database db = await initDatabase();
-    final List<Map<String, Object?>> queryResult =
-        await db.rawQuery('SELECT * FROM users');
-    return queryResult.map((e) => Users.fromMap(e)).toList();
+  // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID -- NÃO IMPLEMENTADO TOTALMENTE --
+  // Future<List<Users>> getUser() async {
+  //   final Database db = await initDatabase();
+  //   final List<Map<String, Object?>> queryResult =
+  //       await db.rawQuery('SELECT * FROM users');
+  //   return queryResult.map((e) => Users.fromMap(e)).toList();
+  // }
+
+  Future<Users?> getUserById(int id) async {
+    // Implemente o código para buscar o usuário pelo ID no banco de dados
+    // Aqui está um exemplo simples:
+    final db = await initDatabase();
+    List<Map<String, dynamic>> result = await db.query(
+      'users',
+      where: 'userId = ?',
+      whereArgs: [id],
+    );
+
+    if (result.isNotEmpty) {
+      return Users.fromMap(result.first);
+    } else {
+      return null;
+    }
   }
 }

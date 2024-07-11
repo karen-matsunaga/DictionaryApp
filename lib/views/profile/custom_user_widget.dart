@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class UserDrawer extends StatefulWidget {
-  // final String name, email;
+  final String name, email;
 
-  final String name;
   const UserDrawer({
     super.key,
-    // required this.name,
     required this.name,
+    required this.email,
   });
 
   @override
@@ -22,31 +21,41 @@ class _UserDrawerState extends State<UserDrawer> {
     return DrawerHeader(
       padding: const EdgeInsets.all(8),
       decoration: const BoxDecoration(color: Color.fromARGB(245, 20, 99, 218)),
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // NOME DO USUÁRIO
-          // Text(
-          //   widget.name,
-          //   maxLines: 1,
-          //   style: TextStyle(
-          //     color: Colors.black,
-          //     letterSpacing: 2,
-          //     fontWeight: FontWeight.bold,
-          //     fontSize: Provider.of<FontSizeConfig>(context).fontSize / 1.50,
-          //   ),
-          // ),
+          Row(
+            children: [
+              Text(
+                widget.name,
+                maxLines: 1,
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2,
+                  fontWeight: FontWeight.bold,
+                  fontSize:
+                      Provider.of<FontSizeConfig>(context).fontSize / 1.50,
+                ),
+              ),
+            ],
+          ),
 
           // EMAIL DO USUÁRIO
-          Text(
-            widget.name,
-            maxLines: 1,
-            style: TextStyle(
-              color: Colors.black,
-              letterSpacing: 2,
-              fontWeight: FontWeight.bold,
-              fontSize: Provider.of<FontSizeConfig>(context).fontSize / 1.50,
-            ),
+          Row(
+            children: [
+              Text(
+                widget.email,
+                maxLines: 1,
+                style: TextStyle(
+                  color: Colors.black,
+                  letterSpacing: 2,
+                  fontWeight: FontWeight.bold,
+                  fontSize:
+                      Provider.of<FontSizeConfig>(context).fontSize / 1.50,
+                ),
+              ),
+            ],
           ),
         ],
       ),
