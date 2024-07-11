@@ -1,5 +1,6 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/models/users.dart';
+// import 'package:dictionary/models/dbhelper.dart';
+// import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/views/home/search_widget.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +8,7 @@ import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 
 class HomePage extends StatefulWidget {
-  final Users? profile;
-  const HomePage({super.key, this.profile});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -20,11 +20,9 @@ class _HomePageState extends State<HomePage> {
 
   // INICIALIZAR O BANCO DE DADOS
 
-  Users? profile;
   @override
   void initState() {
     super.initState();
-    profile = widget.profile;
   }
 
   // @override
@@ -40,7 +38,7 @@ class _HomePageState extends State<HomePage> {
               : backgroundAppBarIcons,
         ),
         // Nome do aplicativo
-        title: Text(profile?.email ?? "".toUpperCase(),
+        title: Text("Fulano Ciclano".toUpperCase(),
             style: TextStyle(
                 letterSpacing: 1,
                 fontSize:

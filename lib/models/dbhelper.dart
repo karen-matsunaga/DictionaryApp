@@ -42,12 +42,12 @@ class DatabaseHelper {
     return db.insert('users', user.toMap());
   }
 
-  // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID -- NÃO IMPLEMENTADO
-  Future<Users?> getUser(String userName) async {
+  // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID -- NÃO IMPLEMENTADO --
+  Future<List<Users?>> getUser(String userName) async {
     final Database db = await initDB();
-    var res =
-        await db.query('users', where: "userName = ?", whereArgs: [userName]);
+    final List<Map<String, Object?>> res =
+        await db.rawQuery('SELECT * FROM users');
 
-    return res.isNotEmpty ? Users.fromMap(res.first) : null;
+    return res.map((e) => Users.fromMap(e)).toList();
   }
 }

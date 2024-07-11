@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
 
   // FUNÇÃO LOGIN PARA VERIFICAÇÃO DOS DADOS
   login() async {
-    Users? userDetails = await db.getUser(emailController.text);
+    // Users? userDetails = await db.getUser(emailController.text);
     var response = await db.authenticate(
       Users(
         userName: usernameController.text,
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePage(profile: userDetails),
+          builder: (context) => const HomePage(),
         ),
       );
     } else {
