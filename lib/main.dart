@@ -10,30 +10,17 @@ import 'package:flutter/material.dart';
 import 'package:dictionary/views/home/search_widget.dart';
 import 'package:dictionary/views/login/login_widget.dart';
 import 'package:provider/provider.dart' as provider;
-import 'package:shared_preferences/shared_preferences.dart';
-
-class UserPreferences {
-  Future<void> storeUserId(int userId) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('loggedUserId', userId);
-  }
-
-  Future<int?> getLoggedUserId() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getInt('loggedUserId');
-  }
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DynamicDarkMode();
   await FontSizeConfig.loadFontSize();
   DatabaseHelper().initDatabase();
-  UserPreferences();
+
   runApp(
     provider.MultiProvider(providers: [
-      provider.ChangeNotifierProvider(create: (context) => FontSizeConfig()),
       // Aqui rodamos o app dentro do provider
+      provider.ChangeNotifierProvider(create: (context) => FontSizeConfig()),
       provider.ChangeNotifierProvider(create: (context) => DynamicDarkMode()),
     ], child: const CodexProgramador()),
   );

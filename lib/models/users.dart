@@ -37,4 +37,6 @@ class Users {
         "email": email,
         "userPassword": userPassword,
       };
+
+  static map(Users Function(dynamic e) param0) {}
 }
