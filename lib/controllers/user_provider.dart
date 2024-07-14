@@ -2,33 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserProvider with ChangeNotifier {
-  String? _username;
+  String? _userName;
   String? _email;
 
-  String? get username => _username;
+  String? get userName => _userName;
   String? get email => _email;
 
   Future<void> loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _username = prefs.getString('username');
+    _userName = prefs.getString('userName');
     _email = prefs.getString('email');
     notifyListeners();
   }
 
-  Future<void> saveUserData(String username, String email) async {
+  Future<void> saveUserData(String userName, String email) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('username', username);
+    await prefs.setString('userName', userName);
     await prefs.setString('email', email);
-    _username = username;
+    _userName = userName;
     _email = email;
     notifyListeners();
   }
 
   Future<void> clearUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('username');
+    await prefs.remove('userName');
     await prefs.remove('email');
-    _username = null;
+    _userName = null;
     _email = null;
     notifyListeners();
   }

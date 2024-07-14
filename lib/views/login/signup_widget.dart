@@ -25,6 +25,9 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
+  // VERIFICAR SE ESTÁ CADASTRADO
+  bool isUserDuplicated = false;
+
   // VALIDAÇÃO DO NOME
   String? _validateUsername(String? value) {
     if (value == null || value.isEmpty) {
@@ -82,17 +85,27 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
 
   // CADASTRO DA CONTA
   signUp() async {
-    var res = await db.createUser(Users(
-      userName: _usernameController.text,
-      email: _emailController.text,
-      userPassword: _passwordController.text,
-    ));
-    if (res > 0) {
-      if (!mounted) return;
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const LoginPage()));
-    } else {
-      return 'Conta existente';
+    // VERIFICAR SE O USUÁRIO ESTÁ DUPLICADO
+    bool userDuplicated = await db.checkUserDuplicated(_emailController.text);
+    // CASO O USUÁRIO ESTÁ DUPLICADO
+    if (userDuplicated) {
+      setState(() {
+        isUserDuplicated = true;
+      });
+    }
+
+    // CASO O USUÁRIO NÃO ESTÁ DUPLICADO
+    else {
+      var res = await db.createUser(Users(
+        userName: _usernameController.text,
+        email: _emailController.text,
+        userPassword: _passwordController.text,
+      ));
+      if (res > 0) {
+        if (!mounted) return;
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginPage()));
+      }
     }
   }
 
@@ -188,6 +201,22 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     );
                   },
                 ),
+
+                // ESPAÇAMENTO ENTRE COMPONENTES
+                espacoComponentes,
+
+                // MENSAGEM DE ERRO CASO EXISTA O USUÁRIO
+                isUserDuplicated
+                    ? const Text(
+                        "Esse e-mail foi usado tente outro!",
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          letterSpacing: 2,
+                        ),
+                      )
+                    : const SizedBox(),
               ],
             ),
           ),

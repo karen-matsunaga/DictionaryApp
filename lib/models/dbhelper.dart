@@ -15,6 +15,12 @@ class DatabaseHelper {
     });
   }
 
+  // FECHAR O BANCO DE DADOS AUTOMATICAMENTE
+  void closeDb() async {
+    final db = await openDatabase('users.db');
+    await db.close();
+  }
+
   // ARQUIVO DO BANCO DE DADOS
   final databaseName = "users.db";
   // CRIAR A TABELA users NO SQFLITE
@@ -42,14 +48,7 @@ class DatabaseHelper {
     return db.insert('users', user.toMap());
   }
 
-  // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID -- NÃO IMPLEMENTADO TOTALMENTE --
-  // Future<List<Users>> getUser() async {
-  //   final Database db = await initDatabase();
-  //   final List<Map<String, Object?>> queryResult =
-  //       await db.rawQuery('SELECT * FROM users');
-  //   return queryResult.map((e) => Users.fromMap(e)).toList();
-  // }
-
+  // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID
   Future<Users?> getUserById(int id) async {
     final db = await initDatabase();
     List<Map<String, dynamic>> result = await db.query(
@@ -64,4 +63,20 @@ class DatabaseHelper {
       return null;
     }
   }
+
+  // BANCO DE DADOS - USUÁRIO DUPLICADO
+  Future<bool> checkUserDuplicated(String email) async {
+    final db = await initDatabase();
+    final List<Map<String, dynamic>> res =
+        await db.query('users', where: 'email = ?', whereArgs: [email]);
+    return res.isNotEmpty;
+  }
+
+  // BANCO DE DADOS - RETORNO DAS PALAVRAS
+  // Future<List<Users>> getUser() async {
+  //   final Database db = await initDatabase();
+  //   final List<Map<String, Object?>> queryResult =
+  //       await db.rawQuery('SELECT * FROM users');
+  //   return queryResult.map((e) => Users.fromMap(e)).toList();
+  // }
 }
