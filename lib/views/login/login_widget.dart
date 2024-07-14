@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
   login() async {
     var response = await db.authenticate(
       Users(
-        userName: usernameController.text,
+        // userName: usernameController.text,
         email: emailController.text,
         userPassword: passwordController.text,
       ),
