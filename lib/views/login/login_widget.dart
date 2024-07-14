@@ -1,5 +1,6 @@
+import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/home/menu_view.dart';
+import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/login/custom_pass_widget.dart';
 import 'package:dictionary/views/login/logo_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -41,12 +43,17 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
     if (response == true) {
+      // SHARED PREFERENCES
+      // ignore: use_build_context_synchronously
+      final userProvider = Provider.of<UserProvider>(context, listen: false);
+      await userProvider.saveUserData(
+          usernameController.text, emailController.text);
       // SE OS DADOS ESTIVEREM CORRETOS
       if (!mounted) return;
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const MenuPage(),
+          builder: (context) => const HomePage(),
         ),
       );
     } else {
@@ -80,6 +87,7 @@ class _LoginPageState extends State<LoginPage> {
     return null;
   }
 
+// TELA DE LOGIN
   @override
   Widget build(BuildContext context) {
     // TELA DE LOGIN
@@ -135,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                     callBack: () async {
                       // e-mail e senha estão corretos
                       if (formKey.currentState!.validate()) {
-                        login();
+                        await login();
                       }
                     }),
 

@@ -6,14 +6,10 @@ class LogoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ALTURA E COMPRIMENTO DA BORDA E IMAGEM
-    final double width = MediaQuery.of(context).size.width;
-    final double height = MediaQuery.of(context).size.height;
-
-    // FUNDO DA LOGO
     return Container(
-      width: width / 3,
-      height: height / 5,
+      // BACKGROUND DA LOGO
+      width: 100,
+      height: 100,
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
           color: Theme.of(context).brightness == Brightness.dark
@@ -24,9 +20,9 @@ class LogoApp extends StatelessWidget {
       // IMAGEM DA LOGO
       child: Center(
         child: Image.asset(
-          'assets/logo.png',
-          width: width / 3,
-          height: height / 5,
+          'assets/OfficiallogoApp.png',
+          width: 100,
+          height: 100,
         ),
       ),
     );

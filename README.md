@@ -10,4 +10,5 @@ que necessitam a aprendizagem das ferramentas de forma mais prática com diversa
 Ferramentas:
 * Linguagem de Programação Dart para construir o back-end e front-end do aplicativo;
 * Framework Flutter para o front-end;
-* Banco de dados locais SQFLite, Provider e Shared Preferences para o back-end com os príncipios básicos do CRUD (Create Read Update Delete), armazenar os estados das funcionalidades do aplicativo e as configurações realizadas pelo usuário.
+* Banco de dados locais SQFLite e Shared Preferences para o back-end com os príncipios básicos do CRUD (Create Read Update Delete), armazenar os estados das funcionalidades do aplicativo e as configurações realizadas pelo usuário;
+* Provider como state management das funcionalidades do aplicativo.

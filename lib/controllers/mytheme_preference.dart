@@ -15,3 +15,6 @@ class MyThemePreferences {
     return sharedPreferences.getBool(_key) ?? false;
   }
 }
+
+// SALVAR O USUÁRIO LOGADO
+
