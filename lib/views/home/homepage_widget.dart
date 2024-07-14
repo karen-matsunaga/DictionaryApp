@@ -1,6 +1,4 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
-// import 'package:dictionary/models/dbhelper.dart';
-// import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/views/home/search_widget.dart';
 import 'package:dictionary/views/profile/custom_appbar_widget.dart';

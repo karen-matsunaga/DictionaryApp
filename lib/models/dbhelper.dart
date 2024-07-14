@@ -45,7 +45,8 @@ class DatabaseHelper {
   Future<int> createUser(Users user) async {
     final Database db = await initDatabase();
 
-    return db.insert('users', user.toMap());
+    return db.insert('users', user.toMap(),
+        conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID
@@ -64,13 +65,15 @@ class DatabaseHelper {
     }
   }
 
-  // BANCO DE DADOS - USUÁRIO DUPLICADO
+  // BANCO DE DADOS - USUÁRIO DUPLICADO PELO E-MAIL DIGITADO
   Future<bool> checkUserDuplicated(String email) async {
     final db = await initDatabase();
     final List<Map<String, dynamic>> res =
         await db.query('users', where: 'email = ?', whereArgs: [email]);
     return res.isNotEmpty;
   }
+
+  // BANCO DE DADOS - PESQUISA DAS PALAVRAS
 
   // BANCO DE DADOS - RETORNO DAS PALAVRAS
   // Future<List<Users>> getUser() async {
@@ -79,4 +82,6 @@ class DatabaseHelper {
   //       await db.rawQuery('SELECT * FROM users');
   //   return queryResult.map((e) => Users.fromMap(e)).toList();
   // }
+
+  // BANCO DE DADOS - FAVORITOS
 }

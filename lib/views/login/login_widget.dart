@@ -177,6 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: 15,
                           letterSpacing: 2,
                         ),
+                        textAlign: TextAlign.center,
                       )
                     : const SizedBox(),
               ],
