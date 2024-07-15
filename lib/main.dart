@@ -8,6 +8,7 @@ import 'package:dictionary/views/profile/config_update_view.dart';
 import 'package:dictionary/controllers/theme.dart';
 import 'package:dictionary/controllers/darktheme_provider.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
+import 'package:dictionary/views/profile/fav_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/views/home/search_widget.dart';
 import 'package:dictionary/views/login/login_widget.dart';
@@ -53,6 +54,7 @@ class CodexProgramador extends StatelessWidget {
             '/search': (_) => const SearchPage(),
             '/menu': (_) => const MenuPage(),
             '/config': (_) => const MenuConfigurationPage(),
+            '/fav': (_) => const FavoritePage(),
             '/signin': (_) => const LoginPage(),
             '/signup': (_) => const AccountCreatePage(),
           },
@@ -80,7 +82,7 @@ class InitialScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return provider.Consumer<UserProvider>(
       builder: (context, userProvider, child) {
-        if (userProvider.userName == null || userProvider.email == null) {
+        if (userProvider.email == null) {
           // SE TIVER LOGADO
           return const LoginPage();
         } else {

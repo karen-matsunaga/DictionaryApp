@@ -1,0 +1,9 @@
+[
+    {
+        "wordId": "1",
+        "name": "Print",
+        "synonyms": "Console.write",
+        "description": "Função de mostrar na tela",
+        "language": "Python"
+    }
+]

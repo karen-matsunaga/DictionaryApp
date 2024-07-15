@@ -50,14 +50,13 @@ class DatabaseHelper {
   }
 
   // BANCO DE DADOS - LEITURA DOS DADOS DO USUÁRIO PELO ID
-  Future<Users?> getUserById(int id) async {
+  Future<Users?> getUser(int id) async {
     final db = await initDatabase();
     List<Map<String, dynamic>> result = await db.query(
       'users',
       where: 'userId = ?',
       whereArgs: [id],
     );
-
     if (result.isNotEmpty) {
       return Users.fromMap(result.first);
     } else {

@@ -25,7 +25,6 @@ class _LoginPageState extends State<LoginPage> {
   // CONTROLADORES
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
 
   // VERIFICAR SE ESTÁ LOGADO
   bool isLoginTrue = false;
@@ -37,20 +36,21 @@ class _LoginPageState extends State<LoginPage> {
   login() async {
     var response = await db.authenticate(
       Users(
-        userName: _usernameController.text,
         email: emailController.text,
         userPassword: passwordController.text,
       ),
     );
     if (response == true) {
       // SHARED PREFERENCES
+
       // ignore: use_build_context_synchronously
       final userProvider = Provider.of<UserProvider>(context, listen: false);
-      await userProvider.saveUserData(
-          _usernameController.text, emailController.text);
+      await userProvider.saveUserData(emailController.text);
       await userProvider.loadUserData();
       // SE OS DADOS ESTIVEREM CORRETOS
       if (!mounted) return;
+
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(

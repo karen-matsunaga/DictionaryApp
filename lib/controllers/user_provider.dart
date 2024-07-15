@@ -1,34 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// E-MAIL DO USUÁRIO EXIBIDO NO DRAWER DE MENU DO APLICATIVO COM O PROVIDER
 class UserProvider with ChangeNotifier {
-  String? _userName;
+  // E-MAIL LOGADO
   String? _email;
-
-  String? get userName => _userName;
+  // RECUPERAR O E-MAIL LOGADO
   String? get email => _email;
 
+  // CARREGAR O E-MAIL DO USUÁRIO LOGADO
   Future<void> loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _userName = prefs.getString('userName');
     _email = prefs.getString('email');
     notifyListeners();
   }
 
-  Future<void> saveUserData(String userName, String email) async {
+  // SALVAR O E-MAIL DO USUÁRIO LOGADO
+  Future<void> saveUserData(String email) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('userName', userName);
     await prefs.setString('email', email);
-    _userName = userName;
     _email = email;
     notifyListeners();
   }
 
+  // REMOVER O E-MAIL DO USUÁRIO DESLOGADO
   Future<void> clearUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('userName');
     await prefs.remove('email');
-    _userName = null;
     _email = null;
     notifyListeners();
   }
