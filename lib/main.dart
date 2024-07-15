@@ -1,6 +1,17 @@
-import 'package:dictionary/views/home/initial_widget.dart';
-
-import 'all.dart';
+import 'package:dictionary/controllers/user_provider.dart';
+import 'package:dictionary/models/dbhelper.dart';
+import 'package:dictionary/models/users.dart';
+import 'package:dictionary/views/login/signup_widget.dart';
+import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/views/home/menu_view.dart';
+import 'package:dictionary/views/profile/config_update_view.dart';
+import 'package:dictionary/controllers/theme.dart';
+import 'package:dictionary/controllers/darktheme_provider.dart';
+import 'package:dictionary/views/home/homepage_widget.dart';
+import 'package:dictionary/views/profile/fav_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:dictionary/views/home/search_widget.dart';
+import 'package:dictionary/views/login/login_widget.dart';
 import 'package:provider/provider.dart' as provider;
 
 void main() async {
@@ -22,7 +33,8 @@ void main() async {
               create: (context) => FontSizeConfig()),
           provider.ChangeNotifierProvider(
               create: (context) => DynamicDarkMode()),
-          provider.ChangeNotifierProvider(create: (context) => UserProvider()),
+          provider.ChangeNotifierProvider(
+              create: (context) => UserProvider()..loadUserData()),
         ],
         // ABERTURA DO APLICATIVO
         child: const CodexProgramador()),
@@ -58,6 +70,27 @@ class CodexProgramador extends StatelessWidget {
           home: const InitialScreen(),
           // home: const LoginPage(),
         );
+      },
+    );
+  }
+}
+
+// TELA PARA DEFINIR SE O USUÁRIO ESTÁ LOGADO OU NÃO
+
+class InitialScreen extends StatelessWidget {
+  const InitialScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return provider.Consumer<UserProvider>(
+      builder: (context, userProvider, child) {
+        if (userProvider.email == null) {
+          // SE TIVER LOGADO
+          return const LoginPage();
+        } else {
+          // SE NÃO TIVER LOGADO
+          return const HomePage();
+        }
       },
     );
   }

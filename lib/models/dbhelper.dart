@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:dictionary/models/users.dart';
+// import 'package:dictionary/models/words.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -12,20 +13,39 @@ class DatabaseHelper {
 
     return openDatabase(path, version: 1, onCreate: (db, version) async {
       await db.execute(users);
+      // db.execute(favorites);
     });
   }
 
   // FECHAR O BANCO DE DADOS AUTOMATICAMENTE
   void closeDb() async {
     final db = await openDatabase('users.db');
+    // openDatabase('favorites.db');
+    // openDatabase('tags.db');
+    // openDatabase('code.db');
+    // final db = await openDatabase('favorites.db');
     await db.close();
   }
 
   // ARQUIVO DO BANCO DE DADOS
+  // final databaseName = "users.db" "favorites.db";
   final databaseName = "users.db";
+
   // CRIAR A TABELA users NO SQFLITE
   String users =
-      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT UNIQUE, email TEXT UNIQUE, userPassword TEXT)";
+      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT UNIQUE, email TEXT UNIQUE, userPassword TEXT, idFavorite INTEGER PRIMARY KEY AUTOINCREMENT)";
+
+  // String favorites =
+  //     "create table favorites (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT, idCode INTEGER PRIMARY KEY AUTOINCREMENT, idUser INTEGER PRIMARY KEY AUTOINCREMENT)";
+
+  // String tags =
+  //     "create table tags (tagId INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE)";
+
+  // String code =
+  //     "create table code (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT, idCode INTEGER PRIMARY KEY AUTOINCREMENT, idUser INTEGER PRIMARY KEY AUTOINCREMENT)";
+
+  // String language =
+  //     "create table language (languageId INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE)";
 
   // BANCO DE DADOS - VERIFICAR CONTA
   Future<bool> authenticate(Users user) async {
@@ -83,4 +103,10 @@ class DatabaseHelper {
   // }
 
   // BANCO DE DADOS - FAVORITOS
+  // Future<List<Words?>> getWords() async {
+  //   final Database db = await initDatabase();
+  //   final List<Map<String, Object?>> queryResult =
+  //       await db.rawQuery('SELECT * FROM favorites');
+  //   return queryResult.map((e) => Words.fromMap(e)).toList();
+  // }
 }
