@@ -4,22 +4,29 @@ import 'package:dictionary/views/profile/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// Lista temporária para a implementação do Banco de Dados
-final List<String> palavras = [
-  'Print',
-  'If',
-  'Else',
-  'String',
-  'Int',
-  'Bool',
-  'Double'
-];
-
-class FavoritePage extends StatelessWidget {
-  const FavoritePage({super.key});
+// ignore: must_be_immutable
+class FavoritePage extends StatefulWidget {
+  // Lista temporária para a implementação do Banco de Dados
+  List<String>? palavras = [
+    'Print',
+    'If',
+    'Else',
+    'String',
+    'Int',
+    'Bool',
+    'Double',
+  ];
+  FavoritePage({super.key, this.palavras});
 
   @override
+  State<FavoritePage> createState() => _FavoritePageState();
+}
+
+class _FavoritePageState extends State<FavoritePage> {
+  @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       // AppBar do aplicativo
       appBar: const CustomAppBar(title: "Favoritos"),
@@ -29,22 +36,25 @@ class FavoritePage extends StatelessWidget {
 
       // DESIGN dos favoritos
       body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        height: height,
+        width: width,
         child: ListView.builder(
           padding: const EdgeInsets.all(20),
-          itemCount: palavras.length,
+          itemCount: widget.palavras?.length,
           itemBuilder: (context, int index) {
             // Retornar todos os comandos favoritos salvos no botão de pesquisa
             return ListTile(
               leading: Text(
-                palavras[index],
+                widget.palavras![index],
                 style: TextStyle(
                   fontSize: Provider.of<FontSizeConfig>(context).fontSize,
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  // IMPLEMENTAR A EXCLUSÃO DO ITEM NA LISTA
+                  // BANCO DE DADOS PARA A EXCLUSÃO DA PALAVRA FAVORITA
+                },
                 icon: const Icon(
                   Icons.delete_forever_sharp,
                 ),
@@ -52,9 +62,9 @@ class FavoritePage extends StatelessWidget {
             );
           },
         ),
+        // IMPLEMENTAR A ATUALIZAÇÃO DA LISTA
+        // BANCO DE DADOS DE ACORDO COM O PERFIL LOGADO
       ),
-
-      // IMPLEMENTAÇÃO PARA ATUALIZAÇÃO DA LISTA
     );
   }
 }

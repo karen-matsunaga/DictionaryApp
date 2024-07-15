@@ -64,7 +64,7 @@ class MenuPage extends StatelessWidget {
                           callback: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const FavoritePage(),
+                                builder: (context) => FavoritePage(),
                               ),
                             );
                           },
