@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 // ignore: must_be_immutable
 class FavoritePage extends StatefulWidget {
   // Lista temporária para a implementação do Banco de Dados
-  List<String>? palavras = [
+  List<String> palavras = [
     'Print',
     'If',
     'Else',
@@ -16,7 +16,7 @@ class FavoritePage extends StatefulWidget {
     'Bool',
     'Double',
   ];
-  FavoritePage({super.key, this.palavras});
+  FavoritePage({super.key});
 
   @override
   State<FavoritePage> createState() => _FavoritePageState();
@@ -40,12 +40,12 @@ class _FavoritePageState extends State<FavoritePage> {
         width: width,
         child: ListView.builder(
           padding: const EdgeInsets.all(20),
-          itemCount: widget.palavras?.length,
+          itemCount: widget.palavras.length,
           itemBuilder: (context, int index) {
             // Retornar todos os comandos favoritos salvos no botão de pesquisa
             return ListTile(
               leading: Text(
-                widget.palavras![index],
+                widget.palavras[index],
                 style: TextStyle(
                   fontSize: Provider.of<FontSizeConfig>(context).fontSize,
                 ),
