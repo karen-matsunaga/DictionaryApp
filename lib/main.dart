@@ -21,7 +21,7 @@ void main() async {
   // TAMANHO DA FONTE
   await FontSizeConfig.loadFontSize();
   // USUÁRIO LOGADO
-  await UserProvider().loadUserData();
+  UserProvider();
   // SQFLITE - BANCO DE DADOS
   DatabaseHelper().initDatabase();
 

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:dictionary/models/codes.dart';
+// import 'package:dictionary/models/codes.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -14,10 +14,10 @@ class DatabaseHelper {
 
     return openDatabase(path, version: 1, onCreate: (db, version) async {
       await db.execute(users);
-      db.execute(favorites);
-      openDatabase(tags);
-      openDatabase(codes);
-      openDatabase(language);
+      // db.execute(favorites);
+      // db.execute(tags);
+      // db.execute(codes);
+      // db.execute(language);
     });
   }
 
@@ -30,23 +30,25 @@ class DatabaseHelper {
 
   // TABELA users que é responsável pela autenticação do usuário
   String users =
-      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT, email TEXT, userPassword TEXT, idFavorite INTEGER PRIMARY KEY AUTOINCREMENT, FOREIGN KEY (idFavorite) REFERENCES favorites(favoriteId))";
+      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT, email TEXT, userPassword TEXT)";
+
+  // , idFavorite INTEGER PRIMARY KEY AUTOINCREMENT, FOREIGN KEY (idFavorite) REFERENCES favorites(favoriteId));
 
   // TABELA favorites para os favoritos de cada usuário
-  String favorites =
-      "create table favorites (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idCode INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idUser INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, FOREIGN KEY (idCode) REFERENCES code(codeId), FOREIGN KEY (idUser) REFERENCES users(userId))";
+  // String favorites =
+  //     "create table favorites (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idCode INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idUser INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, FOREIGN KEY (idCode) REFERENCES code(codeId), FOREIGN KEY (idUser) REFERENCES users(userId))";
 
   // TABELA tags para o sistema de tags como sugestões de palavras para consultas
-  String tags =
-      "create table tags (tagId INTEGER PRIMARY KEY AUTOINCREMENT, nameTag TEXT UNIQUE)";
+  // String tags =
+  //     "create table tags (tagId INTEGER PRIMARY KEY AUTOINCREMENT, nameTag TEXT UNIQUE)";
 
   // TABELA code para o código da linguagem em Python, C#, JAVA e Saída de Dados
-  String codes =
-      "create table codes (codeId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idLanguage INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idTag INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, name TEXT, synonyms INTEGER PRIMARY KEY, description TEXT, example TEXT, exit TEXT, FOREIGN KEY (idLanguage) REFERENCES language(languageId), FOREIGN KEY (idTag) REFERENCES tags(tagId))";
+  // String codes =
+  //     "create table codes (codeId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idLanguage INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idTag INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, name TEXT, synonyms INTEGER PRIMARY KEY, description TEXT, example TEXT, exit TEXT, FOREIGN KEY (idLanguage) REFERENCES language(languageId), FOREIGN KEY (idTag) REFERENCES tags(tagId))";
 
   // TABELA language para a linguagem de programação dos códigos exibidos
-  String language =
-      "create table language (languageId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, nameLanguage TEXT)";
+  // String language =
+  //     "create table language (languageId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, nameLanguage TEXT)";
 
   // BANCO DE DADOS - VERIFICAR CONTA
   Future<bool> authenticate(Users user) async {
@@ -99,14 +101,14 @@ class DatabaseHelper {
 
   // BANCO DE DADOS - RETORNO DAS PALAVRAS
 
-  Future<List<Codes?>> getCode(int idLanguage, String example) async {
-    final Database db = await initDatabase();
-    final List<Map<String, Object?>> queryResult = await db.query(
-        'SELECT * FROM codes',
-        where: 'idLanguage = ? AND example = ?',
-        whereArgs: [idLanguage, example]);
-    return queryResult.map((e) => Codes.fromMap(e)).toList();
-  }
+  // Future<List<Codes?>> getCode(int idLanguage, String example) async {
+  //   final Database db = await initDatabase();
+  //   final List<Map<String, Object?>> queryResult = await db.query(
+  //       'SELECT * FROM codes',
+  //       where: 'idLanguage = ? AND example = ?',
+  //       whereArgs: [idLanguage, example]);
+  //   return queryResult.map((e) => Codes.fromMap(e)).toList();
+  // }
 
   // BANCO DE DADOS - LISTAGEM DAS PALAVRAS DOS FAVORITOS
   // Future<List<Favorites?>> getWords() async {
@@ -117,5 +119,4 @@ class DatabaseHelper {
   // }
 
   // FECHAMENTO DO BANCO DE DADOS
-  Future close() async => db.close();
 }

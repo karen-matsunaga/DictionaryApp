@@ -1,34 +1,6 @@
 [
     {
-        "codeId": "1",
-        "idLanguage": "Python",
-        "idTag": "Escreva",
-        "name": "Print",
-        "synonyms": "Print Escreva Console.WriteLine System.out.println ",
-        "description": "Função de mostrar na tela",
-        "example": "print('Olá, mundo!')",
-        "exit": "Olá, mundo!"
-    },
-
-    {
-        "codeId": "2",
-        "idLanguage": "C#",
-        "idTag": "Escreva",
-        "name": "Console.Write",
-        "synonyms": "Print Escreva Console.WriteLine System.out.println ",
-        "description": "Função de mostrar na tela",
-        "example": "Console.Write('Olá, mundo!');\nConsole.WriteLine('Olá, mundo!');",
-        "exit": "Olá, mundo!"
-    },
-
-    {
-        "codeId": "3",
-        "idLanguage": "Java",
-        "idTag": "Escreva",
-        "name": "Console.Write",
-        "synonyms": "Print Escreva Console.WriteLine System.out.println ",
-        "description": "Função de mostrar na tela",
-        "example": "public class Main { \npublic static void main(String[] args) { \nSystem.out.println('Olá, mundo!'); \n} \n}",
-        "exit": "Olá, mundo!"
+        "tagId": "1",
+        "nameTag": "Escreva"
     }
 ]
