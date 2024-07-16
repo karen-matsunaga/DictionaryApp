@@ -11,6 +11,7 @@ class FavoriteIcon extends StatelessWidget {
     return InkWell(
       onTap: () {
         // IMPLEMENTAÇÃO DA LISTA FAVORITA NO BANCO DE DADOS
+        // ADICIONAR NOS FAVORITOS
       },
 
       // DESIGN DO ICONE

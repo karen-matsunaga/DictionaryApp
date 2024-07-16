@@ -52,7 +52,7 @@ class CodexProgramador extends StatelessWidget {
         return MaterialApp(
           routes: {
             '/homepage': (_) => const HomePage(),
-            '/search': (_) => const SearchPage(),
+            '/search': (_) => SearchPage(),
             '/menu': (_) => const MenuPage(),
             '/config': (_) => const MenuConfigurationPage(),
             '/fav': (_) => FavoritePage(),
