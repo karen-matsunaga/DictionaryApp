@@ -6,7 +6,18 @@ import 'package:sqflite/sqflite.dart';
 
 // BANCO DE DADOS SQFLITE
 class DatabaseHelper {
-  final db = DatabaseHelper();
+  // DatabaseHelper._privateConstructor();
+  // static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
+
+  // static Database? _database;
+
+  // INICIAR BANCO DE DADOS
+  // Future<Database> get database async {
+  //   if (_database != null) return _database!;
+  //   _database = await initDatabase();
+  //   return _database!;
+  // }
+
   // INICIAR BANCO DE DADOS
   initDatabase() async {
     final databasePath = await getDatabasesPath();

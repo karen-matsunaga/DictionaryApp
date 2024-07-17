@@ -1,5 +1,6 @@
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/dbhelper.dart';
+// import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:dictionary/views/home/search_widget.dart';
 import 'package:dictionary/views/login/login_widget.dart';
 import 'package:provider/provider.dart' as provider;
+// import 'package:sqflite/sqlite_api.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +25,8 @@ void main() async {
   // USUÁRIO LOGADO
   UserProvider();
   // SQFLITE - BANCO DE DADOS
-  DatabaseHelper().initDatabase();
-
+// SQFLITE - BANCO DE DADOS
+  final dbHelper = DatabaseHelper();
   runApp(
     provider.MultiProvider(
         providers: [
@@ -35,6 +37,7 @@ void main() async {
               create: (context) => DynamicDarkMode()),
           provider.ChangeNotifierProvider(
               create: (context) => UserProvider()..loadUserData()),
+          provider.Provider<DatabaseHelper>.value(value: dbHelper),
         ],
         // ABERTURA DO APLICATIVO
         child: const CodexProgramador()),
@@ -52,7 +55,7 @@ class CodexProgramador extends StatelessWidget {
         return MaterialApp(
           routes: {
             '/homepage': (_) => const HomePage(),
-            '/search': (_) => SearchPage(),
+            '/search': (_) => const SearchPage(),
             '/menu': (_) => const MenuPage(),
             '/config': (_) => const MenuConfigurationPage(),
             '/fav': (_) => FavoritePage(),

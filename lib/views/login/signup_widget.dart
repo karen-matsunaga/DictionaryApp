@@ -81,12 +81,14 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   final formKey = GlobalKey<FormState>();
 
   // BANCO DE DADOS
-  final db = DatabaseHelper();
+  late final dbHelper =
+      provider.Provider.of<DatabaseHelper>(context, listen: false);
 
   // CADASTRO DA CONTA
   signUp() async {
     // VERIFICAR SE O USUÁRIO ESTÁ DUPLICADO
-    bool userDuplicated = await db.checkUserDuplicated(_emailController.text);
+    bool userDuplicated =
+        await dbHelper.checkUserDuplicated(_emailController.text);
     // CASO O USUÁRIO ESTÁ DUPLICADO
     if (userDuplicated) {
       setState(() {
@@ -96,7 +98,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
 
     // CASO O USUÁRIO NÃO ESTÁ DUPLICADO
     else {
-      var res = await db.createUser(Users(
+      var res = await dbHelper.createUser(Users(
         userName: _usernameController.text,
         email: _emailController.text,
         userPassword: _passwordController.text,

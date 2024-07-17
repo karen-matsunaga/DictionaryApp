@@ -30,11 +30,12 @@ class _LoginPageState extends State<LoginPage> {
   bool isLoginTrue = false;
 
   // BANCO DE DADOS
-  final db = DatabaseHelper();
+  late final dbHelper =
+      provider.Provider.of<DatabaseHelper>(context, listen: false);
 
   // FUNÇÃO LOGIN PARA VERIFICAÇÃO DOS DADOS
   login() async {
-    var response = await db.authenticate(
+    var response = await dbHelper.authenticate(
       Users(
         email: emailController.text,
         userPassword: passwordController.text,
