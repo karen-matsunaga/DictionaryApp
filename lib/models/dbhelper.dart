@@ -24,45 +24,48 @@ class DatabaseHelper {
     final path = join(databasePath, databaseName);
 
     return openDatabase(path, version: 1, onCreate: (db, version) async {
-      // await db.execute(users);
+      await db.execute('PRAGMA foreign_keys = ON');
+      // EXECUÇÃO DAS TABELAS USUÁRIOS, FAVORITOS, ETIQUETAS, CÓDIGOS E LINGUAGEM
+      await db.execute(users);
+      await db.execute(favorites);
+      await db.execute(tags);
+      await db.execute(language);
+      await db.execute(codes);
+      // FECHAMENTO DO BANCO DE DADOS
       await db.close();
-      await deleteDatabase(databaseName);
-      await deleteDatabase(path);
-      // db.execute(favorites);
-      // db.execute(tags);
-      // db.execute(codes);
-      // db.execute(language);
+
+      // REMOÇÃO DO BANCO DE DADOS
+      // await deleteDatabase(databaseName);
+      // await deleteDatabase(path);
     });
   }
-
-  // FECHAR O BANCO DE DADOS AUTOMATICAMENTE
 
   // NOME DO BANCO DE DADOS
   final databaseName = "users.db";
 
-  // CRIAÇÃO DAS TABELAS NO USERS.DB
+  // CRIAÇÃO DAS TABELAS users, favorites, tags, codes e language NO USERS.DB
 
   // TABELA users que é responsável pela autenticação do usuário
   String users =
-      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT, email TEXT, userPassword TEXT)";
+      // "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT, email TEXT, userPassword TEXT)";
 
-  // , idFavorite INTEGER PRIMARY KEY AUTOINCREMENT, FOREIGN KEY (idFavorite) REFERENCES favorites(favoriteId));
+      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, idFavorite INTEGER, userName TEXT, email TEXT, userPassword TEXT)";
 
   // TABELA favorites para os favoritos de cada usuário
-  // String favorites =
-  //     "create table favorites (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idCode INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idUser INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, FOREIGN KEY (idCode) REFERENCES code(codeId), FOREIGN KEY (idUser) REFERENCES users(userId))";
+  String favorites =
+      "create table favorites (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT, idCode INTEGER, idUser INTEGER, FOREIGN KEY (idCode) REFERENCES codes(codeId), FOREIGN KEY (idUser) REFERENCES users(userId))";
 
   // TABELA tags para o sistema de tags como sugestões de palavras para consultas
-  // String tags =
-  //     "create table tags (tagId INTEGER PRIMARY KEY AUTOINCREMENT, nameTag TEXT UNIQUE)";
-
-  // TABELA code para o código da linguagem em Python, C#, JAVA e Saída de Dados
-  // String codes =
-  //     "create table codes (codeId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idLanguage INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, idTag INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, name TEXT, synonyms INTEGER PRIMARY KEY, description TEXT, example TEXT, exit TEXT, FOREIGN KEY (idLanguage) REFERENCES language(languageId), FOREIGN KEY (idTag) REFERENCES tags(tagId))";
+  String tags =
+      "create table tags (tagId INTEGER PRIMARY KEY AUTOINCREMENT, nameTag TEXT UNIQUE)";
 
   // TABELA language para a linguagem de programação dos códigos exibidos
-  // String language =
-  //     "create table language (languageId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, nameLanguage TEXT)";
+  String language =
+      "create table language (languageId INTEGER PRIMARY KEY AUTOINCREMENT, nameLanguage TEXT)";
+
+  // TABELA code para o código da linguagem em Python, C#, JAVA e Saída de Dados
+  String codes =
+      "create table codes (codeId INTEGER PRIMARY KEY AUTOINCREMENT, idLanguage INTEGER, idTag INTEGER, name TEXT, synonyms INTEGER, description TEXT, example TEXT, exit TEXT, FOREIGN KEY (idLanguage) REFERENCES language(languageId), FOREIGN KEY (idTag) REFERENCES tags(tagId))";
 
   // BANCO DE DADOS - VERIFICAR CONTA
   Future<bool> authenticate(Users user) async {
@@ -125,12 +128,10 @@ class DatabaseHelper {
   // }
 
   // BANCO DE DADOS - LISTAGEM DAS PALAVRAS DOS FAVORITOS
-  // Future<List<Favorites?>> getWords() async {
+  // Future<List<Users?>> getWords(String favorite) async {
   //   final Database db = await initDatabase();
-  //   final List<Map<String, Object?>> queryResult =
-  //       await db.rawQuery('SELECT * FROM favorites');
-  //   return queryResult.map((e) => Favorites.fromMap(e)).toList();
+  //   final List<Map<String, Object?>> queryResult = await db
+  //       .rawQuery("SELECT * FROM favorites where idFavorite = '$favorite'");
+  //   return queryResult.map((e) => Users.fromMap(e)).toList();
   // }
-
-  // FECHAMENTO DO BANCO DE DADOS
 }
