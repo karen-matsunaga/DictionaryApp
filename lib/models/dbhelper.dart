@@ -9,14 +9,14 @@ class DatabaseHelper {
   // DatabaseHelper._privateConstructor();
   // static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
 
-  // static Database? _database;
-
   // INICIAR BANCO DE DADOS
-  // Future<Database> get database async {
-  //   if (_database != null) return _database!;
-  //   _database = await initDatabase();
-  //   return _database!;
-  // }
+  static Database? _db;
+
+  Future<Database> get db async {
+    if (_db != null) return _db!;
+    _db = await initDatabase();
+    return _db!;
+  }
 
   // INICIAR BANCO DE DADOS
   initDatabase() async {
@@ -24,7 +24,10 @@ class DatabaseHelper {
     final path = join(databasePath, databaseName);
 
     return openDatabase(path, version: 1, onCreate: (db, version) async {
-      await db.execute(users);
+      // await db.execute(users);
+      await db.close();
+      await deleteDatabase(databaseName);
+      await deleteDatabase(path);
       // db.execute(favorites);
       // db.execute(tags);
       // db.execute(codes);
