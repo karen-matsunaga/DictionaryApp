@@ -84,7 +84,6 @@ class DatabaseHelper {
   // BANCO DE DADOS - CRIAR CONTA
   Future<int> createUser(Users user) async {
     final Database db = await initDatabase();
-
     return db.insert('users', user.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
