@@ -1,5 +1,4 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
-// import 'package:dictionary/models/codes.dart';
 import 'package:dictionary/views/home/custom_box_widget.dart';
 import 'package:dictionary/views/home/custom_fav_widget.dart';
 import 'package:dictionary/views/home/menu_view.dart';

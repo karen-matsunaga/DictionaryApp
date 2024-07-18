@@ -1,14 +1,10 @@
 import 'dart:async';
-// import 'package:dictionary/models/codes.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 // BANCO DE DADOS SQFLITE
 class DatabaseHelper {
-  // DatabaseHelper._privateConstructor();
-  // static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
-
   // INICIAR BANCO DE DADOS
   static Database? _db;
 
@@ -24,6 +20,7 @@ class DatabaseHelper {
     final path = join(databasePath, databaseName);
 
     return openDatabase(path, version: 1, onCreate: (db, version) async {
+      // ATIVAÇÃO DA FOREIGN KEY DA TABELA USERS
       await db.execute('PRAGMA foreign_keys = ON');
       // EXECUÇÃO DAS TABELAS USUÁRIOS, FAVORITOS, ETIQUETAS, CÓDIGOS E LINGUAGEM
       await db.execute(users);
@@ -49,7 +46,7 @@ class DatabaseHelper {
   String users =
       // "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT, email TEXT, userPassword TEXT)";
 
-      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, idFavorite INTEGER, userName TEXT, email TEXT, userPassword TEXT)";
+      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, idFavorite INTEGER, userName TEXT, email TEXT, userPassword TEXT, FOREIGN KEY (idFavorite) REFERENCES favorites(favoriteId))";
 
   // TABELA favorites para os favoritos de cada usuário
   String favorites =
@@ -57,7 +54,7 @@ class DatabaseHelper {
 
   // TABELA tags para o sistema de tags como sugestões de palavras para consultas
   String tags =
-      "create table tags (tagId INTEGER PRIMARY KEY AUTOINCREMENT, nameTag TEXT UNIQUE)";
+      "create table tags (tagId INTEGER PRIMARY KEY AUTOINCREMENT, nameTag TEXT)";
 
   // TABELA language para a linguagem de programação dos códigos exibidos
   String language =

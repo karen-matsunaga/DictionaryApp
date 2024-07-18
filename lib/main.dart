@@ -1,6 +1,5 @@
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/dbhelper.dart';
-// import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
@@ -14,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:dictionary/views/home/search_widget.dart';
 import 'package:dictionary/views/login/login_widget.dart';
 import 'package:provider/provider.dart' as provider;
-// import 'package:sqflite/sqlite_api.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
