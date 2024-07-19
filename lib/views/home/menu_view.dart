@@ -90,7 +90,6 @@ class MenuPage extends StatelessWidget {
                           title: 'Sair'.toUpperCase(),
                           callback: () async {
                             await userProvider.clearUserData();
-                            // ignore: use_build_context_synchronously
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => const LoginPage(),

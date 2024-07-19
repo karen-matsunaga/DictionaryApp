@@ -2,6 +2,7 @@ import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/login/custom_pass_widget.dart';
+import 'package:dictionary/views/login/exit_widget.dart';
 import 'package:dictionary/views/login/logo_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/models/dbhelper.dart';
@@ -43,15 +44,11 @@ class _LoginPageState extends State<LoginPage> {
     );
     if (response == true) {
       // SHARED PREFERENCES
-
-      // ignore: use_build_context_synchronously
       final userProvider = Provider.of<UserProvider>(context, listen: false);
       await userProvider.saveUserData(emailController.text);
       await userProvider.loadUserData();
       // SE OS DADOS ESTIVEREM CORRETOS
       if (!mounted) return;
-
-      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -181,6 +178,9 @@ class _LoginPageState extends State<LoginPage> {
                         textAlign: TextAlign.center,
                       )
                     : const SizedBox(),
+
+                // BOTÃO SAIR DO APLICATIVO
+                ExitDialogApp(),
               ],
             ),
           ),
