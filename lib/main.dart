@@ -9,6 +9,7 @@ import 'package:dictionary/controllers/theme.dart';
 import 'package:dictionary/controllers/darktheme_provider.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/profile/fav_widget.dart';
+import 'package:dictionary/views/login/splash_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/views/home/search_widget.dart';
 import 'package:dictionary/views/login/login_widget.dart';
@@ -68,8 +69,8 @@ class CodexProgramador extends StatelessWidget {
           themeMode:
               themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
           // Tela que sempre vai iniciar quando aberto
-          home: const InitialScreen(),
-          // home: const LoginPage(),
+          // home: const InitialScreen(),
+          home: const SplashScreenPage(),
         );
       },
     );
@@ -78,9 +79,14 @@ class CodexProgramador extends StatelessWidget {
 
 // TELA PARA DEFINIR SE O USUÁRIO ESTÁ LOGADO OU NÃO
 
-class InitialScreen extends StatelessWidget {
+class InitialScreen extends StatefulWidget {
   const InitialScreen({super.key});
 
+  @override
+  State<InitialScreen> createState() => _InitialScreenState();
+}
+
+class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
     return provider.Consumer<UserProvider>(

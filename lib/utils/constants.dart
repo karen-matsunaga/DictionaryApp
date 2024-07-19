@@ -5,7 +5,7 @@ const Color backgroundAccount = Color.fromRGBO(255, 255, 255, 0.753);
 
 // LOGO DO APLICATIVO
 const Color appLogo = Color.fromRGBO(45, 89, 249, 0.505);
-const Color backgroundApp = Color.fromRGBO(65, 179, 204, 0.70195);
+const Color backgroundApp = Color.fromRGBO(65, 179, 204, 0.686);
 
 // CONTEÚDO DOS CONTAINERS
 const comando = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
@@ -50,6 +50,7 @@ const Color buttonDarkOne = Color.fromRGBO(255, 255, 255, 0.50);
 const Color campoclaro = Color.fromRGBO(255, 255, 255, 75);
 const Color campoescuro = Color.fromRGBO(237, 237, 237, 93);
 
+// TEXTOS ESPAÇOS DOS COMPONENTES
 // ESPAÇO DA COLUNA DO COMPONENTE
 const SizedBox espacoComponentes = SizedBox(height: 20);
 
