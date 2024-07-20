@@ -8,6 +8,11 @@ ThemeData lightTheme = ThemeData(
   // ICONES
   iconTheme: IconThemeData(color: lightIcon),
 
+  // LIST TILE
+  listTileTheme: ListTileThemeData(
+    iconColor: lightIcon,
+  ),
+
   // APPBAR
   appBarTheme: AppBarTheme(
     backgroundColor: backgroundAppBarLight,
@@ -15,7 +20,7 @@ ThemeData lightTheme = ThemeData(
 
   // DRAWER
   drawerTheme: DrawerThemeData(
-    backgroundColor: drawer,
+    backgroundColor: lightDrawer,
   ),
 
   // SCAFFOLD
@@ -24,7 +29,17 @@ ThemeData lightTheme = ThemeData(
   // INPUT DECORATION
   inputDecorationTheme: InputDecorationTheme(fillColor: backgroundAppBarSearch),
 
+  // SELEÇÃO DO TEXTO
   textSelectionTheme: TextSelectionThemeData(cursorColor: lightText),
+
+  // TOGGLE BUTTONS
+  toggleButtonsTheme: ToggleButtonsThemeData(
+    borderColor: lightBorder,
+    color: lightText,
+    selectedBorderColor: lightBorderSelected,
+    selectedColor: lightColorSelected,
+    fillColor: lightFillColor,
+  ),
 
   // COLOR SCHEME
   colorScheme: ColorScheme.light(
@@ -43,6 +58,9 @@ ThemeData lightTheme = ThemeData(
     // FUNDO DA BORDA
     tertiary: appLogo,
     onTertiary: lightText,
+
+    surface: lightIconBorder,
+    onSurface: lightText,
 
     // ERROS
     error: lightBackgroundApp,

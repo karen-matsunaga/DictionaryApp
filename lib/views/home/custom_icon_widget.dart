@@ -21,6 +21,7 @@ class IconDrawer extends StatelessWidget {
       leading: Icon(
         icon,
         size: provider.Provider.of<FontSizeConfig>(context).fontSize,
+        color: Theme.of(context).listTileTheme.iconColor,
       ),
       title: Text(
         title,

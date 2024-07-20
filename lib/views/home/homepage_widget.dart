@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(10.0),
             // BARRA DE PESQUISA DESIGN
             child: TextField(
+              cursorColor: Theme.of(context).colorScheme.onPrimary,
               controller: _searchController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(

@@ -19,7 +19,9 @@ class _UserDrawerState extends State<UserDrawer> {
   Widget build(BuildContext context) {
     return DrawerHeader(
       padding: const EdgeInsets.all(8),
-      decoration: const BoxDecoration(color: Color.fromARGB(245, 20, 99, 218)),
+      decoration: BoxDecoration(
+        color: Theme.of(context).drawerTheme.backgroundColor,
+      ),
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

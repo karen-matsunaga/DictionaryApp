@@ -48,6 +48,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 widget.palavras[index],
                 style: TextStyle(
                   fontSize: Provider.of<FontSizeConfig>(context).fontSize,
+                  fontWeight: FontWeight.normal,
                 ),
               ),
               trailing: IconButton(
@@ -55,8 +56,9 @@ class _FavoritePageState extends State<FavoritePage> {
                   // IMPLEMENTAR A EXCLUSÃO DO ITEM NA LISTA
                   // BANCO DE DADOS PARA A EXCLUSÃO DA PALAVRA FAVORITA
                 },
-                icon: const Icon(
+                icon: Icon(
                   Icons.delete_forever_sharp,
+                  size: Provider.of<FontSizeConfig>(context).fontSize * 1.2,
                 ),
               ),
             );

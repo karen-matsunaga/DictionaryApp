@@ -1,4 +1,5 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class FavoriteIcon extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(8),
-          color: Theme.of(context).colorScheme.secondary,
+          color: Theme.of(context).colorScheme.surface,
           boxShadow: const [
             BoxShadow(
               color: Colors.grey,
@@ -31,7 +32,7 @@ class FavoriteIcon extends StatelessWidget {
         ),
         // TAMANHO DO ICONE
         child: Icon(Icons.favorite_rounded,
-            color: Theme.of(context).iconTheme.color,
+            color: favoriteIcon,
             size: provider.Provider.of<FontSizeConfig>(context).fontSize),
       ),
     );

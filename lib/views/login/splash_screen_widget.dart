@@ -59,7 +59,9 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
               espacoComponentes,
 
               // CARREGAMENTO DO APLICATIVO
-              CircularProgressIndicator(color: Colors.white),
+              CircularProgressIndicator(
+                color: Theme.of(context).iconTheme.color,
+              )
             ],
           ),
         ),
