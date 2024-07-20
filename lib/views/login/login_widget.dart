@@ -2,7 +2,7 @@ import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/login/custom_pass_widget.dart';
-import 'package:dictionary/views/login/exit_widget.dart';
+// import 'package:dictionary/views/login/exit_widget.dart';
 import 'package:dictionary/views/login/logo_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/models/dbhelper.dart';
@@ -91,9 +91,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // TELA DE LOGIN
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? Theme.of(context).scaffoldBackgroundColor
-          : backgroundApp,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -138,7 +136,6 @@ class _LoginPageState extends State<LoginPage> {
                 // BOTÃO LOGAR
                 CustomButton(
                     text: "Logar".toUpperCase(),
-                    color: buttonLight,
                     callBack: () async {
                       // e-mail e senha estão corretos
                       if (formKey.currentState!.validate()) {
@@ -180,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                     : const SizedBox(),
 
                 // BOTÃO SAIR DO APLICATIVO
-                ExitDialogApp(),
+                // ExitDialogApp(),
               ],
             ),
           ),

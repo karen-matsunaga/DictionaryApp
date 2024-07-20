@@ -24,6 +24,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     // SEARCHBAR APPLICATION
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       // AppBar do aplicativo
       appBar: const CustomAppBar(title: "Códex do Programador"),
 

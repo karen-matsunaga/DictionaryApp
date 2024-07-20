@@ -16,9 +16,7 @@ class MenuPage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Drawer(
-          backgroundColor: Theme.of(context).brightness == Brightness.dark
-              ? Colors.blue[900]
-              : Theme.of(context).appBarTheme.backgroundColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           child:
               Consumer<UserProvider>(builder: (context, userProvider, child) {
             // OS DADOS ESTIVEREM VAZIOS

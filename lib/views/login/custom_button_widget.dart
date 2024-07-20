@@ -1,5 +1,4 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,15 +22,17 @@ class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+    // BORDA
     return Container(
       alignment: Alignment.center,
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-      height: 55,
+      height: height * .10,
       width: width * .9,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: appLogo,
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -41,6 +42,7 @@ class _CustomButtonState extends State<CustomButton> {
           ),
         ],
       ),
+      // TEXTO DENTRO DA BORDA
       child: TextButton(
         onPressed: widget.callBack!,
         child: Text(
@@ -49,9 +51,7 @@ class _CustomButtonState extends State<CustomButton> {
             letterSpacing: 2,
             fontWeight: FontWeight.bold,
             fontSize: Provider.of<FontSizeConfig>(context).fontSize,
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.white
-                : Colors.black,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
       ),

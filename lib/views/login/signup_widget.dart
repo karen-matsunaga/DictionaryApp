@@ -115,9 +115,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   Widget build(BuildContext context) {
     // TELA DE CRIAR CONTA
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? Theme.of(context).scaffoldBackgroundColor
-          : backgroundApp,
+      // FUNDO DO APLICATIVO
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -180,7 +179,6 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 // Botão CADASTRAR
                 CustomButton(
                   text: 'Cadastrar'.toUpperCase(),
-                  color: appLogo,
                   callBack: () {
                     if (formKey.currentState!.validate()) {
                       signUp();
@@ -212,7 +210,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     ? const Text(
                         "Esse e-mail foi usado tente outro!",
                         style: TextStyle(
-                          color: Colors.red,
+                          color: lightErrorColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
                           letterSpacing: 2,

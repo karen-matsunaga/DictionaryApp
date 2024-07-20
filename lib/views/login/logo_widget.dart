@@ -1,4 +1,3 @@
-import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class LogoApp extends StatelessWidget {
@@ -12,9 +11,7 @@ class LogoApp extends StatelessWidget {
       height: 100,
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-          color: Theme.of(context).brightness == Brightness.dark
-              ? Colors.grey
-              : appLogo,
+          color: Theme.of(context).colorScheme.tertiary,
           borderRadius: BorderRadius.circular(10)),
 
       // IMAGEM DA LOGO

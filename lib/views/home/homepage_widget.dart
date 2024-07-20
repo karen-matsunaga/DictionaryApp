@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
               controller: _searchController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
+                fillColor: Theme.of(context).inputDecorationTheme.fillColor,
                 hintStyle: TextStyle(
                     fontSize:
                         provider.Provider.of<FontSizeConfig>(context).fontSize),
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
                 prefixIcon: Icon(
                   Icons.search_rounded,
                   size: provider.Provider.of<FontSizeConfig>(context).fontSize,
+                  color: Theme.of(context).iconTheme.color,
                 ),
                 hintText: 'Search',
                 border: OutlineInputBorder(

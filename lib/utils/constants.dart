@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 const Color backgroundAccount = Color.fromRGBO(255, 255, 255, 0.753);
 
 // LOGO DO APLICATIVO
-const Color appLogo = Color.fromRGBO(45, 89, 249, 0.505);
-const Color backgroundApp = Color.fromRGBO(65, 179, 204, 0.686);
+const Color appLogo = Color.fromRGBO(45, 89, 249, 0.502);
+const Color lightBackgroundApp = Color.fromRGBO(65, 179, 204, 0.686);
+const Color blackBackgroundApp = Color.fromRGBO(11, 23, 26, 0.678);
 
 // CONTEÚDO DOS CONTAINERS
 const comando = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
@@ -29,10 +30,11 @@ const Color backgroundAppBarLight = Color(0xFF00ACC1);
 const menupage = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
 // Fundo do Drawer
-const Color drawer = Color(0xFF26C6DA);
+const Color drawer = Color.fromRGBO(38, 198, 218, 1);
 
 // FUNDO DO APLICATIVO EM GERAL
-const Color mainThemeApp = Color(0xFF9DF0EF);
+const Color lightScaffoldApp = Color.fromRGBO(157, 240, 239, 1);
+const Color blackScaffoldApp = Colors.black;
 
 // TEMA DOS BOTÕES
 // Botão principal
@@ -49,6 +51,22 @@ const Color buttonDarkOne = Color.fromRGBO(255, 255, 255, 0.50);
 // Tema dos CAMPOS de preenchimento
 const Color campoclaro = Color.fromRGBO(255, 255, 255, 75);
 const Color campoescuro = Color.fromRGBO(237, 237, 237, 93);
+
+// CORES DOS TEXTOS
+const Color lightText = Colors.black;
+const Color darkText = Colors.white;
+
+// CORES DOS ICONES
+const Color lightIcon = Colors.black;
+const Color darkIcon = Colors.white;
+
+// CORES DOS CARTOES
+const Color blackCardColor = Color.fromRGBO(45, 89, 249, 0.505);
+const Color whiteCardColor = Color.fromRGBO(144, 202, 249, 1);
+
+// SINAL DE ALERTA
+const Color blackErrorColor = Color.fromRGBO(244, 67, 54, 1);
+const Color lightErrorColor = Color.fromRGBO(213, 0, 0, 1);
 
 // TEXTOS ESPAÇOS DOS COMPONENTES
 // ESPAÇO DA COLUNA DO COMPONENTE

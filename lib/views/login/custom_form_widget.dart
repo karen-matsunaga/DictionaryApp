@@ -1,5 +1,4 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -34,7 +33,7 @@ class _CustomFormState extends State<CustomForm> {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: appLogo,
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -54,7 +53,6 @@ class _CustomFormState extends State<CustomForm> {
         controller: widget.controller,
         validator: (value) => widget.validator(value),
         decoration: InputDecoration(
-          fillColor: null,
           icon: widget.icon,
           border: InputBorder.none,
           labelText: widget.label,

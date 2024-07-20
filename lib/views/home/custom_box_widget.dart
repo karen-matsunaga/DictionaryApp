@@ -1,6 +1,5 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomBox extends StatelessWidget {
@@ -20,9 +19,7 @@ class CustomBox extends StatelessWidget {
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.only(left: 16, top: 19, right: 16),
       decoration: BoxDecoration(
-          color: Theme.of(context).brightness == Brightness.dark
-              ? appLogo
-              : columns,
+          color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(10)),
       child: Column(
         children: [

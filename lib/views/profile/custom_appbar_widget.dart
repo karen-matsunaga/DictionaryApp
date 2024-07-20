@@ -1,6 +1,5 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -18,22 +17,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       // Icone do Menu de configurações
       iconTheme: IconThemeData(
-        color: Theme.of(context).brightness == Brightness.dark
-            ? backgroundIconsWhite
-            : backgroundAppBarIcons,
+        color: Theme.of(context).iconTheme.color,
       ),
       // Nome do aplicativo
-      title: Text(title.toUpperCase(),
-          style: TextStyle(
-              letterSpacing: 1,
-              fontSize:
-                  provider.Provider.of<FontSizeConfig>(context).fontSize)),
+      title: Text(
+        title.toUpperCase(),
+        style: TextStyle(
+          letterSpacing: 1,
+          fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       centerTitle: true,
 
       // Fundo do aplicativo da AppBar
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? appLogo
-          : Theme.of(context).appBarTheme.backgroundColor,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       elevation: 0,
     );
   }

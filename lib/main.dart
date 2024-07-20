@@ -1,3 +1,5 @@
+import 'package:dictionary/controllers/dark_theme.dart';
+import 'package:dictionary/controllers/light_theme.dart';
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
@@ -5,8 +7,7 @@ import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/views/profile/config_update_view.dart';
-import 'package:dictionary/controllers/theme.dart';
-import 'package:dictionary/controllers/darktheme_provider.dart';
+import 'package:dictionary/controllers/theme_provider.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/profile/fav_widget.dart';
 import 'package:dictionary/views/login/splash_screen_widget.dart';
@@ -64,12 +65,14 @@ class CodexProgramador extends StatelessWidget {
 
           // Tema do aplicativo
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
+          // TEMA CLARO
+          theme: lightTheme,
+          // TEMA ESCURO
+          darkTheme: darkTheme,
+          // MODIFICAÇÃO DO TEMA USANDO O PROVIDER
           themeMode:
               themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
           // Tela que sempre vai iniciar quando aberto
-          // home: const InitialScreen(),
           home: const SplashScreenPage(),
         );
       },

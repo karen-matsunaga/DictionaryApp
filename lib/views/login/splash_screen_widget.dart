@@ -28,7 +28,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   Widget build(BuildContext context) {
     // TELA DE INICIALIZAÇÃO DO APLICATIVO
     return Scaffold(
-      backgroundColor: backgroundApp,
+      backgroundColor: lightBackgroundApp,
       body: Center(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,

@@ -20,9 +20,7 @@ class FavoriteIcon extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(8),
-          color: Theme.of(context).brightness == Brightness.dark
-              ? Colors.white
-              : const Color.fromRGBO(217, 217, 217, 1.0),
+          color: Theme.of(context).colorScheme.secondary,
           boxShadow: const [
             BoxShadow(
               color: Colors.grey,
@@ -33,7 +31,7 @@ class FavoriteIcon extends StatelessWidget {
         ),
         // TAMANHO DO ICONE
         child: Icon(Icons.favorite_rounded,
-            color: Colors.red,
+            color: Theme.of(context).iconTheme.color,
             size: provider.Provider.of<FontSizeConfig>(context).fontSize),
       ),
     );
