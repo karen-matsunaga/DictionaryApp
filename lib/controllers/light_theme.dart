@@ -24,6 +24,8 @@ ThemeData lightTheme = ThemeData(
   // INPUT DECORATION
   inputDecorationTheme: InputDecorationTheme(fillColor: backgroundAppBarSearch),
 
+  textSelectionTheme: TextSelectionThemeData(cursorColor: lightText),
+
   // COLOR SCHEME
   colorScheme: ColorScheme.light(
     // SCAFFOLD

@@ -46,12 +46,15 @@ class _PasswordFormState extends State<PasswordForm> {
         keyboardType: TextInputType.visiblePassword,
         textInputAction: TextInputAction.next,
         maxLines: 1,
-        style:
-            TextStyle(fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+        style: TextStyle(
+          fontSize: Provider.of<FontSizeConfig>(context).fontSize,
+        ),
         controller: widget.controller,
         obscureText: _obscureText,
         validator: (value) => widget.validator(value),
         decoration: InputDecoration(
+          labelStyle: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+          errorStyle: TextStyle(color: Theme.of(context).colorScheme.onError),
           icon: const Icon(
             Icons.lock_outline_rounded,
           ),
@@ -60,6 +63,7 @@ class _PasswordFormState extends State<PasswordForm> {
           hintText: widget.hint,
           // VISUALIZAÇÃO DA SENHA
           suffixIcon: IconButton(
+            color: Theme.of(context).iconTheme.color,
             icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
             onPressed: () {
               setState(() {

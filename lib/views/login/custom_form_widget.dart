@@ -53,6 +53,8 @@ class _CustomFormState extends State<CustomForm> {
         controller: widget.controller,
         validator: (value) => widget.validator(value),
         decoration: InputDecoration(
+          labelStyle: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+          errorStyle: TextStyle(color: Theme.of(context).colorScheme.onError),
           icon: widget.icon,
           border: InputBorder.none,
           labelText: widget.label,
