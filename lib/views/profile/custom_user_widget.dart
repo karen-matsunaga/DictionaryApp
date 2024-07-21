@@ -29,7 +29,7 @@ class _UserDrawerState extends State<UserDrawer> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Bem-vindo, ${widget.email}!',
+              'Bem-vindo, ${widget.email}\n!',
               maxLines: 1,
               style: TextStyle(
                 letterSpacing: 2,

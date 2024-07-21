@@ -1,53 +1,24 @@
-// CONVERSÃO DO ARQUIVO JSON PARA DART
-import 'dart:convert';
-
-// CLASSE CODE QUE SERÃO ARMAZENADOS OS DADOS
-// DAS PALAVRAS CADASTRADAS NO ARQUIVO JSON
-// PARA SEREM GUARDADAS NO BANCO DE DADOS
-
-Codes usersFromMap(String str) => Codes.fromMap(json.decode(str));
-String usersToMap(Codes data) => json.encode(data.toMap());
+// CLASSE CODES QUE SERÃO ARMAZENADOS OS DADOS NO ARQUIVO JSON
 
 class Codes {
-  final int codeId;
-  final int idLanguage;
-  final int idTag;
   final String name;
-  final int synonyms;
+  final String synonyms;
   final String description;
   final String example;
   final String exit;
+  bool favorite;
 
-  Codes({
-    required this.codeId,
-    required this.idLanguage,
-    required this.idTag,
-    required this.name,
-    required this.synonyms,
-    required this.description,
-    required this.example,
-    required this.exit,
-  });
+  Codes(this.name, this.synonyms, this.description, this.example, this.exit,
+      this.favorite);
 
-  factory Codes.fromMap(Map<String, dynamic> json) => Codes(
-        codeId: json["codeId"],
-        idLanguage: json["idLanguage"],
-        idTag: json["idTag"],
-        name: json["name"],
-        synonyms: json["synonyms"],
-        description: json["description"],
-        example: json["example"],
-        exit: json["exit"],
-      );
-
-  Map<String, dynamic> toMap() => {
-        "codeId": codeId,
-        "idLanguage": idLanguage,
-        "idTag": idTag,
-        "name": name,
-        "synonyms": synonyms,
-        "description": description,
-        "example": example,
-        "exit": exit,
-      };
+  factory Codes.fromJson(Map<String, dynamic> json) {
+    return new Codes(
+      json['name'],
+      json['synonyms'],
+      json['description'],
+      json['example'],
+      json['exit'],
+      json['favorite'],
+    );
+  }
 }

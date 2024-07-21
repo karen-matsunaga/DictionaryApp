@@ -27,8 +27,12 @@ class CustomForm extends StatefulWidget {
 class _CustomFormState extends State<CustomForm> {
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     // DESIGNER DO CAMPO
     return Container(
+      height: height * .15,
+      width: width * .9,
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(

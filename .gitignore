@@ -10,7 +10,7 @@
 .svn/
 migrate_working_dir/
 beta/
-
+a/
 
 # IntelliJ related
 *.iml

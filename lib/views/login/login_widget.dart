@@ -45,7 +45,8 @@ class _LoginPageState extends State<LoginPage> {
     if (response == true) {
       // SHARED PREFERENCES
       final userProvider = Provider.of<UserProvider>(context, listen: false);
-      await userProvider.saveUserData(emailController.text);
+      await userProvider.saveUserData(
+          emailController.text, passwordController.text);
       await userProvider.loadUserData();
       // SE OS DADOS ESTIVEREM CORRETOS
       if (!mounted) return;

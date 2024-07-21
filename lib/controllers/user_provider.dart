@@ -12,14 +12,16 @@ class UserProvider with ChangeNotifier {
   Future<void> loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     _email = prefs.getString('email');
+
     notifyListeners();
   }
 
   // SALVAR O E-MAIL DO USUÁRIO LOGADO
-  Future<void> saveUserData(String email) async {
+  Future<void> saveUserData(String email, String userName) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('email', email);
     _email = email;
+
     notifyListeners();
   }
 
@@ -28,6 +30,7 @@ class UserProvider with ChangeNotifier {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('email');
     _email = null;
+
     notifyListeners();
   }
 }

@@ -29,7 +29,7 @@ class _CustomButtonState extends State<CustomButton> {
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       height: height * .10,
-      width: width * .9,
+      width: width * .5,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Theme.of(context).colorScheme.secondary,

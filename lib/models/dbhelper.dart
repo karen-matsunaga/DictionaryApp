@@ -1,4 +1,5 @@
 import 'dart:async';
+// import 'dart:js_interop';
 import 'package:dictionary/models/users.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -101,33 +102,16 @@ class DatabaseHelper {
   }
 
   // BANCO DE DADOS - USUÁRIO DUPLICADO PELO E-MAIL DIGITADO
-  Future<bool> checkUserDuplicated(String email) async {
+  Future<bool> checkUserDuplicated(String email, String userName) async {
     final db = await initDatabase();
-    final List<Map<String, dynamic>> res =
-        await db.query('users', where: 'email = ?', whereArgs: [email]);
+    final List<Map<String, dynamic>> res = await db.query('users',
+        where: 'email = ? AND userName = ?', whereArgs: [email, userName]);
     return res.isNotEmpty;
   }
 
   // BANCO DE DADOS - PESQUISA DAS PALAVRAS
 
-  // BANCO DE DADOS - SISTEMA DE TAGS PARA SUGESTÃO DE PESQUISA
-
   // BANCO DE DADOS - RETORNO DAS PALAVRAS
 
-  // Future<List<Codes?>> getCode(int idLanguage, String example) async {
-  //   final Database db = await initDatabase();
-  //   final List<Map<String, Object?>> queryResult = await db.query(
-  //       'SELECT * FROM codes',
-  //       where: 'idLanguage = ? AND example = ?',
-  //       whereArgs: [idLanguage, example]);
-  //   return queryResult.map((e) => Codes.fromMap(e)).toList();
-  // }
-
   // BANCO DE DADOS - LISTAGEM DAS PALAVRAS DOS FAVORITOS
-  // Future<List<Users?>> getWords(String favorite) async {
-  //   final Database db = await initDatabase();
-  //   final List<Map<String, Object?>> queryResult = await db
-  //       .rawQuery("SELECT * FROM favorites where idFavorite = '$favorite'");
-  //   return queryResult.map((e) => Users.fromMap(e)).toList();
-  // }
 }

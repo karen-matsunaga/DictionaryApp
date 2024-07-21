@@ -3,7 +3,7 @@
   {
       "codeId": "1",
       "name": "Console.Write",
-      "idLanguage": 2,
+      "idLanguage": "2",
       "description": "Método para imprimir texto formatado no console",
       "example":
           "using System;\n namespace MyApplication\n{\nclass Program\n{\nstatic void Main(string[]args)\n{\nConsole.WriteLine('Hello World!');\n}\n}\n}\n",

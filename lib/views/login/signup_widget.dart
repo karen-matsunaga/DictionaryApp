@@ -87,8 +87,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   // CADASTRO DA CONTA
   signUp() async {
     // VERIFICAR SE O USUÁRIO ESTÁ DUPLICADO
-    bool userDuplicated =
-        await dbHelper.checkUserDuplicated(_emailController.text);
+    bool userDuplicated = await dbHelper.checkUserDuplicated(
+        _emailController.text, _usernameController.text);
     // CASO O USUÁRIO ESTÁ DUPLICADO
     if (userDuplicated) {
       setState(() {
@@ -208,7 +208,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 // MENSAGEM DE ERRO CASO EXISTA O USUÁRIO
                 isUserDuplicated
                     ? const Text(
-                        "Esse e-mail foi usado tente outro!",
+                        "Esse e-mail ou usuário já foi usado tente outro!",
                         style: TextStyle(
                           color: lightErrorColor,
                           fontWeight: FontWeight.bold,

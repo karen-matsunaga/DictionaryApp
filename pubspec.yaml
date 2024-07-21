@@ -64,8 +64,8 @@ flutter:
   assets:
       - assets/images/logo.png
       - assets/json/codes.json
-      - assets/json/language.json
-      - assets/json/tags.json
+      # - assets/json/language.json
+      # - assets/json/tags.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
