@@ -87,8 +87,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   // CADASTRO DA CONTA
   signUp() async {
     // VERIFICAR SE O USUÁRIO ESTÁ DUPLICADO
-    bool userDuplicated = await dbHelper.checkUserDuplicated(
-        _emailController.text, _usernameController.text);
+    bool userDuplicated =
+        await dbHelper.checkUserDuplicated(_emailController.text);
     // CASO O USUÁRIO ESTÁ DUPLICADO
     if (userDuplicated) {
       setState(() {

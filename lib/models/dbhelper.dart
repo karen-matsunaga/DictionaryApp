@@ -20,12 +20,8 @@ class DatabaseHelper {
     final path = join(databasePath, databaseName);
 
     return openDatabase(path, version: 1, onCreate: (db, version) async {
-      // ATIVAÇÃO DA FOREIGN KEY DA TABELA USERS
-      await db.execute('PRAGMA foreign_keys = ON');
-      // EXECUÇÃO DAS TABELAS USUÁRIOS, FAVORITOS, ETIQUETAS, CÓDIGOS E LINGUAGEM
+      // EXECUÇÃO DA TABELA USUÁRIOS
       await db.execute(users);
-      await db.execute(favorites);
-      await db.execute(words);
       // FECHAMENTO DO BANCO DE DADOS
       await db.close();
     });
@@ -34,19 +30,11 @@ class DatabaseHelper {
   // NOME DO BANCO DE DADOS
   final databaseName = "users.db";
 
-  // CRIAÇÃO DAS TABELAS users, favorites E words NO USERS.DB
+  // CRIAÇÃO DAS TABELAS users NO USERS.DB
 
   // TABELA users que é responsável pela autenticação do usuário
   String users =
-      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, idFavorite INTEGER, userName TEXT, email TEXT, userPassword TEXT, FOREIGN KEY (idFavorite) REFERENCES favorites(favoriteId))";
-
-  // TABELA favorites para os favoritos de cada usuário
-  String favorites =
-      "create table favorites (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT, idWord INTEGER, idUser INTEGER, FOREIGN KEY (idWord) REFERENCES words(wordId), FOREIGN KEY (idUser) REFERENCES users(userId))";
-
-  // TABELA code para o código da linguagem em Python, C#, JAVA e Saída de Dados
-  String words =
-      "create table words (wordId INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, synonyms INTEGER, description TEXT, example TEXT, exit TEXT)";
+      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, email TEXT, userPassword TEXT, FOREIGN KEY (idFavorite) REFERENCES favorites(favoriteId))";
 
   // BANCO DE DADOS - VERIFICAR CONTA
   Future<bool> authenticate(Users user) async {
@@ -85,16 +73,10 @@ class DatabaseHelper {
   }
 
   // BANCO DE DADOS - USUÁRIO DUPLICADO PELO E-MAIL DIGITADO
-  Future<bool> checkUserDuplicated(String email, String userName) async {
+  Future<bool> checkUserDuplicated(String email) async {
     final db = await initDatabase();
-    final List<Map<String, dynamic>> res = await db.query('users',
-        where: 'email = ? AND userName = ?', whereArgs: [email, userName]);
+    final List<Map<String, dynamic>> res =
+        await db.query('users', where: 'email = ?', whereArgs: [email]);
     return res.isNotEmpty;
   }
-
-  // BANCO DE DADOS - PESQUISA DAS PALAVRAS
-
-  // BANCO DE DADOS - RETORNO DAS PALAVRAS
-
-  // BANCO DE DADOS - LISTAGEM DAS PALAVRAS DOS FAVORITOS
 }

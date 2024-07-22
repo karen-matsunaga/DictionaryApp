@@ -23,6 +23,7 @@ void main() async {
   await FontSizeConfig.loadFontSize();
   // USUÁRIO LOGADO
   UserProvider();
+  // ARQUIVO WORDS.JSON
 
   // SQFLITE - BANCO DE DADOS
   final dbHelper = DatabaseHelper();

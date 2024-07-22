@@ -49,6 +49,9 @@ class _LoginPageState extends State<LoginPage> {
       await userProvider.saveUserData(
           emailController.text, passwordController.text);
       await userProvider.loadUserData();
+
+      // ADICIONAR O SAVE DO ARQUIVO WORDS.JSON
+
       // SE OS DADOS ESTIVEREM CORRETOS
       if (!mounted) return;
       Navigator.pushReplacement(

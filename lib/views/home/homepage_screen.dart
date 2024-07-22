@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/models/words.dart';
 import 'package:dictionary/views/home/menu_view.dart';
@@ -19,8 +18,7 @@ class _HomePageState extends State<HomePage> {
   // CONTROLADORES
   final _searchController = TextEditingController();
 
-  // LISTAS
-  // LISTA DAS PALAVRAS E FILTRO DA PESQUISA
+  // LISTA E FILTRO DAS PALAVRAS
   List<Words> allWords = [];
   List<Words> filteredWords = [];
 
@@ -39,7 +37,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-// BARRA DE PESQUISA
+  // BARRA DE PESQUISA DAS PALAVRAS
   void _runFilter(String searchKeyword) {
     List<Words> results = [];
 
