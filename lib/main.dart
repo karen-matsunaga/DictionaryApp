@@ -29,7 +29,7 @@ void main() async {
   runApp(
     provider.MultiProvider(
         providers: [
-          // Aqui rodamos o app dentro do Provider onde serão carregadas as configurações salvas pelo Shared Preferences
+          // Aqui rodamos o app dentro do Provider onde serão carregadas as configurações salvas pelo Shared Preferences, Provider e SQFLite
           provider.ChangeNotifierProvider(
               create: (context) => FontSizeConfig()),
           provider.ChangeNotifierProvider(

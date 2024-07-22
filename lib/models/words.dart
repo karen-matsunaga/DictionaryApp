@@ -10,8 +10,8 @@ class Words {
   factory Words.fromJson(Map<String, dynamic> json) {
     return new Words(
       json['name'],
-      json['synonyms'],
       json['description'],
+      json['synonyms'],
       json['example'],
       json['exit'],
       json['favorite'],

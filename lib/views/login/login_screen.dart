@@ -8,8 +8,10 @@ import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/widgets/custom_button_widget.dart';
 import 'package:dictionary/widgets/custom_form_widget.dart';
 import 'package:dictionary/widgets/custom_msg_widget.dart';
+import 'package:dictionary/widgets/custom_exit_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:provider/provider.dart';
@@ -176,8 +178,24 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     : const SizedBox(),
 
-                // BOTÃO SAIR DO APLICATIVO
-                // ExitApp(),
+                // SAIR DO APLICATIVO
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .2,
+                  width: MediaQuery.of(context).size.width * .7,
+                  child: CustomExit(
+                    callBack: () {
+                      Navigator.pop(context, true);
+                      // Atrasar para garantir que a caixa de diálogo seja fechada antes de sair do app
+                      Future.delayed(
+                        const Duration(milliseconds: 200),
+                        () {
+                          // Sair do aplicativo
+                          SystemNavigator.pop();
+                        },
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),

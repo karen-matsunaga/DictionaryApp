@@ -1,5 +1,6 @@
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/views/profile/fav_screen.dart';
+import 'package:dictionary/widgets/custom_exit_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/widgets/custom_icon_widget.dart';
 import 'package:dictionary/views/login/login_screen.dart';
@@ -83,10 +84,8 @@ class MenuPage extends StatelessWidget {
                         ),
 
                         // REFATORADA - DESLOGAR DA CONTA
-                        IconDrawer(
-                          icon: Icons.exit_to_app,
-                          title: 'Sair'.toUpperCase(),
-                          callback: () async {
+                        CustomExit(
+                          callBack: () async {
                             await userProvider.clearUserData();
                             Navigator.of(context).push(
                               MaterialPageRoute(
@@ -95,6 +94,30 @@ class MenuPage extends StatelessWidget {
                             );
                           },
                         ),
+
+                        // CustomExitApp(
+                        //   callBack: () async {
+                        //     await userProvider.clearUserData();
+                        //     Navigator.of(context).push(
+                        //       MaterialPageRoute(
+                        //         builder: (context) => const LoginPage(),
+                        //       ),
+                        //     );
+                        //   },
+                        // ),
+
+                        // IconDrawer(
+                        //   icon: Icons.exit_to_app,
+                        //   title: 'Sair'.toUpperCase(),
+                        //   callback: () async {
+                        //     await userProvider.clearUserData();
+                        //     Navigator.of(context).push(
+                        //       MaterialPageRoute(
+                        //         builder: (context) => const LoginPage(),
+                        //       ),
+                        //     );
+                        //   },
+                        // ),
                       ],
                     ),
                   ),

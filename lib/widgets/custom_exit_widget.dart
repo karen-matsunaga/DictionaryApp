@@ -1,64 +1,96 @@
 import 'package:dictionary/widgets/custom_button_widget.dart';
+import 'package:dictionary/widgets/custom_icon_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class ExitDialogApp extends StatefulWidget {
-  final Widget? child;
-  const ExitDialogApp({super.key, this.child});
+class CustomExit extends StatefulWidget {
+  final VoidCallback? callBack;
+  const CustomExit({super.key, this.callBack});
 
   @override
-  State<ExitDialogApp> createState() => _ExitDialogAppState();
+  State<CustomExit> createState() => _CustomExitState();
 }
 
-class _ExitDialogAppState extends State<ExitDialogApp> {
+class _CustomExitState extends State<CustomExit> {
   @override
   Widget build(BuildContext context) {
     // FUNÇÃO PARA EXIBIR A CAIXA DE DIÁLOGO DE SAÍDA
+    Future<bool?> _showBackDialog() {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Colors.red,
+            alignment: Alignment.center,
+            title: const Text(
+              'Confirmação de Saída',
+              textAlign: TextAlign.center,
+            ),
+            content: const Text(
+              'Você tem certeza que deseja sair do aplicativo?',
+              textAlign: TextAlign.center,
+            ),
+            actions: [
+              // CANCELAR A SAÍDA
 
-    return PopScope(
-        canPop: false,
-        onPopInvoked: (bool didPop) async {
-          final value = await showDialog<bool>(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: const Text('Confirmação de Saída'),
-              content:
-                  const Text('Você tem certeza que deseja sair do aplicativo?'),
-              actions: [
-                // CANCELAR A SAÍDA
-                CustomButton(
+              Center(
+                child: CustomButton(
                   text: 'Cancelar',
                   callBack: () {
-                    Navigator.of(context).pop(false);
+                    Navigator.pop(context, false);
                   },
                 ),
-                // SAIR DO APLICATIVO
-                CustomButton(
+              ),
+              Center(
+                child: CustomButton(
                   color: Colors.red,
                   text: 'Sair',
-                  callBack: () {
-                    Navigator.of(context).pop(true);
-                    // Atrasar para garantir que a caixa de diálogo seja fechada antes de sair do app
-                    Future.delayed(
-                      const Duration(milliseconds: 200),
-                      () {
-                        // Sair do aplicativo
-                        SystemNavigator.pop();
-                      },
-                    );
-                  },
+                  callBack: widget.callBack!,
                 ),
-              ],
-            ),
+              ),
+
+              // SAIR DO APLICATIVO
+            ],
           );
-          if (value != null) {
-            return Future.value(value);
-          } else {
-            return Future.value(false);
-          }
         },
-        child: const Text(
-          'Sair',
-        ));
+      );
+    }
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        // FUNÇÃO PARA SAIR DO APLICATIVO
+        PopScope(
+          canPop: false,
+          onPopInvoked: (bool didPop) async {
+            if (didPop) {
+              return;
+            }
+
+            final bool shouldPop = await _showBackDialog() ?? false;
+            if (context.mounted && shouldPop) {
+              Navigator.pop(context);
+            }
+          },
+          child: TextButton(
+            onPressed: () async {
+              final bool shouldPop = await _showBackDialog() ?? false;
+              if (context.mounted && shouldPop) {
+                Navigator.pop(context);
+              }
+            },
+
+            // EXIBIÇÃO DO BOTÃO DE SAIR
+            child: IconDrawer(
+              icon: Icons.exit_to_app,
+              title: 'Sair'.toUpperCase(),
+              callback: () async {
+                _showBackDialog();
+              },
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
