@@ -1,5 +1,4 @@
 import 'dart:async';
-// import 'dart:js_interop';
 import 'package:dictionary/models/users.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -26,44 +25,28 @@ class DatabaseHelper {
       // EXECUÇÃO DAS TABELAS USUÁRIOS, FAVORITOS, ETIQUETAS, CÓDIGOS E LINGUAGEM
       await db.execute(users);
       await db.execute(favorites);
-      await db.execute(tags);
-      await db.execute(language);
-      await db.execute(codes);
+      await db.execute(words);
       // FECHAMENTO DO BANCO DE DADOS
       await db.close();
-
-      // REMOÇÃO DO BANCO DE DADOS
-      // await deleteDatabase(databaseName);
-      // await deleteDatabase(path);
     });
   }
 
   // NOME DO BANCO DE DADOS
   final databaseName = "users.db";
 
-  // CRIAÇÃO DAS TABELAS users, favorites, tags, codes e language NO USERS.DB
+  // CRIAÇÃO DAS TABELAS users, favorites E words NO USERS.DB
 
   // TABELA users que é responsável pela autenticação do usuário
   String users =
-      // "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, userName TEXT, email TEXT, userPassword TEXT)";
-
       "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, idFavorite INTEGER, userName TEXT, email TEXT, userPassword TEXT, FOREIGN KEY (idFavorite) REFERENCES favorites(favoriteId))";
 
   // TABELA favorites para os favoritos de cada usuário
   String favorites =
-      "create table favorites (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT, idCode INTEGER, idUser INTEGER, FOREIGN KEY (idCode) REFERENCES codes(codeId), FOREIGN KEY (idUser) REFERENCES users(userId))";
-
-  // TABELA tags para o sistema de tags como sugestões de palavras para consultas
-  String tags =
-      "create table tags (tagId INTEGER PRIMARY KEY AUTOINCREMENT, nameTag TEXT)";
-
-  // TABELA language para a linguagem de programação dos códigos exibidos
-  String language =
-      "create table language (languageId INTEGER PRIMARY KEY AUTOINCREMENT, nameLanguage TEXT)";
+      "create table favorites (favoriteId INTEGER PRIMARY KEY AUTOINCREMENT, idWord INTEGER, idUser INTEGER, FOREIGN KEY (idWord) REFERENCES words(wordId), FOREIGN KEY (idUser) REFERENCES users(userId))";
 
   // TABELA code para o código da linguagem em Python, C#, JAVA e Saída de Dados
-  String codes =
-      "create table codes (codeId INTEGER PRIMARY KEY AUTOINCREMENT, idLanguage INTEGER, idTag INTEGER, name TEXT, synonyms INTEGER, description TEXT, example TEXT, exit TEXT, FOREIGN KEY (idLanguage) REFERENCES language(languageId), FOREIGN KEY (idTag) REFERENCES tags(tagId))";
+  String words =
+      "create table words (wordId INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, synonyms INTEGER, description TEXT, example TEXT, exit TEXT)";
 
   // BANCO DE DADOS - VERIFICAR CONTA
   Future<bool> authenticate(Users user) async {

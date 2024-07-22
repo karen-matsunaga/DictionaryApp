@@ -2,17 +2,17 @@ import 'package:dictionary/controllers/custom_theme.dart';
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/login/signup_widget.dart';
+import 'package:dictionary/views/login/signup_screen.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/views/home/menu_view.dart';
-import 'package:dictionary/views/profile/config_update_view.dart';
+import 'package:dictionary/views/profile/config_view.dart';
 import 'package:dictionary/controllers/theme_provider.dart';
-import 'package:dictionary/views/home/homepage_widget.dart';
-import 'package:dictionary/views/profile/fav_widget.dart';
-import 'package:dictionary/views/login/splash_screen_widget.dart';
+import 'package:dictionary/views/home/homepage_screen.dart';
+import 'package:dictionary/views/profile/fav_screen.dart';
+import 'package:dictionary/views/login/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:dictionary/views/home/search_widget.dart';
-import 'package:dictionary/views/login/login_widget.dart';
+import 'package:dictionary/views/home/search_screen.dart';
+import 'package:dictionary/views/login/login_screen.dart';
 import 'package:provider/provider.dart' as provider;
 
 void main() async {

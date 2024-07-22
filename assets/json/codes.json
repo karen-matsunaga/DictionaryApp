@@ -1,19 +1,15 @@
 { 
-"codes": [
+"words": [
   {
-      "codeId": "1",
+      "wordId": "1",
       "name": "Console.Write",
-      "idLanguage": "2",
       "description": "Método para imprimir texto formatado no console",
       "example":
           "using System;\n namespace MyApplication\n{\nclass Program\n{\nstatic void Main(string[]args)\n{\nConsole.WriteLine('Hello World!');\n}\n}\n}\n",
-      "synonyms": "[Print Escreva Console.WriteLine System.out.println]",
-      "idTag": "[1, 2, 3, 17]"
+      "synonyms": "[Print Escreva Console.WriteLine System.out.println]"
     },
     {
-      "codeId": "1",
-      "idLanguage": "1",
-      "idTag": "1",
+      "wordId": "1",
       "name": "Print",
       "synonyms": "Print Escreva Console.WriteLine System.out.println ",
       "description": "Função de mostrar na tela",
@@ -21,9 +17,7 @@
       "exit": "Olá, mundo!"
     },
     {
-      "codeId": "2",
-      "idLanguage": "2",
-      "idTag": "1",
+      "wordId": "2",
       "name": "Console.Write",
       "synonyms": "Print Escreva Console.WriteLine System.out.println ",
       "description": "Função de mostrar na tela",
@@ -32,9 +26,7 @@
       "exit": "Olá, mundo!"
     },
     {
-      "codeId": "3",
-      "idLanguage": "3",
-      "idTag": "1",
+      "wordId": "3",
       "name": "System.out.println",
       "synonyms": "Print Escreva Console.WriteLine System.out.println ",
       "description": "Função de mostrar na tela",

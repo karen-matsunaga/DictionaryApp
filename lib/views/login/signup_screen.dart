@@ -1,15 +1,15 @@
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/login/custom_button_widget.dart';
-import 'package:dictionary/views/login/custom_form_widget.dart';
-import 'package:dictionary/views/login/custom_msg_widget.dart';
-import 'package:dictionary/views/login/logo_widget.dart';
+import 'package:dictionary/widgets/custom_button_widget.dart';
+import 'package:dictionary/widgets/custom_form_widget.dart';
+import 'package:dictionary/widgets/custom_msg_widget.dart';
+import 'package:dictionary/widgets/custom_logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
-import 'package:dictionary/views/login/login_widget.dart';
+import 'package:dictionary/views/login/login_screen.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/views/login/custom_pass_widget.dart';
+import 'package:dictionary/widgets/custom_pass_widget.dart';
 
 class AccountCreatePage extends StatefulWidget {
   const AccountCreatePage({Key? key}) : super(key: key);

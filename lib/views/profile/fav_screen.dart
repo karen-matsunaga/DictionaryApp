@@ -1,6 +1,6 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/views/home/menu_view.dart';
-import 'package:dictionary/views/profile/custom_appbar_widget.dart';
+import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

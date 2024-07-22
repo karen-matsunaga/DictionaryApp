@@ -1,4 +1,4 @@
-import 'package:dictionary/views/login/custom_button_widget.dart';
+import 'package:dictionary/widgets/custom_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
