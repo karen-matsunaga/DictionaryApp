@@ -1,5 +1,4 @@
-import 'package:dictionary/controllers/dark_theme.dart';
-import 'package:dictionary/controllers/light_theme.dart';
+import 'package:dictionary/controllers/custom_theme.dart';
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
@@ -24,8 +23,8 @@ void main() async {
   await FontSizeConfig.loadFontSize();
   // USUÁRIO LOGADO
   UserProvider();
+
   // SQFLITE - BANCO DE DADOS
-// SQFLITE - BANCO DE DADOS
   final dbHelper = DatabaseHelper();
   runApp(
     provider.MultiProvider(
@@ -81,7 +80,6 @@ class CodexProgramador extends StatelessWidget {
 }
 
 // TELA PARA DEFINIR SE O USUÁRIO ESTÁ LOGADO OU NÃO
-
 class InitialScreen extends StatefulWidget {
   const InitialScreen({super.key});
 

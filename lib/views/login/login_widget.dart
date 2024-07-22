@@ -2,7 +2,6 @@ import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/home/homepage_widget.dart';
 import 'package:dictionary/views/login/custom_pass_widget.dart';
-// import 'package:dictionary/views/login/exit_widget.dart';
 import 'package:dictionary/views/login/logo_widget.dart';
 import 'package:dictionary/views/login/signup_widget.dart';
 import 'package:dictionary/models/dbhelper.dart';
@@ -178,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                     : const SizedBox(),
 
                 // BOTÃO SAIR DO APLICATIVO
-                // ExitDialogApp(),
+                // ExitApp(),
               ],
             ),
           ),

@@ -25,8 +25,12 @@ class _PasswordFormState extends State<PasswordForm> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    var orientation = MediaQuery.of(context).orientation;
+    print('Altura: $height');
+    print('Largura: $width');
+    print('Orientation: $orientation');
     // DESIGN DO FORMULÁRIO
     return Container(
       height: height * .15,

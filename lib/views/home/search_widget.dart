@@ -1,7 +1,6 @@
 import 'dart:convert';
-
 import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/models/codes.dart';
+import 'package:dictionary/models/words.dart';
 import 'package:dictionary/views/home/custom_box_widget.dart';
 import 'package:dictionary/views/home/custom_fav_widget.dart';
 import 'package:dictionary/views/home/menu_view.dart';
@@ -31,7 +30,7 @@ class _SearchPageState extends State<SearchPage> {
     final data = await json.decode(response);
 
     setState(() {
-      wordList = data['codes'].map((data) => Codes.fromJson(data)).toList();
+      wordList = data['codes'].map((data) => Words.fromJson(data)).toList();
     });
   }
 
@@ -44,6 +43,8 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     // SEARCHBAR APPLICATION
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -55,15 +56,20 @@ class _SearchPageState extends State<SearchPage> {
 
       // Texto com a definição da palavra pesquisada com o SQLite
       body: SingleChildScrollView(
-        child: ListView.builder(
-          itemCount: wordList.length,
-          itemBuilder: (BuildContext context, snapshot) {
-            // OS DADOS VAZIOS
-            if (wordList[snapshot] == null) {
-              return const CircularProgressIndicator();
-            }
-            // OS DADOS EXISTENTES
-            else {
+        scrollDirection: Axis.vertical,
+        child: SizedBox(
+          height: height,
+          width: width,
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: wordList.length,
+            itemBuilder: (BuildContext context, snapshot) {
+              // OS DADOS VAZIOS
+              // if (wordList[snapshot] == null) {
+              //   return const CircularProgressIndicator();
+              // }
+              // OS DADOS EXISTENTES
+              // else {
               return Container(
                 padding: const EdgeInsets.all(20),
                 alignment: Alignment.center,
@@ -88,6 +94,7 @@ class _SearchPageState extends State<SearchPage> {
                                 provider.Provider.of<FontSizeConfig>(context)
                                     .fontSize),
                       ),
+
                       // Icone para adicionar a palavra em FAVORITO (NÃO IMPLEMENTADA)
                       trailing: const FavoriteIcon(),
                     ),
@@ -117,8 +124,8 @@ class _SearchPageState extends State<SearchPage> {
                   ],
                 ),
               );
-            }
-          },
+            },
+          ),
         ),
       ),
     );
