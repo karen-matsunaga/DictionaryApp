@@ -1,0 +1,28 @@
+{ 
+  "words": [
+
+              {
+                "id": 1,
+                "name": "Escreva",
+                "type": "Função",
+                "description": "Função para mostrar algo na tela.",
+                "synonyms":"Print, Console.Write, System.out.println.",
+                "python": "print('Olá, mundo!')",
+                "cSharp": "using System;\n namespace MyApplication\n{\nclass Program\n{\nstatic void Main(string[]args)\n{\nConsole.WriteLine('Hello World!');\n}\n}\n}\n",
+                "java":   "public class Main { \npublic static void main(String[] args) { \nSystem.out.println('Olá, mundo!'); \n} \n}",
+                "exit": "Olá, mundo!"
+              },
+
+              {
+                "id": 2,
+                "name":"Adição",
+                "type": "Operador aritmético",
+                "description": "Responsável pela soma das variáveis.",
+                "synonyms": "+ Soma",
+                "python": "a = 1\nb = 2\nprint($'{a} + {b}')",
+                "cSharp": "int a = 1, b= 2;\nConsole.WriteLine(a + b);",
+                "java": "public class soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\nSystem.out.println(+total);\n}\n}",
+                "exit": "3"
+              }
+           ]
+}

@@ -6,7 +6,6 @@ import 'package:dictionary/widgets/custom_fav_widget.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart' as provider;
 
 class SearchPage extends StatefulWidget {
@@ -20,31 +19,34 @@ class _SearchPageState extends State<SearchPage> {
   // CONTROLADORES
   final searchController = TextEditingController();
 
-  // FILTRO DA PESQUISA
-  List<dynamic> wordList = [];
+  // EXIBIÇÃO DO ID ESPECÍFICO
+  var wordName = "";
+  Words? word;
 
-  // LENDO O ARQUIVO CODES.JSON
-  Future<void> readJson() async {
-    final String response =
-        await rootBundle.loadString('assets/json/codes.json');
-    final data = await json.decode(response);
-
-    setState(() {
-      wordList = data['codes'].map((data) => Words.fromJson(data)).toList();
-    });
-  }
-
-  // TODA VEZ QUE INICIAR O APLICATIVO O ARQUIVO CODES.JSON SERÁ ATIVADO
+  // INICIAR TODA VEZ QUE ACESSAR O APLICATIVO
   @override
   void initState() {
     super.initState();
-    readJson();
+  }
+
+  // CARREGAR OS DADOS DA PALAVRA ESPECÍFICA
+  @override
+  void didChangeDependencies() {
+    var wordString = ModalRoute.of(context)?.settings.arguments as String;
+    var wordJson = jsonDecode(wordString);
+
+    setState(() {
+      word = Words.fromJson(wordJson);
+      wordName = word!.name;
+    });
+
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     // SEARCHBAR APPLICATION
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -54,77 +56,49 @@ class _SearchPageState extends State<SearchPage> {
       // Opções do Menu de configurações
       drawer: const MenuPage(),
 
-      // Texto com a definição da palavra pesquisada com o SQLite
+      // Texto com a definição da palavra pesquisada com o arquivo words.JSON
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: SizedBox(
-          height: height,
-          width: width,
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: wordList.length,
-            itemBuilder: (BuildContext context, snapshot) {
-              // OS DADOS VAZIOS
-              // if (wordList[snapshot] == null) {
-              //   return const CircularProgressIndicator();
-              // }
-              // OS DADOS EXISTENTES
-              // else {
-              return Container(
-                padding: const EdgeInsets.all(20),
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    // Comando pesquisado e sua função
-                    ListTile(
-                      title: Text(
-                        // 'Print'.toUpperCase(),
-                        wordList[snapshot]['name'],
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize:
-                                provider.Provider.of<FontSizeConfig>(context)
-                                    .fontSize),
-                      ),
-                      subtitle: Text(
-                        // 'Função principal mostrar na tela.',
-                        wordList[snapshot]['description'],
-                        style: TextStyle(
-                            fontSize:
-                                provider.Provider.of<FontSizeConfig>(context)
-                                    .fontSize),
-                      ),
-
-                      // Icone para adicionar a palavra em FAVORITO (NÃO IMPLEMENTADA)
-                      trailing: const FavoriteIcon(),
-                    ),
-
-                    // Refatoração da primeira box PYTHON
-                    const CustomBox(
-                        language: 'Python', text: 'print("Olá, mundo!")'),
-
-                    // Refatoração da segunda box C#
-                    const CustomBox(
-                        language: 'C#',
-                        text:
-                            'Console.Write("Olá, mundo!");\nConsole.WriteLine("Olá, mundo!");'),
-
-                    // Refatoração da terceira box JAVA
-
-                    const CustomBox(
-                        language: 'Java',
-                        text:
-                            'public class Main { \npublic static void main(String[] args) { \nSystem.out.println("Olá, mundo!"); \n} \n}'),
-
-                    // Refatoração da quarta box SAÍDA DE DADOS
-                    const CustomBox(
-                      language: 'Saída de Dados',
-                      text: 'Olá, mundo!',
-                    ),
-                  ],
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          alignment: Alignment.center,
+          child: Column(
+            children: <Widget>[
+              // Comando pesquisado e sua função
+              ListTile(
+                title: Text(
+                  // 'Print'.toUpperCase(),
+                  word!.name,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: provider.Provider.of<FontSizeConfig>(context)
+                          .fontSize),
                 ),
-              );
-            },
+                subtitle: Text(
+                  // 'Função principal mostrar na tela.',
+                  word!.description,
+                  style: TextStyle(
+                      fontSize: provider.Provider.of<FontSizeConfig>(context)
+                          .fontSize),
+                ),
+
+                // Icone para adicionar a palavra em FAVORITO (NÃO IMPLEMENTADA)
+                trailing: const FavoriteIcon(),
+              ),
+
+              // Refatoração da primeira box PYTHON
+              CustomBox(language: 'Python', text: word!.python),
+
+              // Refatoração da segunda box C#
+              CustomBox(language: 'C#', text: word!.cSharp),
+
+              // Refatoração da terceira box JAVA
+
+              CustomBox(language: 'Java', text: word!.java),
+
+              // Refatoração da quarta box SAÍDA DE DADOS
+              CustomBox(language: 'Saída de Dados', text: word!.exit),
+            ],
           ),
         ),
       ),

@@ -179,22 +179,18 @@ class _LoginPageState extends State<LoginPage> {
                     : const SizedBox(),
 
                 // SAIR DO APLICATIVO
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .2,
-                  width: MediaQuery.of(context).size.width * .7,
-                  child: CustomExit(
-                    callBack: () {
-                      Navigator.pop(context, true);
-                      // Atrasar para garantir que a caixa de diálogo seja fechada antes de sair do app
-                      Future.delayed(
-                        const Duration(milliseconds: 200),
-                        () {
-                          // Sair do aplicativo
-                          SystemNavigator.pop();
-                        },
-                      );
-                    },
-                  ),
+                CustomExit(
+                  callBack: () {
+                    Navigator.pop(context, true);
+                    // Atrasar para garantir que a caixa de diálogo seja fechada antes de sair do app
+                    Future.delayed(
+                      const Duration(milliseconds: 200),
+                      () {
+                        // Sair do aplicativo
+                        SystemNavigator.pop();
+                      },
+                    );
+                  },
                 ),
               ],
             ),

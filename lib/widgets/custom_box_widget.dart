@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 
 class CustomBox extends StatelessWidget {
   final String language, text;
-  const CustomBox({super.key, required this.language, required this.text});
+  CustomBox({
+    super.key,
+    required this.language,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {

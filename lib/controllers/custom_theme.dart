@@ -69,6 +69,8 @@ ThemeData lightTheme = ThemeData(
     error: lightBackgroundApp,
     onError: blackErrorColor,
   ),
+
+  cardColor: whiteCardColor,
 );
 
 // TEMA DARK CUSTOMIZADO
@@ -109,8 +111,6 @@ ThemeData darkTheme = ThemeData(
   // INPUT DECORATION
   inputDecorationTheme: InputDecorationTheme(fillColor: darkSearch),
 
-  // SELEÇÃO DE TEXTO
-
   // COLOR SCHEME
   colorScheme: ColorScheme.dark(
     // SCAFFOLD
@@ -132,4 +132,5 @@ ThemeData darkTheme = ThemeData(
     error: blackBackgroundApp,
     onError: blackErrorColor,
   ),
+  cardColor: blackCardColor,
 );
