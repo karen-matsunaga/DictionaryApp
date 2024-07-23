@@ -1,4 +1,5 @@
 import 'package:dictionary/controllers/custom_theme.dart';
+import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/controllers/words_provider.dart';
 import 'package:dictionary/models/dbhelper.dart';
@@ -28,7 +29,8 @@ void main() async {
   WordsProvider();
   // SQFLITE - BANCO DE DADOS
   final dbHelper = DatabaseHelper();
-
+  // PALAVRAS FAVORITAS
+  FavoriteProvider();
   // Aqui rodamos o app dentro do Provider onde serão carregadas as configurações salvas pelo Shared Preferences, Provider e SQFLite
   runApp(
     provider.MultiProvider(
@@ -46,6 +48,9 @@ void main() async {
           provider.ChangeNotifierProvider(create: (context) => WordsProvider()),
           // BANCO DE DADOS SQFLITE ATIVADO
           provider.Provider<DatabaseHelper>.value(value: dbHelper),
+          // TODAS AS PALAVRAS NO FAVORITO
+          provider.ChangeNotifierProvider(
+              create: (context) => FavoriteProvider()),
         ],
         // ABERTURA DO APLICATIVO
         child: const CodexProgramador()),

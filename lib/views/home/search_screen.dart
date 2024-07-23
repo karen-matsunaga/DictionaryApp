@@ -1,4 +1,5 @@
 import 'dart:convert';
+// import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/models/words.dart';
 import 'package:dictionary/widgets/custom_box_widget.dart';
@@ -45,6 +46,9 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    // ICONE DE SALVAR AS PALAVRAS
+    // final favoriteProvider = FavoriteProvider.of(context);
+
     // final height = MediaQuery.of(context).size.height;
     // final width = MediaQuery.of(context).size.width;
     // SEARCHBAR APPLICATION
@@ -67,7 +71,6 @@ class _SearchPageState extends State<SearchPage> {
               // Comando pesquisado e sua função
               ListTile(
                 title: Text(
-                  // 'Print'.toUpperCase(),
                   word!.name,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -75,7 +78,6 @@ class _SearchPageState extends State<SearchPage> {
                           .fontSize),
                 ),
                 subtitle: Text(
-                  // 'Função principal mostrar na tela.',
                   word!.description,
                   style: TextStyle(
                       fontSize: provider.Provider.of<FontSizeConfig>(context)
@@ -87,17 +89,18 @@ class _SearchPageState extends State<SearchPage> {
               ),
 
               // Refatoração da primeira box PYTHON
-              CustomBox(language: 'Python', text: word!.python),
+              CustomBox(language: 'Python'.toUpperCase(), text: word!.python),
 
               // Refatoração da segunda box C#
-              CustomBox(language: 'C#', text: word!.cSharp),
+              CustomBox(language: 'C#'.toUpperCase(), text: word!.cSharp),
 
               // Refatoração da terceira box JAVA
 
-              CustomBox(language: 'Java', text: word!.java),
+              CustomBox(language: 'Java'.toUpperCase(), text: word!.java),
 
               // Refatoração da quarta box SAÍDA DE DADOS
-              CustomBox(language: 'Saída de Dados', text: word!.exit),
+              CustomBox(
+                  language: 'Saída de Dados'.toUpperCase(), text: word!.exit),
             ],
           ),
         ),
