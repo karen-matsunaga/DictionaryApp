@@ -1,5 +1,6 @@
 import 'package:dictionary/controllers/custom_theme.dart';
 import 'package:dictionary/controllers/user_provider.dart';
+import 'package:dictionary/controllers/words_provider.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
 import 'package:dictionary/views/login/signup_screen.dart';
@@ -24,19 +25,26 @@ void main() async {
   // USUÁRIO LOGADO
   UserProvider();
   // ARQUIVO WORDS.JSON
-
+  WordsProvider();
   // SQFLITE - BANCO DE DADOS
   final dbHelper = DatabaseHelper();
+
+  // Aqui rodamos o app dentro do Provider onde serão carregadas as configurações salvas pelo Shared Preferences, Provider e SQFLite
   runApp(
     provider.MultiProvider(
         providers: [
-          // Aqui rodamos o app dentro do Provider onde serão carregadas as configurações salvas pelo Shared Preferences, Provider e SQFLite
+          // TAMANHO DA FONTE
           provider.ChangeNotifierProvider(
               create: (context) => FontSizeConfig()),
+          // TEMA LIGHT/DARK
           provider.ChangeNotifierProvider(
               create: (context) => DynamicDarkMode()),
+          // USUÁRIO LOGADO
           provider.ChangeNotifierProvider(
               create: (context) => UserProvider()..loadUserData()),
+          // CARREGAMENTO DAS PALAVRAS DA CLASSE WORDS BASEADO NO WORDS.JSON
+          provider.ChangeNotifierProvider(create: (context) => WordsProvider()),
+          // BANCO DE DADOS SQFLITE ATIVADO
           provider.Provider<DatabaseHelper>.value(value: dbHelper),
         ],
         // ABERTURA DO APLICATIVO

@@ -30,11 +30,9 @@ class DatabaseHelper {
   // NOME DO BANCO DE DADOS
   final databaseName = "users.db";
 
-  // CRIAÇÃO DAS TABELAS users NO USERS.DB
-
-  // TABELA users que é responsável pela autenticação do usuário
+  // CRIAÇÃO DA TABELA users NO USERS.DB que é responsável pela autenticação do usuário
   String users =
-      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, email TEXT, userPassword TEXT, FOREIGN KEY (idFavorite) REFERENCES favorites(favoriteId))";
+      "create table users (userId INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT, email TEXT, userPassword TEXT)";
 
   // BANCO DE DADOS - VERIFICAR CONTA
   Future<bool> authenticate(Users user) async {
