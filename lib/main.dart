@@ -1,21 +1,21 @@
-import 'package:dictionary/controllers/custom_theme.dart';
+import 'package:flutter/material.dart';
 import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/controllers/words_provider.dart';
+import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/controllers/theme_provider.dart';
+import 'package:provider/provider.dart' as provider;
+import 'package:dictionary/controllers/custom_theme.dart';
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/login/signup_screen.dart';
-import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/views/profile/config_view.dart';
-import 'package:dictionary/controllers/theme_provider.dart';
-import 'package:dictionary/views/home/homepage_screen.dart';
-import 'package:dictionary/views/profile/fav_screen.dart';
-import 'package:dictionary/views/login/splash_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:dictionary/views/login/signup_screen.dart';
 import 'package:dictionary/views/home/search_screen.dart';
 import 'package:dictionary/views/login/login_screen.dart';
-import 'package:provider/provider.dart' as provider;
+import 'package:dictionary/views/home/homepage_screen.dart';
+import 'package:dictionary/views/login/splash_screen.dart';
+import 'package:dictionary/views/profile/fav_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +29,7 @@ void main() async {
   WordsProvider();
   // SQFLITE - BANCO DE DADOS
   final dbHelper = DatabaseHelper();
-  // PALAVRAS FAVORITAS
+  // ==== PALAVRAS FAVORITAS ==== NÃO IMPLEMENTADO
   FavoriteProvider();
   // Aqui rodamos o app dentro do Provider onde serão carregadas as configurações salvas pelo Shared Preferences, Provider e SQFLite
   runApp(
@@ -48,7 +48,7 @@ void main() async {
           provider.ChangeNotifierProvider(create: (context) => WordsProvider()),
           // BANCO DE DADOS SQFLITE ATIVADO
           provider.Provider<DatabaseHelper>.value(value: dbHelper),
-          // TODAS AS PALAVRAS NO FAVORITO
+          // ==== TODAS AS PALAVRAS NO FAVORITO ==== NÃO IMPLEMENTADO
           provider.ChangeNotifierProvider(
               create: (context) => FavoriteProvider()),
         ],

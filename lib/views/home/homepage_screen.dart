@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
   // @override
   @override
   Widget build(BuildContext context) {
+    // LISTA DE TODAS AS PALAVRAS DO ARQUIVO words.json
     final allWords = provider.Provider.of<WordsProvider>(context).words;
     return Scaffold(
       // AppBar do aplicativo

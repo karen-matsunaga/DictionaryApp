@@ -1,9 +1,9 @@
 import 'dart:convert';
-// import 'package:dictionary/controllers/favorite_provider.dart';
+import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/models/words.dart';
+import 'package:dictionary/views/profile/fav_screen.dart';
 import 'package:dictionary/widgets/custom_box_widget.dart';
-import 'package:dictionary/widgets/custom_fav_widget.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
@@ -46,9 +46,8 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    // ICONE DE SALVAR AS PALAVRAS
-    // final favoriteProvider = FavoriteProvider.of(context);
-
+    // FAVORITOS
+    final favoriteProvider = FavoriteProvider.of(context);
     // final height = MediaQuery.of(context).size.height;
     // final width = MediaQuery.of(context).size.width;
     // SEARCHBAR APPLICATION
@@ -70,6 +69,7 @@ class _SearchPageState extends State<SearchPage> {
             children: <Widget>[
               // Comando pesquisado e sua função
               ListTile(
+                // PALAVRA PESQUISADA
                 title: Text(
                   word!.name,
                   style: TextStyle(
@@ -77,6 +77,7 @@ class _SearchPageState extends State<SearchPage> {
                       fontSize: provider.Provider.of<FontSizeConfig>(context)
                           .fontSize),
                 ),
+                // DESCRIÇÃO DA PALAVRA
                 subtitle: Text(
                   word!.description,
                   style: TextStyle(
@@ -85,7 +86,15 @@ class _SearchPageState extends State<SearchPage> {
                 ),
 
                 // Icone para adicionar a palavra em FAVORITO (NÃO IMPLEMENTADA)
-                trailing: const FavoriteIcon(),
+                // trailing: const FavoriteIcon(),
+                trailing: IconButton(
+                  onPressed: () {
+                    favoriteProvider.toggleFavorite(word!.name);
+                  },
+                  icon: favoriteProvider.isExist(word!.name)
+                      ? const Icon(Icons.favorite, color: Colors.red)
+                      : const Icon(Icons.favorite_border),
+                ),
               ),
 
               // Refatoração da primeira box PYTHON
@@ -104,6 +113,15 @@ class _SearchPageState extends State<SearchPage> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          final route = MaterialPageRoute(
+            builder: (context) => FavoritePage(),
+          );
+          Navigator.push(context, route);
+        },
+        label: const Text('Favorites'),
       ),
     );
   }

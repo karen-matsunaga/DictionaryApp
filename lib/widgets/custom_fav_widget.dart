@@ -10,11 +10,6 @@ class FavoriteIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     // ICONE FAVORITO
     return InkWell(
-      onTap: () {
-        // IMPLEMENTAÇÃO DA LISTA FAVORITA NO BANCO DE DADOS
-        // ADICIONAR NOS FAVORITOS
-      },
-
       // DESIGN DO ICONE
       child: Container(
         padding: const EdgeInsets.all(8),
@@ -31,9 +26,11 @@ class FavoriteIcon extends StatelessWidget {
           ],
         ),
         // TAMANHO DO ICONE
-        child: Icon(Icons.favorite_rounded,
-            color: favoriteIcon,
-            size: provider.Provider.of<FontSizeConfig>(context).fontSize),
+        child: Icon(
+          Icons.favorite_rounded,
+          color: favoriteIcon,
+          size: provider.Provider.of<FontSizeConfig>(context).fontSize,
+        ),
       ),
     );
   }

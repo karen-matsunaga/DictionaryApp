@@ -56,7 +56,7 @@ class MenuPage extends StatelessWidget {
                           },
                         ),
 
-                        // REFATORADA - FAVORITOS
+                        // REFATORADA - FAVORITOS ========= MANUTENÇÃO ==========
                         IconDrawer(
                           icon: Icons.star,
                           title: 'Favoritos'.toUpperCase(),
@@ -94,30 +94,6 @@ class MenuPage extends StatelessWidget {
                             );
                           },
                         ),
-
-                        // CustomExitApp(
-                        //   callBack: () async {
-                        //     await userProvider.clearUserData();
-                        //     Navigator.of(context).push(
-                        //       MaterialPageRoute(
-                        //         builder: (context) => const LoginPage(),
-                        //       ),
-                        //     );
-                        //   },
-                        // ),
-
-                        // IconDrawer(
-                        //   icon: Icons.exit_to_app,
-                        //   title: 'Sair'.toUpperCase(),
-                        //   callback: () async {
-                        //     await userProvider.clearUserData();
-                        //     Navigator.of(context).push(
-                        //       MaterialPageRoute(
-                        //         builder: (context) => const LoginPage(),
-                        //       ),
-                        //     );
-                        //   },
-                        // ),
                       ],
                     ),
                   ),
