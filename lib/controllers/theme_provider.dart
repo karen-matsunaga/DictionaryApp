@@ -1,6 +1,24 @@
-import 'package:dictionary/controllers/mytheme_preference.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
+// SALVAR O TEMA ESCOLHIDO
+class MyThemePreferences {
+  static const _key = "theme_key";
+
+  // ACESSAR O TEMA ESCOLHIDO
+  setTheme(bool value) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setBool(_key, value);
+  }
+
+  // SALVAR O TEMA ESCOLHIDO
+  getTheme() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getBool(_key) ?? false;
+  }
+}
+
+// SALVAR OS TEMAS LIGHT E DARK COM SHARED PREFERENCES
 class DynamicDarkMode extends ChangeNotifier {
   late bool _isDarkMode;
   late MyThemePreferences _preferences;

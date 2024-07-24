@@ -1,4 +1,4 @@
-import 'package:dictionary/controllers/darktheme_provider.dart';
+import 'package:dictionary/controllers/theme_provider.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -57,20 +57,17 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                 borderRadius: BorderRadius.circular(8),
 
                 // OPÇÃO NÃO SELECIONADA
-                borderColor: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
+                borderColor: Theme.of(context).toggleButtonsTheme.borderColor,
+                color: Theme.of(context).toggleButtonsTheme.color,
 
                 // OPÇÃO SELECIONADA
-                selectedColor: backgroundAppBar,
+                selectedColor:
+                    Theme.of(context).toggleButtonsTheme.selectedColor,
                 selectedBorderColor:
-                    Theme.of(context).brightness == Brightness.dark
-                        ? backgroundAppBar
-                        : Colors.grey,
-                fillColor: Colors.white70,
+                    Theme.of(context).toggleButtonsTheme.selectedBorderColor,
+
+                fillColor: Theme.of(context).toggleButtonsTheme.fillColor,
+                // OPÇÕES DOS TAMANHOS DO APLICATIVO
                 isSelected: [
                   fontSizeConfig.fontSize == 16,
                   fontSizeConfig.fontSize == 20,
@@ -94,18 +91,13 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                 // OPÇÕES DE TAMANHO DA FONTE
                 children: const <Widget>[
                   // PEQUENO - TAMANHO 16
-                  Text('P',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  smallText,
+
                   // MÉDIO - TAMANHO 20
-                  Text('M',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  mediumText,
 
                   // GRANDE - TAMANHO 24
-                  Text('G',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  largeText,
                 ],
               ),
 
@@ -115,8 +107,7 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                 alignment: Alignment.center,
                 child: Text(
                   'Tema',
-                  style: TextStyle(
-                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+                  style: TextStyle(fontSize: fontSizeConfig.fontSize),
                 ),
               ),
 
@@ -140,7 +131,7 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
                   themeProvider.isDarkMode
                       ? Icons.nightlight_round
                       : Icons.wb_sunny,
-                  size: Provider.of<FontSizeConfig>(context).fontSize,
+                  size: fontSizeConfig.fontSize * 1.2,
                 ),
               ),
             ],

@@ -1,15 +1,15 @@
 import 'package:dictionary/models/dbhelper.dart';
 import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/login/custom_button_widget.dart';
-import 'package:dictionary/views/login/custom_form_widget.dart';
-import 'package:dictionary/views/login/custom_msg_widget.dart';
-import 'package:dictionary/views/login/logo_widget.dart';
+import 'package:dictionary/widgets/custom_button_widget.dart';
+import 'package:dictionary/widgets/custom_form_widget.dart';
+import 'package:dictionary/widgets/custom_msg_widget.dart';
+import 'package:dictionary/widgets/custom_logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
-import 'package:dictionary/views/login/login_widget.dart';
+import 'package:dictionary/views/login/login_screen.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/views/login/custom_pass_widget.dart';
+import 'package:dictionary/widgets/custom_pass_widget.dart';
 
 class AccountCreatePage extends StatefulWidget {
   const AccountCreatePage({Key? key}) : super(key: key);
@@ -24,6 +24,9 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+
+  // VERIFICAR SE ESTÁ CADASTRADO
+  bool isUserDuplicated = false;
 
   // VALIDAÇÃO DO NOME
   String? _validateUsername(String? value) {
@@ -78,21 +81,33 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   final formKey = GlobalKey<FormState>();
 
   // BANCO DE DADOS
-  final db = DatabaseHelper();
+  late final dbHelper =
+      provider.Provider.of<DatabaseHelper>(context, listen: false);
 
   // CADASTRO DA CONTA
   signUp() async {
-    var res = await db.createUser(Users(
-      userName: _usernameController.text,
-      email: _emailController.text,
-      userPassword: _passwordController.text,
-    ));
-    if (res > 0) {
-      if (!mounted) return;
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const LoginPage()));
-    } else {
-      return 'Conta existente';
+    // VERIFICAR SE O USUÁRIO ESTÁ DUPLICADO
+    bool userDuplicated =
+        await dbHelper.checkUserDuplicated(_emailController.text);
+    // CASO O USUÁRIO ESTÁ DUPLICADO
+    if (userDuplicated) {
+      setState(() {
+        isUserDuplicated = true;
+      });
+    }
+
+    // CASO O USUÁRIO NÃO ESTÁ DUPLICADO
+    else {
+      var res = await dbHelper.createUser(Users(
+        userName: _usernameController.text,
+        email: _emailController.text,
+        userPassword: _passwordController.text,
+      ));
+      if (res > 0) {
+        if (!mounted) return;
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginPage()));
+      }
     }
   }
 
@@ -100,9 +115,8 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   Widget build(BuildContext context) {
     // TELA DE CRIAR CONTA
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? Theme.of(context).scaffoldBackgroundColor
-          : backgroundApp,
+      // FUNDO DO APLICATIVO
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -160,12 +174,11 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ESPAÇO ENTRE OS COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // Botão CADASTRAR
                 CustomButton(
                   text: 'Cadastrar'.toUpperCase(),
-                  color: appLogo,
                   callBack: () {
                     if (formKey.currentState!.validate()) {
                       signUp();
@@ -174,7 +187,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ESPAÇAMENTO ENTRE COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // TEXTO E BOTÃO PARA CONTA EXISTENTE
                 CustomLetter(
@@ -188,6 +201,22 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                     );
                   },
                 ),
+
+                // ESPAÇAMENTO ENTRE COMPONENTES
+                spaceColumn,
+
+                // MENSAGEM DE ERRO CASO EXISTA O USUÁRIO
+                isUserDuplicated
+                    ? const Text(
+                        "Esse e-mail ou usuário já foi usado tente outro!",
+                        style: TextStyle(
+                          color: lightErrorColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          letterSpacing: 2,
+                        ),
+                      )
+                    : const SizedBox(),
               ],
             ),
           ),

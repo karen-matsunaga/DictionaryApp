@@ -1,11 +1,14 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomBox extends StatelessWidget {
   final String language, text;
-  const CustomBox({super.key, required this.language, required this.text});
+  CustomBox({
+    super.key,
+    required this.language,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +23,14 @@ class CustomBox extends StatelessWidget {
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.only(left: 16, top: 19, right: 16),
       decoration: BoxDecoration(
-          color: Theme.of(context).brightness == Brightness.dark
-              ? appLogo
-              : columns,
+          color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(10)),
       child: Column(
         children: [
           Row(
             children: [
               const Padding(padding: EdgeInsets.only(bottom: 40)),
+              // EXIBIÇÃO DO NOME DA LINGUAGEM
               Expanded(
                 child: Text(
                   language.toUpperCase(),
@@ -42,7 +44,7 @@ class CustomBox extends StatelessWidget {
               ),
             ],
           ),
-          // CÓDIGO EM PYTHON PARA A SAÍDA DE DADOS
+          // CÓDIGO DA LINGUAGEM PARA A SAÍDA DE DADOS
           Row(
             children: [
               Expanded(

@@ -1,5 +1,4 @@
 import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,13 +27,17 @@ class CustomForm extends StatefulWidget {
 class _CustomFormState extends State<CustomForm> {
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     // DESIGNER DO CAMPO
     return Container(
+      height: height * .15,
+      width: width * .9,
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: appLogo,
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -54,7 +57,8 @@ class _CustomFormState extends State<CustomForm> {
         controller: widget.controller,
         validator: (value) => widget.validator(value),
         decoration: InputDecoration(
-          fillColor: null,
+          labelStyle: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+          errorStyle: TextStyle(color: Theme.of(context).colorScheme.onError),
           icon: widget.icon,
           border: InputBorder.none,
           labelText: widget.label,

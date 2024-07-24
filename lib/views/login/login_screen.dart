@@ -1,16 +1,20 @@
+import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/home/menu_view.dart';
-import 'package:dictionary/views/login/custom_pass_widget.dart';
-import 'package:dictionary/views/login/logo_widget.dart';
-import 'package:dictionary/views/login/signup_widget.dart';
+import 'package:dictionary/views/home/homepage_screen.dart';
+import 'package:dictionary/widgets/custom_pass_widget.dart';
+import 'package:dictionary/widgets/custom_logo_widget.dart';
+import 'package:dictionary/views/login/signup_screen.dart';
 import 'package:dictionary/models/dbhelper.dart';
-import 'package:dictionary/views/login/custom_button_widget.dart';
-import 'package:dictionary/views/login/custom_form_widget.dart';
-import 'package:dictionary/views/login/custom_msg_widget.dart';
+import 'package:dictionary/widgets/custom_button_widget.dart';
+import 'package:dictionary/widgets/custom_form_widget.dart';
+import 'package:dictionary/widgets/custom_msg_widget.dart';
+import 'package:dictionary/widgets/custom_exit_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -23,30 +27,37 @@ class _LoginPageState extends State<LoginPage> {
   // CONTROLADORES
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController usernameController = TextEditingController();
 
   // VERIFICAR SE ESTÁ LOGADO
   bool isLoginTrue = false;
 
   // BANCO DE DADOS
-  final db = DatabaseHelper();
+  late final dbHelper =
+      provider.Provider.of<DatabaseHelper>(context, listen: false);
 
   // FUNÇÃO LOGIN PARA VERIFICAÇÃO DOS DADOS
   login() async {
-    var response = await db.authenticate(
+    var response = await dbHelper.authenticate(
       Users(
-        userName: usernameController.text,
         email: emailController.text,
         userPassword: passwordController.text,
       ),
     );
     if (response == true) {
+      // SHARED PREFERENCES
+      final userProvider = Provider.of<UserProvider>(context, listen: false);
+      await userProvider.saveUserData(
+          emailController.text, passwordController.text);
+      await userProvider.loadUserData();
+
+      // ADICIONAR O SAVE DO ARQUIVO WORDS.JSON
+
       // SE OS DADOS ESTIVEREM CORRETOS
       if (!mounted) return;
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const MenuPage(),
+          builder: (context) => const HomePage(),
         ),
       );
     } else {
@@ -80,13 +91,12 @@ class _LoginPageState extends State<LoginPage> {
     return null;
   }
 
+// TELA DE LOGIN
   @override
   Widget build(BuildContext context) {
     // TELA DE LOGIN
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? Theme.of(context).scaffoldBackgroundColor
-          : backgroundApp,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -126,21 +136,20 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 // ESPAÇAMENTO DOS COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // BOTÃO LOGAR
                 CustomButton(
                     text: "Logar".toUpperCase(),
-                    color: buttonLight,
                     callBack: () async {
                       // e-mail e senha estão corretos
                       if (formKey.currentState!.validate()) {
-                        login();
+                        await login();
                       }
                     }),
 
                 // ESPAÇO ENTRE OS COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // TEXTO E BOTÃO PERSONALIZADO PARA CRIAR CONTA
                 CustomLetter(
@@ -156,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 // ESPAÇO ENTRE OS COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // MENSAGEM CASO O E-MAIL E/OU SENHA FORAM PREENCHIDAS INCORRETAMENTE
                 isLoginTrue
@@ -165,9 +174,27 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          letterSpacing: 2,
                         ),
+                        textAlign: TextAlign.center,
                       )
                     : const SizedBox(),
+
+                // SAIR DO APLICATIVO
+                CustomExit(
+                  callBack: () {
+                    Navigator.pop(context, true);
+                    // Atrasar para garantir que a caixa de diálogo seja fechada antes de sair do app
+                    Future.delayed(
+                      const Duration(milliseconds: 200),
+                      () {
+                        // Sair do aplicativo
+                        SystemNavigator.pop();
+                      },
+                    );
+                  },
+                ),
               ],
             ),
           ),

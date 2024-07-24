@@ -18,15 +18,19 @@ class IconDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     // MENU DA CONFIGURAÇÃO
     return ListTile(
-      leading: Icon(icon,
-          size: provider.Provider.of<FontSizeConfig>(context).fontSize),
+      // CONTEÚDO DOS ICONES
+      leading: Icon(
+        icon,
+        size: provider.Provider.of<FontSizeConfig>(context).fontSize,
+        color: Theme.of(context).listTileTheme.iconColor,
+      ),
+      // CONTEÚDO DOS TEXTOS
       title: Text(
-        title,
+        title.toUpperCase(),
         style: TextStyle(
-          letterSpacing: 1,
-          fontWeight: FontWeight.bold,
-          fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
-        ),
+            letterSpacing: 1,
+            fontWeight: FontWeight.bold,
+            fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize),
       ),
       onTap: callback,
     );
