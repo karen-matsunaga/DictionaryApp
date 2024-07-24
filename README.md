@@ -13,7 +13,7 @@ Orientador(a): Luciene
 * :mobile_phone_off: Foco na portabilidade para facilitar nos estudos e não requer internet para realizar as consultas das linguagens de programação;
 
 ### Ferramentas:
-* Linguagem de Programação Dart para construir o back-end e front-end do aplicativo como telas e o CRUD;
-* Framework Flutter para o front-end das telas intuitivas e práticas para o usuário final;
-* Banco de dados locais SQFLite e Shared Preferences para o back-end usando os príncipios básicos do CRUD (Create Read Update Delete) para armazenar os dados e as configurações realizadas pelo usuário;
-* Provider responsável pelo state management do CRUD no aplicativo.
+* :white_check_mark: Linguagem de Programação Dart para construir o back-end e front-end do aplicativo como telas e o CRUD;
+* :white_check_mark: Framework Flutter para o front-end das telas intuitivas e práticas para o usuário final;
+* :white_check_mark: Banco de dados locais SQFLite e Shared Preferences para o back-end usando os príncipios básicos do CRUD (Create Read Update Delete) para armazenar os dados e as configurações realizadas pelo usuário;
+* :white_check_mark: Provider responsável pelo state management do CRUD no aplicativo.
