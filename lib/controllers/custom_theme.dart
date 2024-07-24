@@ -30,7 +30,7 @@ ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: lightScaffoldApp,
 
   // INPUT DECORATION
-  inputDecorationTheme: InputDecorationTheme(fillColor: backgroundAppBarSearch),
+  inputDecorationTheme: InputDecorationTheme(fillColor: lightSearch),
 
   // SELEÇÃO DO TEXTO
   textSelectionTheme: TextSelectionThemeData(cursorColor: lightText),
