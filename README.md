@@ -6,7 +6,7 @@ Integrantes: Christian Matsunaga e Karen Matsunaga
 
 Disciplina: Trabalho de Graduação II
 
-Orientador(a): Luciene
+Orientador(a): Luciene Rodrigues
 
 ### Objetivos:
 * :blue_book: O projeto é um dicionário de linguagem de programação voltado para iniciantes da área de TI que necessitam a aprendizagem das ferramentas de forma mais prática com diversas linguagens de programação como Python, C# e Java as quais são mostradas os códigos das suas respectivas sintaxes que resultam a resposta final idênticas, mas com diversas possibilidades distintas;
@@ -17,3 +17,5 @@ Orientador(a): Luciene
 * :white_check_mark: Framework Flutter para o front-end das telas intuitivas e práticas para o usuário final;
 * :white_check_mark: Banco de dados locais SQFLite e Shared Preferences para o back-end usando os príncipios básicos do CRUD (Create Read Update Delete) para armazenar os dados e as configurações realizadas pelo usuário;
 * :white_check_mark: Provider responsável pelo state management do CRUD no aplicativo.
+
+### TELAS
