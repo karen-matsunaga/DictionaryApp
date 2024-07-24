@@ -17,7 +17,7 @@ class UserProvider with ChangeNotifier {
   }
 
   // SALVAR O E-MAIL DO USUÁRIO LOGADO
-  Future<void> saveUserData(String email, String userName) async {
+  Future<void> saveUserData(String email, String password) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('email', email);
     _email = email;

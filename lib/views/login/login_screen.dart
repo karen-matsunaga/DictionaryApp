@@ -136,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 // ESPAÇAMENTO DOS COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // BOTÃO LOGAR
                 CustomButton(
@@ -149,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                     }),
 
                 // ESPAÇO ENTRE OS COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // TEXTO E BOTÃO PERSONALIZADO PARA CRIAR CONTA
                 CustomLetter(
@@ -165,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 // ESPAÇO ENTRE OS COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // MENSAGEM CASO O E-MAIL E/OU SENHA FORAM PREENCHIDAS INCORRETAMENTE
                 isLoginTrue

@@ -33,7 +33,7 @@ class _CustomLetterState extends State<CustomLetter> {
         ),
 
         // ESPAÇAMENTO DOS LADOS
-        espacoladoComponentes,
+        spaceRow,
 
         // BOTÃO PERSONALIZADO PARA CRIAR CONTA
         GestureDetector(

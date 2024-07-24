@@ -46,7 +46,7 @@ class MenuPage extends StatelessWidget {
                         // REFATORADA - PÁGINA INICIAL
                         IconDrawer(
                           icon: Icons.home,
-                          title: 'Início'.toUpperCase(),
+                          title: 'Início',
                           callback: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
@@ -56,10 +56,10 @@ class MenuPage extends StatelessWidget {
                           },
                         ),
 
-                        // REFATORADA - FAVORITOS ========= MANUTENÇÃO ==========
+                        // REFATORADA - FAVORITOS
                         IconDrawer(
                           icon: Icons.star,
-                          title: 'Favoritos'.toUpperCase(),
+                          title: 'Favoritos',
                           callback: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
@@ -72,7 +72,7 @@ class MenuPage extends StatelessWidget {
                         // REFATORADA - CONFIGURAÇÕES
                         IconDrawer(
                           icon: Icons.settings,
-                          title: 'Configurações'.toUpperCase(),
+                          title: 'Configurações',
                           callback: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(

@@ -43,15 +43,17 @@ class _CustomButtonState extends State<CustomButton> {
         ],
       ),
       // TEXTO DENTRO DA BORDA
-      child: TextButton(
-        onPressed: widget.callBack!,
-        child: Text(
-          widget.text.toUpperCase(),
-          style: TextStyle(
-            letterSpacing: 2,
-            fontWeight: FontWeight.bold,
-            fontSize: Provider.of<FontSizeConfig>(context).fontSize,
-            color: Theme.of(context).colorScheme.onPrimary,
+      child: FittedBox(
+        child: TextButton(
+          onPressed: widget.callBack!,
+          child: Text(
+            widget.text.toUpperCase(),
+            style: TextStyle(
+              letterSpacing: 2,
+              fontWeight: FontWeight.bold,
+              fontSize: Provider.of<FontSizeConfig>(context).fontSize,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
           ),
         ),
       ),

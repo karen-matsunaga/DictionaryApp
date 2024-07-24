@@ -43,7 +43,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
               ),
 
               // ESPAÇAMENTO ENTRE LINHA
-              espacoComponentes,
+              spaceColumn,
 
               // NOME DO APLICATIVO
               Text(
@@ -56,7 +56,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
               ),
 
               // ESPAÇAMENTO ENTRE LINHA
-              espacoComponentes,
+              spaceColumn,
 
               // CARREGAMENTO DO APLICATIVO
               CircularProgressIndicator(

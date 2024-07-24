@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/models/words.dart';
-import 'package:dictionary/views/profile/fav_screen.dart';
+import 'package:dictionary/utils/constants.dart';
 import 'package:dictionary/widgets/custom_box_widget.dart';
 import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/widgets/custom_appbar_widget.dart';
@@ -46,10 +46,11 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    // FAVORITOS
+    // FUNÇÃO DO BOTÃO DE FAVORITOS
     final favoriteProvider = FavoriteProvider.of(context);
-    // final height = MediaQuery.of(context).size.height;
-    // final width = MediaQuery.of(context).size.width;
+    // RESPONSIVIDADE DAS TELAS
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     // SEARCHBAR APPLICATION
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -63,6 +64,8 @@ class _SearchPageState extends State<SearchPage> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
+          height: height * 4.06,
+          width: width * 1,
           padding: const EdgeInsets.all(20),
           alignment: Alignment.center,
           child: Column(
@@ -85,43 +88,62 @@ class _SearchPageState extends State<SearchPage> {
                           .fontSize),
                 ),
 
-                // Icone para adicionar a palavra em FAVORITO (NÃO IMPLEMENTADA)
-                // trailing: const FavoriteIcon(),
-                trailing: IconButton(
-                  onPressed: () {
-                    favoriteProvider.toggleFavorite(word!.name);
-                  },
-                  icon: favoriteProvider.isExist(word!.name)
-                      ? const Icon(Icons.favorite, color: Colors.red)
-                      : const Icon(Icons.favorite_border),
+                // Icone para adicionar a palavra em FAVORITO
+                // DESIGN DO FUNDO DO BOTÃO
+                trailing: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(8),
+                    color: Theme.of(context).colorScheme.surface,
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                      ),
+                    ],
+                  ),
+
+                  // BOTÃO PARA ADICIONAR OU REMOVER DO FAVORITO
+                  child: IconButton(
+                    onPressed: () {
+                      favoriteProvider.toggleFavorite(word!.name);
+                    },
+                    icon: favoriteProvider.isExist(word!.name)
+                        // PALAVRA ADICIONADA NOS FAVORITOS
+                        ? Icon(
+                            Icons.favorite,
+                            color: favoriteIcon,
+                            size: provider.Provider.of<FontSizeConfig>(context)
+                                .fontSize,
+                          )
+                        // PALAVRA NÃO ADICIONADA NOS FAVORITOS
+                        : Icon(
+                            Icons.favorite_border,
+                            color: favoriteIcon,
+                            size: provider.Provider.of<FontSizeConfig>(context)
+                                .fontSize,
+                          ),
+                  ),
                 ),
               ),
 
               // Refatoração da primeira box PYTHON
-              CustomBox(language: 'Python'.toUpperCase(), text: word!.python),
+              CustomBox(language: 'Python', text: word!.python),
 
               // Refatoração da segunda box C#
-              CustomBox(language: 'C#'.toUpperCase(), text: word!.cSharp),
+              CustomBox(language: 'C#', text: word!.cSharp),
 
               // Refatoração da terceira box JAVA
 
-              CustomBox(language: 'Java'.toUpperCase(), text: word!.java),
+              CustomBox(language: 'Java', text: word!.java),
 
               // Refatoração da quarta box SAÍDA DE DADOS
-              CustomBox(
-                  language: 'Saída de Dados'.toUpperCase(), text: word!.exit),
+              CustomBox(language: 'Saída de Dados', text: word!.exit),
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          final route = MaterialPageRoute(
-            builder: (context) => FavoritePage(),
-          );
-          Navigator.push(context, route);
-        },
-        label: const Text('Favorites'),
       ),
     );
   }

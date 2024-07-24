@@ -174,7 +174,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ESPAÇO ENTRE OS COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // Botão CADASTRAR
                 CustomButton(
@@ -187,7 +187,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ESPAÇAMENTO ENTRE COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // TEXTO E BOTÃO PARA CONTA EXISTENTE
                 CustomLetter(
@@ -203,7 +203,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                 ),
 
                 // ESPAÇAMENTO ENTRE COMPONENTES
-                espacoComponentes,
+                spaceColumn,
 
                 // MENSAGEM DE ERRO CASO EXISTA O USUÁRIO
                 isUserDuplicated

@@ -30,6 +30,7 @@ class CustomBox extends StatelessWidget {
           Row(
             children: [
               const Padding(padding: EdgeInsets.only(bottom: 40)),
+              // EXIBIÇÃO DO NOME DA LINGUAGEM
               Expanded(
                 child: Text(
                   language.toUpperCase(),
@@ -43,7 +44,7 @@ class CustomBox extends StatelessWidget {
               ),
             ],
           ),
-          // CÓDIGO EM PYTHON PARA A SAÍDA DE DADOS
+          // CÓDIGO DA LINGUAGEM PARA A SAÍDA DE DADOS
           Row(
             children: [
               Expanded(

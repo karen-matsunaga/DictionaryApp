@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 
-// CRIAÇÃO DA CONTA
-Color backgroundAccount = Color.fromRGBO(255, 255, 255, 0.753);
-
 // LOGO DO APLICATIVO
 Color appLogo = Color.fromRGBO(45, 89, 249, 0.502);
 Color lightBackgroundApp = Color.fromRGBO(65, 179, 204, 0.686);
 Color blackBackgroundApp = Color.fromRGBO(11, 23, 26, 0.678);
 
 // CONTEÚDO DOS CONTAINERS
-const comando = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+TextStyle comando = TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
 Color columns = Color(0xFF90CAF9);
 
 // Escrita dos títulos e textos
-const titulo = TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
-const texto = TextStyle(fontWeight: FontWeight.normal, fontSize: 14);
+TextStyle titulo = TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
+TextStyle texto = TextStyle(fontWeight: FontWeight.normal, fontSize: 14);
 
 // MENU DE CONFIGURAÇÕES - TAMANHO DAS FONTES
 const Text smallText =
@@ -35,11 +32,10 @@ Color backgroundAppBarLight = Color(0xFF00ACC1);
 
 // TEMA DO DRAWER
 // Titulo do Drawer
-const menupage = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+TextStyle menupage = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
 // Fundo do Drawer
 Color lightDrawer = Color.fromRGBO(38, 198, 218, 1);
-// Color blackDrawer = Color.fromARGB(245, 20, 99, 218);
 Color blackDrawer = Color.fromRGBO(2, 39, 174, 1);
 
 // FUNDO DO APLICATIVO EM GERAL
@@ -100,7 +96,8 @@ Color blackIconBorder = Color.fromRGBO(240, 235, 235, 0.861);
 
 // TEXTOS ESPAÇOS DOS COMPONENTES
 // ESPAÇO DA COLUNA DO COMPONENTE
-SizedBox espacoComponentes = SizedBox(height: 20);
+SizedBox spaceColumn = SizedBox(height: 20);
+SizedBox spaceListView = SizedBox(height: 30);
 
 // ESPAÇO DA LINHA DO COMPONENTE
-SizedBox espacoladoComponentes = SizedBox(width: 10);
+SizedBox spaceRow = SizedBox(width: 10);
