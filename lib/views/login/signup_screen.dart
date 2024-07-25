@@ -118,6 +118,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
       // FUNDO DO APLICATIVO
       backgroundColor: Theme.of(context).colorScheme.primary,
       body: SingleChildScrollView(
+        reverse: true,
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Form(

@@ -1,13 +1,13 @@
-import 'package:dictionary/controllers/user_provider.dart';
-import 'package:dictionary/views/profile/fav_screen.dart';
-import 'package:dictionary/widgets/custom_exit_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:dictionary/controllers/user_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:dictionary/widgets/custom_exit_widget.dart';
+import 'package:dictionary/widgets/custom_user_widget.dart';
 import 'package:dictionary/widgets/custom_icon_widget.dart';
 import 'package:dictionary/views/login/login_screen.dart';
 import 'package:dictionary/views/home/homepage_screen.dart';
-import 'package:dictionary/widgets/custom_user_widget.dart';
+import 'package:dictionary/views/profile/fav_screen.dart';
 import 'package:dictionary/views/profile/config_view.dart';
-import 'package:provider/provider.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -30,6 +30,7 @@ class MenuPage extends StatelessWidget {
             // SE OS DADOS EXISTIREM
             else {
               return SingleChildScrollView(
+                reverse: true,
                 scrollDirection: Axis.vertical,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(

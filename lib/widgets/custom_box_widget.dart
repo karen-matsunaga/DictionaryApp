@@ -4,33 +4,31 @@ import 'package:flutter/material.dart';
 
 class CustomBox extends StatelessWidget {
   final String language, text;
+  final width;
   CustomBox({
     super.key,
     required this.language,
     required this.text,
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
-    // HEIGHT AND WIDTH SIZES
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-
-    // Refatoração da primeira box PYTHON
+    // Refatoração das BOXES
     return Container(
-      width: width * .9,
-      height: height * .9,
+      width: width,
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.only(left: 16, top: 19, right: 16),
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(10)),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             children: [
               const Padding(padding: EdgeInsets.only(bottom: 40)),
-              // EXIBIÇÃO DO NOME DA LINGUAGEM
+              // EXIBIÇÃO DO NOME DAS LINGUAGENS
               Expanded(
                 child: Text(
                   language.toUpperCase(),
@@ -39,12 +37,12 @@ class CustomBox extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: provider.Provider.of<FontSizeConfig>(context)
                           .fontSize),
-                  maxLines: 20,
+                  maxLines: 1,
                 ),
               ),
             ],
           ),
-          // CÓDIGO DA LINGUAGEM PARA A SAÍDA DE DADOS
+          // CÓDIGOS DAS LINGUAGENS PARA A SAÍDA DE DADOS
           Row(
             children: [
               Expanded(
@@ -54,7 +52,6 @@ class CustomBox extends StatelessWidget {
                   style: TextStyle(
                       fontSize: provider.Provider.of<FontSizeConfig>(context)
                           .fontSize),
-                  maxLines: 20,
                 ),
               ),
             ],

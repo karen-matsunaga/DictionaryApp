@@ -17,12 +17,46 @@
                 "id": 2,
                 "name":"Adição",
                 "type": "Operador aritmético",
-                "description": "Responsável pela soma das variáveis.",
+                "description": "Operador para somar as variáveis.",
                 "synonyms": "+ Soma",
                 "python": "a = 1\nb = 2\nprint($'{a} + {b}')",
                 "cSharp": "int a = 1, b= 2;\nConsole.WriteLine(a + b);",
                 "java": "public class soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\nSystem.out.println(+total);\n}\n}",
                 "exit": "3"
+              },
+
+              {
+                "id": 3,
+                "name": "Subtração",
+                "type": "Operador aritmético",
+                "description": "Operador para subtrair as variáveis",
+                "synonyms": "- Diminuir",
+                "python": "a = 2\nb = 1\nprint($'{a} - {b}')",
+                "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a - b);",
+                "java": "public class soma {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = (a - b);\nSystem.out.println(-total);\n}\n}",
+                "exit": "1"
+              },
+              {
+                "id": 4,
+                "name": "Divisão",
+                "type": "Operador aritmético",
+                "description": "Operador para dividir as variáveis",
+                "synonyms": "/ Dividir",
+                "python": "a = 2\nb = 1\nprint($'{a} / {b}')",
+                "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a / b);",
+                "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = a / b;\nSystem.out.println(total);\n}\n}",
+                "exit": "1"
+              },
+              {
+                "id": 5,
+                "name": "Multiplicação",
+                "type": "Operador aritmético",
+                "description": "Operador para multiplicar as variáveis",
+                "synonyms": "/ Dividir",
+                "python": "a = 2\nb = 1\nprint($'{a} / {b}')",
+                "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a / b);",
+                "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = a / b;\nSystem.out.println(total);\n}\n}",
+                "exit": "1"
               }
            ]
 }

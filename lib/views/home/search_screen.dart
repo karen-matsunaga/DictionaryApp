@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/models/words.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:dictionary/widgets/custom_box_widget.dart';
 import 'package:dictionary/views/home/menu_view.dart';
-import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart' as provider;
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -48,14 +47,38 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     // FUNÇÃO DO BOTÃO DE FAVORITOS
     final favoriteProvider = FavoriteProvider.of(context);
-    // RESPONSIVIDADE DAS TELAS
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+
+    // APPBAR
+    var appBar = AppBar(
+      // Icone do Menu de configurações
+      iconTheme: IconThemeData(
+        color: Theme.of(context).iconTheme.color,
+      ),
+      // Nome do aplicativo
+      title: Text(
+        "códex".toUpperCase(),
+        style: TextStyle(
+          letterSpacing: 1,
+          fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      centerTitle: true,
+
+      // Fundo do aplicativo da AppBar
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      elevation: 0,
+    );
+
+    var size = MediaQuery.of(context).size;
+    var screenHeight = (size.height - appBar.preferredSize.height) -
+        MediaQuery.of(context).padding.top;
+
     // SEARCHBAR APPLICATION
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       // AppBar do aplicativo
-      appBar: const CustomAppBar(title: "Códex do Programador"),
+      appBar: appBar,
 
       // Opções do Menu de configurações
       drawer: const MenuPage(),
@@ -63,14 +86,18 @@ class _SearchPageState extends State<SearchPage> {
       // Texto com a definição da palavra pesquisada com o arquivo words.JSON
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
+        reverse: true,
+        // CONTAINER
         child: Container(
-          height: height * 4.06,
-          width: width * 1,
-          padding: const EdgeInsets.all(20),
           alignment: Alignment.center,
+          height: screenHeight,
+          width: size.width,
+          padding: const EdgeInsets.all(20),
+          // COLUNA
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // Comando pesquisado e sua função
               ListTile(
                 // PALAVRA PESQUISADA
                 title: Text(
@@ -88,59 +115,62 @@ class _SearchPageState extends State<SearchPage> {
                           .fontSize),
                 ),
 
-                // Icone para adicionar a palavra em FAVORITO
-                // DESIGN DO FUNDO DO BOTÃO
-                trailing: Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(8),
-                    color: Theme.of(context).colorScheme.surface,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                      ),
-                    ],
-                  ),
-
-                  // BOTÃO PARA ADICIONAR OU REMOVER DO FAVORITO
-                  child: IconButton(
-                    onPressed: () {
-                      favoriteProvider.toggleFavorite(word!.name);
-                    },
-                    icon: favoriteProvider.isExist(word!.name)
-                        // PALAVRA ADICIONADA NOS FAVORITOS
-                        ? Icon(
-                            Icons.favorite,
-                            color: favoriteIcon,
-                            size: provider.Provider.of<FontSizeConfig>(context)
-                                .fontSize,
-                          )
-                        // PALAVRA NÃO ADICIONADA NOS FAVORITOS
-                        : Icon(
-                            Icons.favorite_border,
-                            color: favoriteIcon,
-                            size: provider.Provider.of<FontSizeConfig>(context)
-                                .fontSize,
-                          ),
-                  ),
+                // ICONE BOTÃO PARA ADICIONAR OU REMOVER A PALAVRA NA LISTA DE FAVORITO
+                trailing: IconButton(
+                  onPressed: () {
+                    favoriteProvider.toggleFavorite(word!.name);
+                  },
+                  icon: favoriteProvider.isExist(word!.name)
+                      // PALAVRA ADICIONADA NOS FAVORITOS
+                      ? Icon(
+                          Icons.favorite,
+                          color: favoriteIcon,
+                          size: provider.Provider.of<FontSizeConfig>(context)
+                              .fontSize,
+                        )
+                      // PALAVRA NÃO ADICIONADA NOS FAVORITOS
+                      : Icon(
+                          Icons.favorite_border,
+                          color: favoriteIcon,
+                          size: provider.Provider.of<FontSizeConfig>(context)
+                              .fontSize,
+                        ),
                 ),
               ),
+              Expanded(
+                child: ListView(
+                  children: <Widget>[
+                    // Refatoração da primeira box PYTHON
+                    CustomBox(
+                      language: 'Python',
+                      text: word!.python,
+                      width: size.width,
+                    ),
 
-              // Refatoração da primeira box PYTHON
-              CustomBox(language: 'Python', text: word!.python),
+                    // Refatoração da segunda box C#
+                    CustomBox(
+                      language: 'C#',
+                      text: word!.cSharp,
+                      width: size.width * 500,
+                    ),
 
-              // Refatoração da segunda box C#
-              CustomBox(language: 'C#', text: word!.cSharp),
+                    // Refatoração da terceira box JAVA
 
-              // Refatoração da terceira box JAVA
+                    CustomBox(
+                      language: 'Java',
+                      text: word!.java,
+                      width: size.width,
+                    ),
 
-              CustomBox(language: 'Java', text: word!.java),
-
-              // Refatoração da quarta box SAÍDA DE DADOS
-              CustomBox(language: 'Saída de Dados', text: word!.exit),
+                    // Refatoração da quarta box SAÍDA DE DADOS
+                    CustomBox(
+                      language: 'Saída de Dados',
+                      text: word!.exit,
+                      width: size.width,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:dictionary/main.dart';
+import 'package:dictionary/widgets/custom_logo_widget.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:dictionary/utils/constants.dart';
@@ -36,11 +37,12 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // LOGO DO APLICATIVO
-              Image.asset(
-                'assets/images/logo.png',
-                width: 200,
-                height: 200,
-              ),
+              // Image.asset(
+              //   'assets/images/logo.png',
+              //   width: 200,
+              //   height: 200,
+              // ),
+              LogoApp(),
 
               // ESPAÇAMENTO ENTRE LINHA
               spaceColumn,
