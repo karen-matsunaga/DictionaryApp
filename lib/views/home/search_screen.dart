@@ -137,37 +137,30 @@ class _SearchPageState extends State<SearchPage> {
                         ),
                 ),
               ),
+              // CÓDIGO DAS PALAVRAS EM SUAS RESPECTIVAS LINGUAGENS DE PROGRAMAÇÃO
               Expanded(
                 child: ListView(
                   children: <Widget>[
                     // Refatoração da primeira box PYTHON
                     CustomBox(
-                      language: 'Python',
-                      text: word!.python,
-                      width: size.width,
-                    ),
+                        language: 'Python',
+                        text: word!.python,
+                        width: size.width),
 
                     // Refatoração da segunda box C#
                     CustomBox(
-                      language: 'C#',
-                      text: word!.cSharp,
-                      width: size.width * 500,
-                    ),
+                        language: 'C#', text: word!.cSharp, width: size.width),
 
                     // Refatoração da terceira box JAVA
 
                     CustomBox(
-                      language: 'Java',
-                      text: word!.java,
-                      width: size.width,
-                    ),
+                        language: 'Java', text: word!.java, width: size.width),
 
                     // Refatoração da quarta box SAÍDA DE DADOS
                     CustomBox(
-                      language: 'Saída de Dados',
-                      text: word!.exit,
-                      width: size.width,
-                    ),
+                        language: 'Saída de Dados',
+                        text: word!.exit,
+                        width: size.width),
                   ],
                 ),
               ),

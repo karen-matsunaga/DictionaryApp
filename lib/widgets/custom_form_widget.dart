@@ -29,42 +29,83 @@ class _CustomFormState extends State<CustomForm> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    // DESIGNER DO CAMPO
-    return Container(
-      height: height * .15,
-      width: width * .9,
-      margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Theme.of(context).colorScheme.secondary,
-        boxShadow: const [
-          BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.25),
-            offset: Offset(0.0, 4.0),
-            blurRadius: 4.0,
-            spreadRadius: 0.0,
-          ),
-        ],
-      ),
-      // CONFIGURAÇÃO DO CAMPO
-      child: TextFormField(
-        keyboardType: widget.textInputType,
-        textInputAction: TextInputAction.next,
-        maxLines: 1,
-        style:
-            TextStyle(fontSize: Provider.of<FontSizeConfig>(context).fontSize),
-        controller: widget.controller,
-        validator: (value) => widget.validator(value),
-        decoration: InputDecoration(
-          labelStyle: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
-          errorStyle: TextStyle(color: Theme.of(context).colorScheme.onError),
-          icon: widget.icon,
-          border: InputBorder.none,
-          labelText: widget.label,
-          hintText: widget.hint,
+    // DESIGNER DO CAMPO DE E-MAIL E USERNAME
+    if (width > 600) {
+      return Container(
+        height: height * .25,
+        width: width * .9,
+        margin: const EdgeInsets.all(8),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Theme.of(context).colorScheme.secondary,
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromRGBO(0, 0, 0, 0.25),
+              offset: Offset(0.0, 4.0),
+              blurRadius: 4.0,
+              spreadRadius: 0.0,
+            ),
+          ],
         ),
-      ),
-    );
+        // CONFIGURAÇÃO DO CAMPO
+        child: TextFormField(
+          keyboardType: widget.textInputType,
+          textInputAction: TextInputAction.next,
+          maxLines: 1,
+          style: TextStyle(
+              fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+          controller: widget.controller,
+          validator: (value) => widget.validator(value),
+          decoration: InputDecoration(
+            labelStyle:
+                TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+            errorStyle: TextStyle(color: Theme.of(context).colorScheme.onError),
+            icon: widget.icon,
+            border: InputBorder.none,
+            labelText: widget.label,
+            hintText: widget.hint,
+          ),
+        ),
+      );
+    } else {
+      return Container(
+        height: height * .15,
+        width: width * .9,
+        margin: const EdgeInsets.all(8),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Theme.of(context).colorScheme.secondary,
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromRGBO(0, 0, 0, 0.25),
+              offset: Offset(0.0, 4.0),
+              blurRadius: 4.0,
+              spreadRadius: 0.0,
+            ),
+          ],
+        ),
+        // CONFIGURAÇÃO DO CAMPO
+        child: TextFormField(
+          keyboardType: widget.textInputType,
+          textInputAction: TextInputAction.next,
+          maxLines: 1,
+          style: TextStyle(
+              fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+          controller: widget.controller,
+          validator: (value) => widget.validator(value),
+          decoration: InputDecoration(
+            labelStyle:
+                TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+            errorStyle: TextStyle(color: Theme.of(context).colorScheme.onError),
+            icon: widget.icon,
+            border: InputBorder.none,
+            labelText: widget.label,
+            hintText: widget.hint,
+          ),
+        ),
+      );
+    }
   }
 }

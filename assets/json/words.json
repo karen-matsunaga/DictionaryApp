@@ -18,10 +18,10 @@
                 "name":"Adição",
                 "type": "Operador aritmético",
                 "description": "Operador para somar as variáveis.",
-                "synonyms": "+ Soma",
+                "synonyms": "+, Soma, Sum",
                 "python": "a = 1\nb = 2\nprint($'{a} + {b}')",
                 "cSharp": "int a = 1, b= 2;\nConsole.WriteLine(a + b);",
-                "java": "public class soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\nSystem.out.println(+total);\n}\n}",
+                "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\nSystem.out.println(+total);\n}\n}",
                 "exit": "3"
               },
 
@@ -29,34 +29,56 @@
                 "id": 3,
                 "name": "Subtração",
                 "type": "Operador aritmético",
-                "description": "Operador para subtrair as variáveis",
-                "synonyms": "- Diminuir",
+                "description": "Operador para subtrair as variáveis.",
+                "synonyms": "-, Diminuir",
                 "python": "a = 2\nb = 1\nprint($'{a} - {b}')",
                 "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a - b);",
-                "java": "public class soma {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = (a - b);\nSystem.out.println(-total);\n}\n}",
+                "java": "public class Subtracao {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = (a - b);\nSystem.out.println(-total);\n}\n}",
                 "exit": "1"
               },
               {
                 "id": 4,
                 "name": "Divisão",
                 "type": "Operador aritmético",
-                "description": "Operador para dividir as variáveis",
-                "synonyms": "/ Dividir",
+                "description": "Operador para dividir as variáveis.",
+                "synonyms": "/, Dividir",
                 "python": "a = 2\nb = 1\nprint($'{a} / {b}')",
                 "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a / b);",
-                "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = a / b;\nSystem.out.println(total);\n}\n}",
+                "java": "public class Divisao {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = a / b;\nSystem.out.println(total);\n}\n}",
                 "exit": "1"
               },
               {
                 "id": 5,
                 "name": "Multiplicação",
                 "type": "Operador aritmético",
-                "description": "Operador para multiplicar as variáveis",
-                "synonyms": "/ Dividir",
-                "python": "a = 2\nb = 1\nprint($'{a} / {b}')",
-                "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a / b);",
-                "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = a / b;\nSystem.out.println(total);\n}\n}",
-                "exit": "1"
+                "description": "Operador para multiplicar as variáveis.",
+                "synonyms": "*, Multiplicar",
+                "python": "a = 10\nb = 10\nprint($'{a} * {b}')",
+                "cSharp": "int a = 10, b= 10;\nConsole.WriteLine(a * b);",
+                "java": "public class Multiplicacao {\npublic static void main(String[] args) {\nint a = 10;\nint b = 10;\nint total = a * b;\nSystem.out.println(total);\n}\n}",
+                "exit": "100"
+              },
+              {
+                "id": 6,
+                "name": "Se",
+                "type": "Estrutura Condicional",
+                "description": "Avaliar se a expressão é verdadeira ou falsa.",
+                "synonyms": "If",
+                "python": "if 20 > 18:\nprint('20 é maior que 18')",
+                "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine('20 é maior que 18');\n}",
+                "java": "public class Se {\npublic static void main(String[] args) {\nif(20 > 18) {\nSystem.out.println('20 é maior que 18');\n}\n}",
+                "exit": "true"
+              },
+              {
+                "id": 7,
+                "name": "Então",
+                "type": "Estrutura Condicional",
+                "description": "Caso a estrutura condicional se é falsa é feita a segunda verificação caso a expressão é verdadeira ou falsa.",
+                "synonyms": "Else",
+                "python": "if 20 > 18:\nprint('20 é maior que 18')",
+                "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine('20 é maior que 18');\n}",
+                "java": "public class Se {\npublic static void main(String[] args) {\nif(20 > 18) {\nSystem.out.println('20 é maior que 18');\n}\n}",
+                "exit": "false"
               }
            ]
 }

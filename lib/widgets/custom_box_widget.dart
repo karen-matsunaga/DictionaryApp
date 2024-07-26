@@ -18,7 +18,7 @@ class CustomBox extends StatelessWidget {
     return Container(
       width: width,
       margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.only(left: 16, top: 19, right: 16),
+      padding: const EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 20),
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(10)),

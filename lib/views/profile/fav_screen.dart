@@ -12,7 +12,6 @@ class FavoritePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final favoriteProvider = FavoriteProvider.of(context);
     final words = favoriteProvider.words;
-
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -62,7 +61,7 @@ class FavoritePage extends StatelessWidget {
                   style: TextStyle(
                     fontSize:
                         provider.Provider.of<FontSizeConfig>(context).fontSize,
-                    fontWeight: FontWeight.normal,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 // Icone para REMOVER a palavra da lista dos FAVORITOS
