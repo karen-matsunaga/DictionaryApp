@@ -5,7 +5,7 @@ import 'package:dictionary/widgets/custom_exit_widget.dart';
 import 'package:dictionary/widgets/custom_user_widget.dart';
 import 'package:dictionary/widgets/custom_icon_widget.dart';
 import 'package:dictionary/views/login/login_screen.dart';
-import 'package:dictionary/views/home/homepage_screen.dart';
+import 'package:dictionary/views/home/home_screen.dart';
 import 'package:dictionary/views/profile/fav_screen.dart';
 import 'package:dictionary/views/profile/config_view.dart';
 

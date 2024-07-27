@@ -34,7 +34,7 @@ class _UserDrawerState extends State<UserDrawer> {
               style: TextStyle(
                 letterSpacing: 2,
                 fontWeight: FontWeight.bold,
-                fontSize: Provider.of<FontSizeConfig>(context).fontSize / 1.50,
+                fontSize: Provider.of<FontSizeConfig>(context).fontSize / 1.4,
               ),
             ),
           ],

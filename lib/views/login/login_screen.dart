@@ -1,6 +1,6 @@
 import 'package:dictionary/controllers/user_provider.dart';
 import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/home/homepage_screen.dart';
+import 'package:dictionary/views/home/home_screen.dart';
 import 'package:dictionary/widgets/custom_pass_widget.dart';
 import 'package:dictionary/widgets/custom_logo_widget.dart';
 import 'package:dictionary/views/login/signup_screen.dart';

@@ -13,7 +13,7 @@ import 'package:dictionary/views/profile/config_view.dart';
 import 'package:dictionary/views/login/signup_screen.dart';
 import 'package:dictionary/views/home/search_screen.dart';
 import 'package:dictionary/views/login/login_screen.dart';
-import 'package:dictionary/views/home/homepage_screen.dart';
+import 'package:dictionary/views/home/home_screen.dart';
 import 'package:dictionary/views/login/splash_screen.dart';
 import 'package:dictionary/views/profile/fav_screen.dart';
 
@@ -29,7 +29,7 @@ void main() async {
   WordsProvider();
   // SQFLITE - BANCO DE DADOS
   final dbHelper = DatabaseHelper();
-  // ==== PALAVRAS FAVORITAS ==== NÃO IMPLEMENTADO
+  // PALAVRAS FAVORITAS
   FavoriteProvider();
   // Aqui rodamos o app dentro do Provider onde serão carregadas as configurações salvas pelo Shared Preferences, Provider e SQFLite
   runApp(
@@ -48,7 +48,7 @@ void main() async {
           provider.ChangeNotifierProvider(create: (context) => WordsProvider()),
           // BANCO DE DADOS SQFLITE ATIVADO
           provider.Provider<DatabaseHelper>.value(value: dbHelper),
-          // ==== TODAS AS PALAVRAS NO FAVORITO ==== NÃO IMPLEMENTADO
+          // TODAS AS PALAVRAS NO FAVORITO
           provider.ChangeNotifierProvider(
               create: (context) => FavoriteProvider()),
         ],

@@ -4,12 +4,12 @@
               {
                 "id": 1,
                 "name": "Escreva",
-                "type": "Função",
-                "description": "Função para mostrar algo na tela.",
+                "type": "Método",
+                "description": "Mostrar algo na tela.",
                 "synonyms":"Print, Console.Write, System.out.println.",
-                "python": "print('Olá, mundo!')",
-                "cSharp": "using System;\n namespace MyApplication\n{\nclass Program\n{\nstatic void Main(string[]args)\n{\nConsole.WriteLine('Hello World!');\n}\n}\n}\n",
-                "java":   "public class Main { \npublic static void main(String[] args) { \nSystem.out.println('Olá, mundo!'); \n} \n}",
+                "python": "print('Olá, mundo!')\nou\nprint(\"Olá, mundo!\")",
+                "cSharp": "using System;\n namespace MyApplication\n{\nclass Program\n{\nstatic void Main(string[]args)\n{\nConsole.WriteLine(\"Hello World!\");\n}\n}\n}\n",
+                "java":   "public class Main { \npublic static void main(String[] args) { \nSystem.out.println(\"Olá, mundo!\"); \n} \n}",
                 "exit": "Olá, mundo!"
               },
 
@@ -21,7 +21,7 @@
                 "synonyms": "+, Soma, Sum",
                 "python": "a = 1\nb = 2\nprint($'{a} + {b}')",
                 "cSharp": "int a = 1, b= 2;\nConsole.WriteLine(a + b);",
-                "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\nSystem.out.println(+total);\n}\n}",
+                "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\n\tSystem.out.println(+total);\n}\n}",
                 "exit": "3"
               },
 
@@ -64,9 +64,9 @@
                 "type": "Estrutura Condicional",
                 "description": "Avaliar se a expressão é verdadeira ou falsa.",
                 "synonyms": "If",
-                "python": "if 20 > 18:\nprint('20 é maior que 18')",
-                "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine('20 é maior que 18');\n}",
-                "java": "public class Se {\npublic static void main(String[] args) {\nif(20 > 18) {\nSystem.out.println('20 é maior que 18');\n}\n}",
+                "python": "if 20 > 18:\nprint('20 é maior que 18')\nou\nprint(\"20 é maior que 18\")",
+                "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine(\"20 é maior que 18\");\n}",
+                "java": "public class Se {\npublic static void main(String[] args) {\nif(20 > 18) {\nSystem.out.println(\"20 é maior que 18\");\n}\n}",
                 "exit": "true"
               },
               {
@@ -75,9 +75,9 @@
                 "type": "Estrutura Condicional",
                 "description": "Caso a estrutura condicional se é falsa é feita a segunda verificação caso a expressão é verdadeira ou falsa.",
                 "synonyms": "Else",
-                "python": "if 20 > 18:\nprint('20 é maior que 18')",
-                "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine('20 é maior que 18');\n}",
-                "java": "public class Se {\npublic static void main(String[] args) {\nif(20 > 18) {\nSystem.out.println('20 é maior que 18');\n}\n}",
+                "python": "if 20 > 18:\nprint('20 é maior que 18')\nprint(\"20 é maior que 18\")",
+                "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine(\"20 é maior que 18\");\n}",
+                "java": "class Entao {\npublic static void main(String[] args) {\nint a, b;\na = 20;\nb = 20;\nif (a != b) {\nSystem.out.println(\"O resultado é VERDADEIRO!\");\n}\nelse {\nSystem.out.println(\"O resultado é FALSO!\");\n}\n}\n}\n",
                 "exit": "false"
               }
            ]
