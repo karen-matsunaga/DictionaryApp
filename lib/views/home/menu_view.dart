@@ -86,6 +86,7 @@ class MenuPage extends StatelessWidget {
 
                         // REFATORADA - DESLOGAR DA CONTA
                         CustomExit(
+                          message: 'Deseja sair da conta?',
                           callBack: () async {
                             await userProvider.clearUserData();
                             Navigator.of(context).push(

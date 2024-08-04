@@ -4,6 +4,7 @@ import 'package:dictionary/controllers/words_provider.dart';
 import 'package:dictionary/models/words.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:dictionary/views/home/menu_view.dart';
+import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart' as provider;
 
@@ -54,37 +55,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // REMOVER A TELA DA APPBAR USANDO PREFERRED SIZE E MEDIA QUERY
-    var appBar = AppBar(
-      // Icone do Menu de configurações
-      iconTheme: IconThemeData(
-        color: Theme.of(context).iconTheme.color,
-      ),
-      // Nome do aplicativo
-      title: Text(
-        "códex".toUpperCase(),
-        style: TextStyle(
-          letterSpacing: 1,
-          fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      centerTitle: true,
-      // Fundo do aplicativo da AppBar
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      elevation: 0,
-    );
-    // var size = MediaQuery.of(context).size;
-    // var screenHeight = (size.height - appBar.preferredSize.height) -
-    //     MediaQuery.of(context).padding.top;
-
     // LISTA DE TODAS AS PALAVRAS DO ARQUIVO words.json
     final allWords = provider.Provider.of<WordsProvider>(context).words;
 
     // Design da HOMEPAGE
     return Scaffold(
-      // APPBAR do aplicativo
-      appBar: appBar,
+      // APPBAR personalizada do aplicativo
+      appBar: PreferredSize(
+        preferredSize: sized,
+        child: CustomAppbarWidget(
+          title: "códex do programador",
+        ),
+      ),
 
       // DRAWER com as opções do MENU DE CONFIGURAÇÕES
       drawer: const MenuPage(),

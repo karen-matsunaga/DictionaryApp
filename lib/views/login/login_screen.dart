@@ -184,6 +184,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // SAIR DO APLICATIVO
                 CustomExit(
+                  message: 'Você tem certeza que deseja sair do aplicativo?',
                   callBack: () {
                     Navigator.pop(context, true);
                     // Atrasar para garantir que a caixa de diálogo seja fechada antes de sair do app

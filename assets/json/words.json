@@ -18,7 +18,7 @@
                 "name":"Adição",
                 "type": "Operador aritmético",
                 "description": "Operador para somar as variáveis.",
-                "synonyms": "+, Soma, Sum",
+                "synonyms": "+, Sum",
                 "python": "a = 1\nb = 2\nprint($'{a} + {b}')",
                 "cSharp": "int a = 1, b= 2;\nConsole.WriteLine(a + b);",
                 "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\n\tSystem.out.println(+total);\n}\n}",
@@ -30,34 +30,37 @@
                 "name": "Subtração",
                 "type": "Operador aritmético",
                 "description": "Operador para subtrair as variáveis.",
-                "synonyms": "-, Diminuir",
+                "synonyms": "-",
                 "python": "a = 2\nb = 1\nprint($'{a} - {b}')",
                 "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a - b);",
                 "java": "public class Subtracao {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = (a - b);\nSystem.out.println(-total);\n}\n}",
                 "exit": "1"
               },
+
               {
                 "id": 4,
                 "name": "Divisão",
                 "type": "Operador aritmético",
                 "description": "Operador para dividir as variáveis.",
-                "synonyms": "/, Dividir",
+                "synonyms": "/",
                 "python": "a = 2\nb = 1\nprint($'{a} / {b}')",
                 "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a / b);",
                 "java": "public class Divisao {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = a / b;\nSystem.out.println(total);\n}\n}",
                 "exit": "1"
               },
+
               {
                 "id": 5,
                 "name": "Multiplicação",
                 "type": "Operador aritmético",
                 "description": "Operador para multiplicar as variáveis.",
-                "synonyms": "*, Multiplicar",
+                "synonyms": "*",
                 "python": "a = 10\nb = 10\nprint($'{a} * {b}')",
                 "cSharp": "int a = 10, b= 10;\nConsole.WriteLine(a * b);",
                 "java": "public class Multiplicacao {\npublic static void main(String[] args) {\nint a = 10;\nint b = 10;\nint total = a * b;\nSystem.out.println(total);\n}\n}",
                 "exit": "100"
               },
+
               {
                 "id": 6,
                 "name": "Se",
@@ -69,6 +72,7 @@
                 "java": "public class Se {\npublic static void main(String[] args) {\nif(20 > 18) {\nSystem.out.println(\"20 é maior que 18\");\n}\n}",
                 "exit": "true"
               },
+
               {
                 "id": 7,
                 "name": "Então",
@@ -79,6 +83,80 @@
                 "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine(\"20 é maior que 18\");\n}",
                 "java": "class Entao {\npublic static void main(String[] args) {\nint a, b;\na = 20;\nb = 20;\nif (a != b) {\nSystem.out.println(\"O resultado é VERDADEIRO!\");\n}\nelse {\nSystem.out.println(\"O resultado é FALSO!\");\n}\n}\n}\n",
                 "exit": "false"
+              },
+
+              {
+                "id": 8,
+                "name": "Se então",
+                "type": "Estrutura Condicional",
+                "description": "A primeira e segunda verificação são falsas será realizada a terceira retornando verdadeira ou falsa.",
+                "synonyms": "Else if, Elif",
+                "python": "a = 1\nb = 2\nif (a == b):\nprint(f'{a} são IDÊNTICOS {b}!')\nelif (a < b):\nprint(f'{a} é MENOR que {b}!')\nelse:\n print('Os valores são diferentes')",
+                "cSharp": "namespace System;\nclass Seentao {\npublic static void Main(String[] args){\nint a = 20;\nint b = 18;\nif(a == b){\nConsole.WriteLine($\"{a} são IDÊNTICOS {b}!\");}\nelse if (a != b){\nConsole.WriteLine($\"{a} é MENOR que {b}\");}\nelse{\nConsole.WriteLine(\"Os valores são diferentes\");}\n}\n}",
+                "java": "class EntaoSe {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nif (a == b) {\nSystem.out.println(a+\" são IDÊNTICOS \"+b+\"!\");}\n else if (a < b){\nSystem.out.println(a+\" é MENOR que \"+b+\"!\");\n}\nelse {\nSystem.out.println(\"Os valores são diferentes\");\n}\n}\n}",
+                "exit": "1 é MENOR que 2!"
+              },
+
+              {
+                "id": 9,
+                "name": "List",
+                "type": "Coleção",
+                "description": "Uma lista armazena vários dados usando [] e a separação por vírgula,.",
+                "synonyms": "ArrayList, []",
+                "python": "list = ['João', 'Maria', 'Pedro']\nprint(list[0:3])",
+                "cSharp": "",
+                "java": "class Array {\npublic static void main(String[] args) {\nint a, b;\na = 20;\nb = 20;\nif (a != b) {\n System.out.println(name);\n}\n}\n}\n",
+                "exit": "[João, Maria, Pedro]"
+              },
+
+              {
+                "id": 10,
+                "name": "Classe",
+                "type": "Método",
+                "description": "Classes podem ser consideradas pai e filha",
+                "synonyms": "Class, def",
+                "python": "def:",
+                "cSharp": "class Classe {...}",
+                "java": "class Classe {...}",
+                "exit": "Teste"
+              },
+              
+              {
+                "id": 11,
+                "name": "Bool",
+                "type": "Operador condicional",
+                "description": "Um tipo que define um objeto como verdadeiro ou falso",
+                "synonyms": "bool, true, false",
+                "python": "print('Verdadeiro e falso')",
+                "cSharp": "Console.WriteLine(\"Verdadeiro e falso\")",
+                "java": "System.println(\"Verdadeiro e falso\")",
+                "exit": "Verdadeiro e falso"
+              },
+
+
+              {
+                "id": 12,
+                "name": "Construtor",
+                "type": "",
+                "description": "",
+                "synonyms": "",
+                "python": "",
+                "cSharp": "",
+                "java": "",
+                "exit": ""
+              },
+
+              {
+                "id": 13,
+                "name": "",
+                "type": "",
+                "description": "",
+                "synonyms": "",
+                "python": "",
+                "cSharp": "",
+                "java": "",
+                "exit": ""
               }
+
            ]
 }

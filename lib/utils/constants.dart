@@ -77,3 +77,6 @@ SizedBox spaceListView = SizedBox(height: 30);
 
 // ESPAÇO DA LINHA DO COMPONENTE
 SizedBox spaceRow = SizedBox(width: 10);
+
+// SIZE da APPBAR
+Size sized = Size(45, 45);

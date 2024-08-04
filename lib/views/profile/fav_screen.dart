@@ -1,5 +1,6 @@
 import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/utils/constants.dart';
 import 'package:dictionary/views/home/menu_view.dart';
@@ -16,25 +17,9 @@ class FavoritePage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       // AppBar do aplicativo
-      appBar: AppBar(
-        // Icone do Menu de configurações
-        iconTheme: IconThemeData(
-          color: Theme.of(context).iconTheme.color,
-        ),
-        // Nome do aplicativo
-        title: Text(
-          "favoritos".toUpperCase(),
-          style: TextStyle(
-            letterSpacing: 1,
-            fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-
-        // Fundo do aplicativo da AppBar
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        elevation: 0,
+      appBar: PreferredSize(
+        preferredSize: sized,
+        child: CustomAppbarWidget(title: "favoritos"),
       ),
 
       // Opções do Menu de configurações

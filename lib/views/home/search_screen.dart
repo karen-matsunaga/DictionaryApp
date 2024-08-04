@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/models/words.dart';
 import 'package:dictionary/utils/constants.dart';
@@ -48,28 +49,13 @@ class _SearchPageState extends State<SearchPage> {
     // FUNÇÃO DO BOTÃO DE FAVORITOS
     final favoriteProvider = FavoriteProvider.of(context);
 
-    // APPBAR
-    var appBar = AppBar(
-      // Icone do Menu de configurações
-      iconTheme: IconThemeData(
-        color: Theme.of(context).iconTheme.color,
+    // VARIÁVEL appBar customizada
+    var appBar = PreferredSize(
+      preferredSize: sized,
+      child: CustomAppbarWidget(
+        title: "códex do programador",
       ),
-      // Nome do aplicativo
-      title: Text(
-        "códex".toUpperCase(),
-        style: TextStyle(
-          letterSpacing: 1,
-          fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      centerTitle: true,
-
-      // Fundo do aplicativo da AppBar
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      elevation: 0,
     );
-
     var size = MediaQuery.of(context).size;
     var screenHeight = (size.height - appBar.preferredSize.height) -
         MediaQuery.of(context).padding.top;
@@ -79,7 +65,6 @@ class _SearchPageState extends State<SearchPage> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       // AppBar do aplicativo
       appBar: appBar,
-
       // Opções do Menu de configurações
       drawer: const MenuPage(),
 
@@ -98,8 +83,9 @@ class _SearchPageState extends State<SearchPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              // DESCRIÇÃO DETALHADA DAS PALAVRAS
               ListTile(
-                // PALAVRA PESQUISADA
+                // NOME E SINÔNIMOS DA PALAVRA
                 title: Text(
                   word!.name,
                   style: TextStyle(
@@ -107,9 +93,10 @@ class _SearchPageState extends State<SearchPage> {
                       fontSize: provider.Provider.of<FontSizeConfig>(context)
                           .fontSize),
                 ),
+
                 // DESCRIÇÃO DA PALAVRA
                 subtitle: Text(
-                  word!.description,
+                  '${word!.description}\nSinônimos: ${word!.synonyms}',
                   style: TextStyle(
                       fontSize: provider.Provider.of<FontSizeConfig>(context)
                           .fontSize),

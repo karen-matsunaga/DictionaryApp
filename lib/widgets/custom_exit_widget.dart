@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class CustomExit extends StatefulWidget {
   final VoidCallback? callBack;
-  const CustomExit({super.key, this.callBack});
+  final String message;
+  const CustomExit({super.key, this.callBack, required this.message});
 
   @override
   State<CustomExit> createState() => _CustomExitState();
@@ -27,12 +28,14 @@ class _CustomExitState extends State<CustomExit> {
 
               // MENSAGENS DA CAIXA DE DIÁLOGO
               title: Text(
-                'Confirmação de Saída',
+                'Confirmação de Saída'.toUpperCase(),
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: screenSize.width * 0.02),
+                style: TextStyle(
+                    fontSize: screenSize.width * 0.02,
+                    fontWeight: FontWeight.bold),
               ),
               content: Text(
-                'Você tem certeza que deseja sair do aplicativo?',
+                widget.message,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: screenSize.width * 0.02),
               ),
@@ -75,12 +78,14 @@ class _CustomExitState extends State<CustomExit> {
 
               // MENSAGENS DA CAIXA DE DIÁLOGO
               title: Text(
-                'Confirmação de Saída',
+                'Confirmação de Saída'.toUpperCase(),
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: screenSize.width * 0.05),
+                style: TextStyle(
+                    fontSize: screenSize.width * 0.05,
+                    fontWeight: FontWeight.bold),
               ),
               content: Text(
-                'Você tem certeza que deseja sair do aplicativo?',
+                widget.message,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: screenSize.width * 0.05),
               ),
