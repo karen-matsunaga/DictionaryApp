@@ -17,5 +17,3 @@ Orientador(a): Luciene Rodrigues
 * :white_check_mark: Framework Flutter para o front-end das telas intuitivas e práticas para o usuário final;
 * :white_check_mark: Banco de dados locais SQFLite e Shared Preferences para o back-end usando os príncipios básicos do CRUD (Create Read Update Delete) para armazenar os dados e as configurações realizadas pelo usuário;
 * :white_check_mark: Provider responsável pelo state management do CRUD no aplicativo.
-
-### TELAS
