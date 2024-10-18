@@ -12,18 +12,8 @@ class Words {
       exit;
   final int wordId;
 
-  Words(
-    this.wordId,
-    this.name,
-    this.type,
-    this.description,
-    this.synonyms,
-    this.portugol,
-    this.python,
-    this.cSharp,
-    this.java,
-    this.exit,
-  );
+  Words(this.wordId, this.name, this.type, this.description, this.synonyms,
+      this.portugol, this.python, this.cSharp, this.java, this.exit);
 
   factory Words.fromJson(Map<String, dynamic> json) {
     return Words(

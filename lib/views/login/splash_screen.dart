@@ -37,11 +37,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // LOGO DO APLICATIVO
-              // Image.asset(
-              //   'assets/images/logo.png',
-              //   width: 200,
-              //   height: 200,
-              // ),
               LogoApp(),
 
               // ESPAÇAMENTO ENTRE LINHA

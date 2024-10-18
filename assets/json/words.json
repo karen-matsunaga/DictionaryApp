@@ -4,13 +4,13 @@
               {
                 "wordId": 1,
                 "name": "Escreva",
-                "type": "Função",
+                "type": "Função ou Método",
                 "description": "Mostrar algo na tela.",
                 "synonyms":"Print, Console.Write, System.out.println.",
                 "portugol": "programa {\n  funcao inicio() {\n    escreva(\"Olá, mundo!\")\n  }\n}",
                 "cSharp": "using System;\n namespace MyApplication\n{\nclass Program\n{\nstatic void Main(string[]args)\n{\nConsole.WriteLine(\"Olá, mundo!\");\n}\n}\n}\n",
                 "java":   "public class Main { \npublic static void main(String[] args) { \nSystem.out.println(\"Olá, mundo!\"); \n} \n}",
-                "python": "print('Olá, mundo!')\nnprint(\"Olá, mundo!\")",
+                "python": "print('Olá, mundo!')\nprint(\"Olá, mundo!\")",
                 "exit": "Olá, mundo!"
               },
 

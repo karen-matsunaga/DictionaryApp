@@ -132,7 +132,11 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         word.name,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize:
+                                provider.Provider.of<FontSizeConfig>(context)
+                                    .fontSize,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                     // TIPO DA PALAVRA
@@ -140,7 +144,11 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         word.type,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize:
+                                provider.Provider.of<FontSizeConfig>(context)
+                                    .fontSize,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                     // PALAVRA PRESSIONADA PARA EXIBIR INFORMAÇÕES ESPECÍFICAS
@@ -155,6 +163,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
+
           // ESPAÇAMENTO ENTRE OS COMPONENTES DA LISTVIEW
           spaceListView,
         ],
