@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dictionary/controllers/favorite_provider.dart';
 import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/controllers/words_provider.dart';
 import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:dictionary/models/words.dart';
@@ -28,6 +29,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   void initState() {
     super.initState();
+    provider.Provider.of<WordsProvider>(context, listen: false).loadWords();
   }
 
   // CARREGAR OS DADOS DA PALAVRA ESPECÍFICA
@@ -128,26 +130,27 @@ class _SearchPageState extends State<SearchPage> {
               Expanded(
                 child: ListView(
                   children: <Widget>[
-                    // Refatoração da primeira box PYTHON
+                    // Refatoração da box Portugol
                     CustomBox(
-                        language: 'Python',
-                        text: word!.python,
+                        title: 'portugol',
+                        code: word!.portugol,
                         width: size.width),
 
-                    // Refatoração da segunda box C#
+                    // Refatoração da box C#
                     CustomBox(
-                        language: 'C#', text: word!.cSharp, width: size.width),
+                        title: 'c#', code: word!.cSharp, width: size.width),
 
-                    // Refatoração da terceira box JAVA
-
+                    // Refatoração da box JAVA
                     CustomBox(
-                        language: 'Java', text: word!.java, width: size.width),
+                        title: 'java', code: word!.java, width: size.width),
+
+                    // Refatoração da box PYTHON
+                    CustomBox(
+                        title: 'python', code: word!.python, width: size.width),
 
                     // Refatoração da quarta box SAÍDA DE DADOS
                     CustomBox(
-                        language: 'Saída de Dados',
-                        text: word!.exit,
-                        width: size.width),
+                        title: 'saída', code: word!.exit, width: size.width),
                   ],
                 ),
               ),

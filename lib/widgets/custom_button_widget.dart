@@ -36,9 +36,11 @@ class _CustomButtonState extends State<CustomButton> {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
           height: height * .2,
           width: width * .3,
+          // BORDA DOS BOTÕES
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             color: Theme.of(context).colorScheme.secondary,
+            // SOMBRA DOS BOTÕES
             boxShadow: const [
               BoxShadow(
                 color: Color.fromRGBO(0, 0, 0, 0.25),
@@ -75,9 +77,11 @@ class _CustomButtonState extends State<CustomButton> {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
           height: height * .1,
           width: width * .5,
+          // BORDA DOS BOTÕES
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             color: Theme.of(context).colorScheme.secondary,
+            // SOMBRA DOS BOTÕES
             boxShadow: const [
               BoxShadow(
                 color: Color.fromRGBO(0, 0, 0, 0.25),

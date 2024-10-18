@@ -3,12 +3,12 @@ import 'package:provider/provider.dart' as provider;
 import 'package:flutter/material.dart';
 
 class CustomBox extends StatelessWidget {
-  final String language, text;
+  final String title, code;
   final width;
   CustomBox({
     super.key,
-    required this.language,
-    required this.text,
+    required this.title,
+    required this.code,
     this.width,
   });
 
@@ -31,7 +31,7 @@ class CustomBox extends StatelessWidget {
               // EXIBIÇÃO DO NOME DAS LINGUAGENS
               Expanded(
                 child: Text(
-                  language.toUpperCase(),
+                  title.toUpperCase(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -47,7 +47,7 @@ class CustomBox extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  text,
+                  code,
                   textAlign: TextAlign.justify,
                   style: TextStyle(
                       fontSize: provider.Provider.of<FontSizeConfig>(context)

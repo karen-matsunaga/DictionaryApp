@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dictionary/models/words.dart';
 
-// CARREGAMENTO DAS PALAVRAS
 class WordsProvider with ChangeNotifier {
   List<Words> _words = [];
 

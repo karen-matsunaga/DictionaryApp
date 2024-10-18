@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // LISTA DE TODAS AS PALAVRAS DO ARQUIVO words.json
-    final allWords = provider.Provider.of<WordsProvider>(context).words;
+    final wordsProvider = provider.Provider.of<WordsProvider>(context);
 
     // Design da HOMEPAGE
     return Scaffold(
@@ -117,12 +117,12 @@ class _HomePageState extends State<HomePage> {
               shrinkWrap: true,
               itemCount: filteredWords.isNotEmpty
                   ? filteredWords.length
-                  : allWords.length,
-              itemBuilder: (BuildContext context, index) {
+                  : wordsProvider.words.length,
+              itemBuilder: (context, index) {
                 final word = filteredWords.isNotEmpty
                     ? filteredWords[index]
-                    : allWords[index];
-                // RETORNAR EM FORMA DE LISTVIEW
+                    : wordsProvider.words[index];
+
                 return Card(
                   margin: EdgeInsets.all(15.0),
                   color: Theme.of(context).colorScheme.primaryContainer,

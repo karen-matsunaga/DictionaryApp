@@ -5,22 +5,24 @@ import 'package:sqflite/sqflite.dart';
 
 // BANCO DE DADOS SQFLITE
 class DatabaseHelper {
-  // INICIAR BANCO DE DADOS
-  static Database? _db;
+  // CRIAÇÃO DO BANCO DE DADOS
+  static Database? _database;
 
-  Future<Database> get db async {
-    if (_db != null) return _db!;
-    _db = await initDatabase();
-    return _db!;
+  // VERIFICAÇÃO SE O BANCO DE DADOS EXISTE OU NÃO
+  Future<Database?> get db async {
+    if (_database != null) return _database!;
+    _database = await initDatabase();
+    return _database!;
   }
 
-  // INICIAR BANCO DE DADOS
+  // INICIAR O BANCO DE DADOS
   initDatabase() async {
     final databasePath = await getDatabasesPath();
     final path = join(databasePath, databaseName);
-
     return openDatabase(path, version: 1, onCreate: (db, version) async {
-      // EXECUÇÃO DA TABELA USUÁRIOS
+      // EXECUÇÃO DAS CHAVES ESTRANGEIRAS
+      await db.execute('PRAGMA foreign_keys = ON');
+      // EXECUÇÃO DAS TABELAS
       await db.execute(users);
       // FECHAMENTO DO BANCO DE DADOS
       await db.close();

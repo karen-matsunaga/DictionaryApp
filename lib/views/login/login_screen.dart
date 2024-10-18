@@ -139,19 +139,6 @@ class _LoginPageState extends State<LoginPage> {
                 // ESPAÇAMENTO DOS COMPONENTES
                 spaceColumn,
 
-                // BOTÃO LOGAR
-                CustomButton(
-                    text: "Logar".toUpperCase(),
-                    callBack: () async {
-                      // e-mail e senha estão corretos
-                      if (formKey.currentState!.validate()) {
-                        await login();
-                      }
-                    }),
-
-                // ESPAÇO ENTRE OS COMPONENTES
-                spaceColumn,
-
                 // TEXTO E BOTÃO PERSONALIZADO PARA CRIAR CONTA
                 CustomLetter(
                   message: 'Não possui conta?',
@@ -164,6 +151,19 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   },
                 ),
+
+                // ESPAÇO ENTRE OS COMPONENTES
+                spaceColumn,
+
+                // BOTÃO LOGAR
+                CustomButton(
+                    text: "Logar".toUpperCase(),
+                    callBack: () async {
+                      // e-mail e senha estão corretos
+                      if (formKey.currentState!.validate()) {
+                        await login();
+                      }
+                    }),
 
                 // ESPAÇO ENTRE OS COMPONENTES
                 spaceColumn,
