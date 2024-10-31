@@ -1,213 +1,244 @@
-{ 
+{
   "words": [
-
-              {
-                "wordId": 1,
-                "name": "Escreva",
-                "type": "Função ou Método",
-                "description": "Mostrar algo na tela.",
-                "synonyms":"Print, Console.Write, System.out.println.",
-                "portugol": "programa {\n  funcao inicio() {\n    escreva(\"Olá, mundo!\")\n  }\n}",
-                "cSharp": "using System;\n namespace MyApplication\n{\nclass Program\n{\nstatic void Main(string[]args)\n{\nConsole.WriteLine(\"Olá, mundo!\");\n}\n}\n}\n",
-                "java":   "public class Main { \npublic static void main(String[] args) { \nSystem.out.println(\"Olá, mundo!\"); \n} \n}",
-                "python": "print('Olá, mundo!')\nprint(\"Olá, mundo!\")",
-                "exit": "Olá, mundo!"
-              },
-
-              {
-                "wordId": 2,
-                "name": "Leia",
-                "type": "Função",
-                "description": "A variável será lida pelo que foi recebida do escreva.",
-                "synonyms": "Input, System.out.println, Console.Read",
-                "portugol": "programa{\nfuncao inicio (){\ncadeia texto\nescreva(\"Digite um texto: \")\nleia(texto)\n escreva(\"O texto digitado foi: \", texto\") }\n}",
-                "cSharp": "using System;\n namespace Input {\n class Input {\nstatic void Main(string[] args){\n Console.WriteLine(\"Digite um texto: \");\nstring? texto = Console.ReadLine();\nConsole.WriteLine($\"O texto digitado foi: {texto}\");\n}\n}}",
-                "java": "import java.util.Scanner;\n class Texto {\n  public static void main(String[] args) {\n    Scanner myObj = new Scanner(System.in);\n System.out.println(\"Digite um texto: \");\n String texto = myObj.nextLine();\n  System.out.println(\"O texto digitado foi: \" + texto);\n}\n}",
-                "python": "texto = input(\"Digite um texto: \")\nprint(f\"O texto digitado foi: {texto}\")",
-                "exit": "Exemplo"
-              },
-
-              {
-                "wordId": 3,
-                "name":"Adição",
-                "type": "Operador aritmético",
-                "description": "Operador para somar as variáveis.",
-                "synonyms": "+, Sum",
-                "portugol": "programa {\n funcao inicio() {\n inteiro a = 1\n inteiro b = 2\n  escreva(a + b)\n  }\n}",
-                "cSharp": "int a = 1, b= 2;\nConsole.WriteLine(a + b);",
-                "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\n\tSystem.out.println(+total);\n}\n}",
-                "python": "a = 1\nb = 2\nprint($'{a} + {b}')",
-                "exit": "3"
-              },
-
-              {
-                "wordId": 4,
-                "name": "Subtração",
-                "type": "Operador aritmético",
-                "description": "Operador para subtrair as variáveis.",
-                "synonyms": "-",
-                "portugol": "programa {\n funcao inicio() {\n inteiro a = 2\n inteiro b = 1\n  escreva(a - b)\n  }\n}",
-                "python": "a = 2\nb = 1\nprint($'{a} - {b}')",
-                "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a - b);",
-                "java": "public class Subtracao {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = (a - b);\nSystem.out.println(-total);\n}\n}",
-                "exit": "1"
-              },
-
-              {
-                "wordId": 5,
-                "name": "Divisão",
-                "type": "Operador aritmético",
-                "description": "Operador para dividir as variáveis.",
-                "synonyms": "/",
-                "portugol": "programa {\n funcao inicio() {\n inteiro a = 1\n inteiro b = 1\n  escreva(a / b)\n  }\n}",
-                "python": "a = 2\nb = 1\nprint($'{a} / {b}')",
-                "cSharp": "int a = 1, b= 1;\nConsole.WriteLine(a / b);",
-                "java": "public class Divisao {\npublic static void main(String[] args) {\nint a = 1;\nint b = 1;\nint total = a / b;\nSystem.out.println(total);\n}\n}",
-                "exit": "1"
-              },
-
-              {
-                "wordId": 6,
-                "name": "Multiplicação",
-                "type": "Operador aritmético",
-                "description": "Operador para multiplicar as variáveis.",
-                "synonyms": "*",
-                "portugol": "programa {\n funcao inicio() {\n inteiro a = 10\n inteiro b = 10\n  escreva(a * b)\n  }\n}",
-                "python": "a = 10\nb = 10\nprint($'{a} * {b}')",
-                "cSharp": "int a = 10, b= 10;\nConsole.WriteLine(a * b);",
-                "java": "public class Multiplicacao {\npublic static void main(String[] args) {\nint a = 10;\nint b = 10;\nint total = a * b;\nSystem.out.println(total);\n}\n}",
-                "exit": "100"
-              },
-
-              {
-                "wordId": 7,
-                "name": "Módulo",
-                "type": "Operador aritmético",
-                "description": "O resultado final é o resto da divisão.",
-                "synonyms": "%, mod",
-                "portugol": "programa {\nfuncao inicio() {\ninteiro x = 5\ninteiro y = 2\nescreva(x % y)}\n}",
-                "cSharp": "using System;\nnamespace Modulus{\nclass Modulus{\nstatic void Main(string[] args){\nint x = 5;\nint y = 2;\nConsole.WriteLine(x % y);}\n}\n}",
-                "java": "public class Modulus {\npublic static void main(String[] args) {\nint x = 5;\nint y = 2;\nSystem.out.println(x % y);\n}\n}",
-                "python": "x = 5\ny = 2\nprint(x % y)\n",
-                "exit": "1"
-              },
-
-              {
-                "wordId": 8,
-                "name": "Se",
-                "type": "Estrutura Condicional",
-                "description": "Avaliar se a expressão é verdadeira ou falsa.",
-                "synonyms": "If",
-                "portugol": "programa {\n  funcao inicio() {\n     se (20 > 18) {\n      escreva(\"20 é maior que 18!\")\n     }\n  }\n}",
-                "python": "if 20 > 18:\nprint('20 é maior que 18')\nprint(\"20 é maior que 18!\")",
-                "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine(\"20 é maior que 18!\");\n}",
-                "java": "public class Se {\npublic static void main(String[] args) {\nif(20 > 18) {\nSystem.out.println(\"20 é maior que 18!\");\n}\n}",
-                "exit": "20 é maior que 18!"
-              },
-
-              {
-                "wordId": 9,
-                "name": "Então",
-                "type": "Estrutura Condicional",
-                "description": "Caso a estrutura condicional se é falsa é feita a segunda verificação caso a expressão é verdadeira ou falsa.",
-                "synonyms": "Else",
-                "portugol": "programa {\n  funcao inicio() {\n     se (20 < 18) {\n      escreva(\"Valor FALSO\")\n     }\n     senao  {\n      escreva(\"Valor VERDADEIRO\")\n     }\n  }\n}",
-                "python": "if 20 < 18:\n    print('Valor FALSO')\nelse:\n    print('Valor VERDADEIRO')",
-                "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine(\"20 é maior que 18\");\n}",
-                "java": "class Entao {\npublic static void main(String[] args) {\nint a, b;\na = 20;\nb = 20;\nif (a != b) {\nSystem.out.println(\"O resultado é VERDADEIRO!\");\n}\nelse {\nSystem.out.println(\"O resultado é FALSO!\");\n}\n}\n}\n",
-                "exit": "O resultado é VERDADEIRO!"
-              },
-
-              {
-                "wordId": 10,
-                "name": "Se então",
-                "type": "Estrutura Condicional",
-                "description": "A primeira e segunda verificação são falsas será realizada a terceira retornando verdadeira ou falsa.",
-                "synonyms": "Else if, Elif",
-                "portugol": "programa {\n  funcao inicio() {\n     se (20 < 18) {\n      escreva(\"Valor falso\")\n     }\n     senao  {\n      escreva(\"Valor verdadeiro\")\n     }\n  }\n}",
-                "python": "a = 1\nb = 2\nif (a == b):\nprint(f'{a} são IDÊNTICOS {b}!')\nelif (a < b):\nprint(f'{a} é MENOR que {b}!')\nelse:\n print('Os valores são diferentes')",
-                "cSharp": "namespace System;\nclass Seentao {\npublic static void Main(String[] args){\nint a = 20;\nint b = 18;\nif(a == b){\nConsole.WriteLine($\"{a} são IDÊNTICOS {b}!\");}\nelse if (a != b){\nConsole.WriteLine($\"{a} é MENOR que {b}\");}\nelse{\nConsole.WriteLine(\"Os valores são diferentes\");}\n}\n}",
-                "java": "class EntaoSe {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nif (a == b) {\nSystem.out.println(a+\" são IDÊNTICOS \"+b+\"!\");}\n else if (a < b){\nSystem.out.println(a+\" é MENOR que \"+b+\"!\");\n}\nelse {\nSystem.out.println(\"Os valores são diferentes\");\n}\n}\n}",
-                "exit": "1 é MENOR que 2!"
-              },
-
-              {
-                "wordId": 11,
-                "name": "List",
-                "type": "Coleção",
-                "description": "Uma lista armazena vários dados usando [] e a separação por vírgula,.",
-                "synonyms": "ArrayList, []",
-                "portugol": "escreva(\"Olá, mundo!\")",
-                "python": "list = ['João', 'Maria', 'Pedro']\nprint(list[0:3])",
-                "cSharp": "namespace List{\nclass List{\nstatic void Main(String[] args){\nList<String> names = [\"João\", \"Maria\", \"Pedro\"];\nforeach (String name in names) { Console.Write($\"{name} \"); }\n}\n}\n}",
-                "java": "class Array {\npublic static void main(String[] args) {\nint a, b;\na = 20;\nb = 20;\nif (a != b) {\n System.out.println(name);\n}\n}\n}\n",
-                "exit": "[João, Maria, Pedro]"
-              },
-
-              {
-                "wordId": 12,
-                "name": "Objeto",
-                "type": "Programação Orientada a Objetos",
-                "description": "Instância concreta da classe com representação real de uma entidade específica com características e comportamentos próprias.",
-                "synonyms": "class",
-                "portugol": "escreva(\"Olá, mundo!\")",
-                "python": "class Car:\ncolor = \"Vermelho\"\ncarro = Car()\nprint(carro.color)",
-                "cSharp": "using System;\nnamespace Classe{\nclass Car{\nstring color =  \"Vermelho\";\nstatic void Main(string[] args){\nCar carro = new Car();\nConsole.WriteLine(carro.color);\n}\n}\n}",
-                "java": "public class Car {\nString color = \"Vermelho\";\npublic static void main(String[] args){\nCar carro = new Car();\nSystem.out.println(carro.color);\n}\n}",
-                "exit": "Vermelho"
-              },
-
-              {
-                "wordId": 13,
-                "name": "Para",
-                "type": "Estrutura de repetição",
-                "description": "Laço de repetição que percorre os itens armazenados em uma coleção.",
-                "synonyms": "For",
-                "portugol": "programa {\nfuncao inicio() {\npara (inteiro i = 0; i < 5; i++) {\nescreva(i, \"\n\")}\n  }\n}",
-                "python": "for i in range(5):\nprint(i)",
-                "cSharp": "using System;\nnamespace For{\npublic class For{\nstatic void Main(string[] args){\n              for (int i = 0; i < 5; i++){\nConsole.WriteLine(i);\n}\n}\n}\n}",
-                "java": "public class For {\npublic static void main(String[] args) {\nfor (int i = 0; i < 5; i++) {\nSystem.out.println(i);}\n}\n}",
-                "exit": "0\n1\n2\n3\n4"
-              },
-
-              {
-                "wordId": 14,
-                "name": "Enquanto",
-                "type": "Estrutura de repetição",
-                "description": "Laço de repetição que depende de uma condição.",
-                "synonyms": "true, false",
-                "portugol": "i = 0\nwhile i < 5:\nprint(i)\ni += 1",
-                "python": "i = 0\nwhile i < 5:\n  print(i)\n  i += 1",
-                "cSharp": "using System;\nnamespace MyApplication {\nclass Program {\nstatic void Main(string[] args) {\nint i = 0;\nwhile (i < 5) {\nConsole.WriteLine(i);\ni++;\n}\n}\n}\n}",
-                "java": "public class While {\npublic static void main(String[] args) {\nint i = 0;\nwhile (i < 5) {\nSystem.out.println(i);\ni++;\n}\n}\n}",
-                "exit": "0\n1\n2\n3\n4"
-              },
-
-              {
-                "wordId": 15,
-                "name": "Texto",
-                "type": "Tipo",
-                "description": "Armazenar dezena de caracteres como sentenças, nomes etc.",
-                "synonyms": "String, Cadeia",
-                "portugol": "programa {\n  funcao inicio() {\ncadeia nome\n escreva(\"Digite um nome: \")\nleia(nome)\n   escreva(\"O nome digitado foi: \", nome)\n}\n}",
-                "cSharp": "using System;\nnamespace Texto {\nclass String{\nstatic void Main(string[] args){\nConsole.Write(\"Digite o seu nome: \");\nstring? name = Console.ReadLine();\nConsole.WriteLine($\"O nome digitado foi: {name}\");\n}\n}\n}\n",
-                "java": "public class Name { public static void main(String[] args) { ... } }",
-                "python": "name = input('Digite o seu nome: ')\nprint(f'O nome digitado foi: {name}')",
-                "exit": "Exemplo"
-              },
-
-              {
-                "wordId": 16,
-                "name": "Inteiro",
-                "type": "Tipo primitivo",
-                "description": "Exibir somente os números inteiros na tela.",
-                "synonyms": "Int",
-                "portugol": "programa {\n funcao inicio() {\n inteiro = 5\n escreva(inteiro)\n}} ",
-                "cSharp": "using System;\nnamespace Inteiro {class Inteiro {static void Main(string[] args) {int numero = 5;\nConsole.WriteLine(numero)}\n}\n}",
-                "java": "public class Inteiro { public static void main(String[] args) {int numero=5;\nSystem.out.println(numero);}\n}",
-                "python": "numero = 5\nprint(type(numero))",
-                "exit": "Int"
-              }
-
-           ]
+    {
+      "wordId": 1,
+      "name": "Escreva",
+      "type": "Função ou Método",
+      "description": "Mostrar algo na tela.",
+      "synonyms": "Print, Console.Write, System.out.println.",
+      "portugol": "programa {\n  funcao inicio() {\n    escreva(\"Olá, mundo!\")\n  }\n}",
+      "cSharp": "using System;\n namespace MyApplication\n{\nclass Program\n{\nstatic void Main(string[]args)\n{\nConsole.WriteLine(\"Olá, mundo!\");\n}\n}\n}\n",
+      "java": "public class Main { \npublic static void main(String[] args) { \nSystem.out.println(\"Olá, mundo!\"); \n} \n}",
+      "python": "print('Olá, mundo!')\nprint(\"Olá, mundo!\")",
+      "exit": "Olá, mundo!"
+    },
+    {
+      "wordId": 2,
+      "name": "Leia",
+      "type": "Função",
+      "description": "A variável será lida pelo que foi recebida do escreva.",
+      "synonyms": "Input, System.out.println, Console.Read",
+      "portugol": "programa{\nfuncao inicio (){\ncadeia texto\nescreva(\"Digite um texto: \")\nleia(texto)\n escreva(\"O texto digitado foi: \", texto\") }\n}",
+      "cSharp": "using System;\n namespace Input {\n class Input {\nstatic void Main(string[] args){\n Console.WriteLine(\"Digite um texto: \");\nstring? texto = Console.ReadLine();\nConsole.WriteLine($\"O texto digitado foi: {texto}\");\n}\n}}",
+      "java": "import java.util.Scanner;\n class Texto {\n  public static void main(String[] args) {\n    Scanner myObj = new Scanner(System.in);\n System.out.println(\"Digite um texto: \");\n String texto = myObj.nextLine();\n  System.out.println(\"O texto digitado foi: \" + texto);\n}\n}",
+      "python": "texto = input(\"Digite um texto: \")\nprint(f\"O texto digitado foi: {texto}\")",
+      "exit": "Exemplo"
+    },
+    {
+      "wordId": 3,
+      "name": "Adição",
+      "type": "Operador aritmético",
+      "description": "Operador para somar as variáveis.",
+      "synonyms": "+, Sum",
+      "portugol": "programa {\n funcao inicio() {\n inteiro a = 1\n inteiro b = 2\n  escreva(a + b)\n  }\n}",
+      "cSharp": "int a = 1, b= 2;\nConsole.WriteLine(a + b);",
+      "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\n\tSystem.out.println(+total);\n}\n}",
+      "python": "a = 1\nb = 2\nprint($'{a} + {b}')",
+      "exit": "3"
+    },
+    {
+      "wordId": 4,
+      "name": "Subtração",
+      "type": "Operador aritmético",
+      "description": "Operador para subtrair as variáveis.",
+      "synonyms": "-",
+      "portugol": "programa {\n funcao inicio() {\n inteiro a = 2\n inteiro b = 1\n  escreva(a - b)\n  }\n}",
+      "python": "a = 2\nb = 1\nprint($'{a} - {b}')",
+      "cSharp": "int a = 2, b= 1;\nConsole.WriteLine(a - b);",
+      "java": "public class Subtracao {\npublic static void main(String[] args) {\nint a = 2;\nint b = 1;\nint total = (a - b);\nSystem.out.println(-total);\n}\n}",
+      "exit": "1"
+    },
+    {
+      "wordId": 5,
+      "name": "Divisão",
+      "type": "Operador aritmético",
+      "description": "Operador para dividir as variáveis.",
+      "synonyms": "/",
+      "portugol": "programa {\n funcao inicio() {\n inteiro a = 1\n inteiro b = 1\n  escreva(a / b)\n  }\n}",
+      "python": "a = 2\nb = 1\nprint($'{a} / {b}')",
+      "cSharp": "int a = 1, b= 1;\nConsole.WriteLine(a / b);",
+      "java": "public class Divisao {\npublic static void main(String[] args) {\nint a = 1;\nint b = 1;\nint total = a / b;\nSystem.out.println(total);\n}\n}",
+      "exit": "1"
+    },
+    {
+      "wordId": 6,
+      "name": "Multiplicação",
+      "type": "Operador aritmético",
+      "description": "Operador para multiplicar as variáveis.",
+      "synonyms": "*",
+      "portugol": "programa {\n funcao inicio() {\n inteiro a = 10\n inteiro b = 10\n  escreva(a * b)\n  }\n}",
+      "python": "a = 10\nb = 10\nprint($'{a} * {b}')",
+      "cSharp": "int a = 10, b= 10;\nConsole.WriteLine(a * b);",
+      "java": "public class Multiplicacao {\npublic static void main(String[] args) {\nint a = 10;\nint b = 10;\nint total = a * b;\nSystem.out.println(total);\n}\n}",
+      "exit": "100"
+    },
+    {
+      "wordId": 7,
+      "name": "Módulo",
+      "type": "Operador aritmético",
+      "description": "O resultado final é o resto da divisão.",
+      "synonyms": "%, mod",
+      "portugol": "programa {\nfuncao inicio() {\ninteiro x = 5\ninteiro y = 2\nescreva(x % y)}\n}",
+      "cSharp": "using System;\nnamespace Modulus{\nclass Modulus{\nstatic void Main(string[] args){\nint x = 5;\nint y = 2;\nConsole.WriteLine(x % y);}\n}\n}",
+      "java": "public class Modulus {\npublic static void main(String[] args) {\nint x = 5;\nint y = 2;\nSystem.out.println(x % y);\n}\n}",
+      "python": "x = 5\ny = 2\nprint(x % y)\n",
+      "exit": "1"
+    },
+    {
+      "wordId": 8,
+      "name": "Se",
+      "type": "Estrutura Condicional",
+      "description": "Avaliar se a expressão é verdadeira ou falsa.",
+      "synonyms": "If",
+      "portugol": "programa {\n  funcao inicio() {\n     se (20 > 18) {\n      escreva(\"20 é maior que 18!\")\n     }\n  }\n}",
+      "python": "if 20 > 18:\nprint('20 é maior que 18')\nprint(\"20 é maior que 18!\")",
+      "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine(\"20 é maior que 18!\");\n}",
+      "java": "public class Se {\npublic static void main(String[] args) {\nif(20 > 18) {\nSystem.out.println(\"20 é maior que 18!\");\n}\n}",
+      "exit": "20 é maior que 18!"
+    },
+    {
+      "wordId": 9,
+      "name": "Então",
+      "type": "Estrutura Condicional",
+      "description": "Caso a estrutura condicional se é falsa é feita a segunda verificação caso a expressão é verdadeira ou falsa.",
+      "synonyms": "Else",
+      "portugol": "programa {\n  funcao inicio() {\n     se (20 < 18) {\n      escreva(\"Valor FALSO\")\n     }\n     senao  {\n      escreva(\"Valor VERDADEIRO\")\n     }\n  }\n}",
+      "python": "if 20 < 18:\n    print('Valor FALSO')\nelse:\n    print('Valor VERDADEIRO')",
+      "cSharp": "int value = 20;\nif (value > 18)\n{\nConsole.WriteLine(\"20 é maior que 18\");\n}",
+      "java": "class Entao {\npublic static void main(String[] args) {\nint a, b;\na = 20;\nb = 20;\nif (a != b) {\nSystem.out.println(\"O resultado é VERDADEIRO!\");\n}\nelse {\nSystem.out.println(\"O resultado é FALSO!\");\n}\n}\n}\n",
+      "exit": "O resultado é VERDADEIRO!"
+    },
+    {
+      "wordId": 10,
+      "name": "Se então",
+      "type": "Estrutura Condicional",
+      "description": "A primeira e segunda verificação são falsas será realizada a terceira retornando verdadeira ou falsa.",
+      "synonyms": "Else if, Elif",
+      "portugol": "programa {\n  funcao inicio() {\n     se (20 < 18) {\n      escreva(\"Valor falso\")\n     }\n     senao  {\n      escreva(\"Valor verdadeiro\")\n     }\n  }\n}",
+      "python": "a = 1\nb = 2\nif (a == b):\nprint(f'{a} são IDÊNTICOS {b}!')\nelif (a < b):\nprint(f'{a} é MENOR que {b}!')\nelse:\n print('Os valores são diferentes')",
+      "cSharp": "namespace System;\nclass Seentao {\npublic static void Main(String[] args){\nint a = 20;\nint b = 18;\nif(a == b){\nConsole.WriteLine($\"{a} são IDÊNTICOS {b}!\");}\nelse if (a != b){\nConsole.WriteLine($\"{a} é MENOR que {b}\");}\nelse{\nConsole.WriteLine(\"Os valores são diferentes\");}\n}\n}",
+      "java": "class EntaoSe {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nif (a == b) {\nSystem.out.println(a+\" são IDÊNTICOS \"+b+\"!\");}\n else if (a < b){\nSystem.out.println(a+\" é MENOR que \"+b+\"!\");\n}\nelse {\nSystem.out.println(\"Os valores são diferentes\");\n}\n}\n}",
+      "exit": "1 é MENOR que 2!"
+    },
+    {
+      "wordId": 11,
+      "name": "List",
+      "type": "Coleção",
+      "description": "Uma lista armazena vários dados usando [] e a separação por vírgula,.",
+      "synonyms": "ArrayList, []",
+      "portugol": "escreva(\"Olá, mundo!\")",
+      "python": "list = ['João', 'Maria', 'Pedro']\nprint(list[0:3])",
+      "cSharp": "namespace List{\nclass List{\nstatic void Main(String[] args){\nList<String> names = [\"João\", \"Maria\", \"Pedro\"];\nforeach (String name in names) { Console.Write($\"{name} \"); }\n}\n}\n}",
+      "java": "class Array {\npublic static void main(String[] args) {\nint a, b;\na = 20;\nb = 20;\nif (a != b) {\n System.out.println(name);\n}\n}\n}\n",
+      "exit": "[João, Maria, Pedro]"
+    },
+    {
+      "wordId": 12,
+      "name": "Objeto",
+      "type": "Programação Orientada a Objetos",
+      "description": "Instância concreta da classe com representação real de uma entidade específica com características e comportamentos próprias.",
+      "synonyms": "class",
+      "portugol": "escreva(\"Olá, mundo!\")",
+      "python": "class Car:\ncolor = \"Vermelho\"\ncarro = Car()\nprint(carro.color)",
+      "cSharp": "using System;\nnamespace Classe{\nclass Car{\nstring color =  \"Vermelho\";\nstatic void Main(string[] args){\nCar carro = new Car();\nConsole.WriteLine(carro.color);\n}\n}\n}",
+      "java": "public class Car {\nString color = \"Vermelho\";\npublic static void main(String[] args){\nCar carro = new Car();\nSystem.out.println(carro.color);\n}\n}",
+      "exit": "Vermelho"
+    },
+    {
+      "wordId": 13,
+      "name": "Para",
+      "type": "Estrutura de repetição",
+      "description": "Laço de repetição que percorre os itens armazenados em uma coleção.",
+      "synonyms": "For",
+      "portugol": "programa {\nfuncao inicio() {\npara (inteiro i = 0; i < 5; i++) {\nescreva(i, \"\n\")}\n  }\n}",
+      "python": "for i in range(5):\nprint(i)",
+      "cSharp": "using System;\nnamespace For{\npublic class For{\nstatic void Main(string[] args){\n              for (int i = 0; i < 5; i++){\nConsole.WriteLine(i);\n}\n}\n}\n}",
+      "java": "public class For {\npublic static void main(String[] args) {\nfor (int i = 0; i < 5; i++) {\nSystem.out.println(i);}\n}\n}",
+      "exit": "0\n1\n2\n3\n4"
+    },
+    {
+      "wordId": 14,
+      "name": "Enquanto",
+      "type": "Estrutura de repetição",
+      "description": "Laço de repetição que depende de uma condição.",
+      "synonyms": "true, false",
+      "portugol": "i = 0\nwhile i < 5:\nprint(i)\ni += 1",
+      "python": "i = 0\nwhile i < 5:\n  print(i)\n  i += 1",
+      "cSharp": "using System;\nnamespace MyApplication {\nclass Program {\nstatic void Main(string[] args) {\nint i = 0;\nwhile (i < 5) {\nConsole.WriteLine(i);\ni++;\n}\n}\n}\n}",
+      "java": "public class While {\npublic static void main(String[] args) {\nint i = 0;\nwhile (i < 5) {\nSystem.out.println(i);\ni++;\n}\n}\n}",
+      "exit": "0\n1\n2\n3\n4"
+    },
+    {
+      "wordId": 15,
+      "name": "Texto",
+      "type": "Tipo",
+      "description": "Armazenar dezena de caracteres como sentenças, nomes etc.",
+      "synonyms": "String, Cadeia",
+      "portugol": "programa {\n  funcao inicio() {\ncadeia nome\n escreva(\"Digite um nome: \")\nleia(nome)\n   escreva(\"O nome digitado foi: \", nome)\n}\n}",
+      "cSharp": "using System;\nnamespace Texto {\nclass String{\nstatic void Main(string[] args){\nConsole.Write(\"Digite o seu nome: \");\nstring? name = Console.ReadLine();\nConsole.WriteLine($\"O nome digitado foi: {name}\");\n}\n}\n}\n",
+      "java": "public class Name { public static void main(String[] args) { ... } }",
+      "python": "name = input('Digite o seu nome: ')\nprint(f'O nome digitado foi: {name}')",
+      "exit": "Exemplo"
+    },
+    {
+      "wordId": 16,
+      "name": "Inteiro",
+      "type": "Tipo primitivo",
+      "description": "Exibir somente os números inteiros na tela.",
+      "synonyms": "Int",
+      "portugol": "programa {\n funcao inicio() {\n inteiro = 5\n escreva(inteiro)\n}} ",
+      "cSharp": "using System;\nnamespace Inteiro {class Inteiro {static void Main(string[] args) {int numero = 5;\nConsole.WriteLine(numero)}\n}\n}",
+      "java": "public class Inteiro { public static void main(String[] args) {int numero=5;\nSystem.out.println(numero);}\n}",
+      "python": "numero = 5\nprint(type(numero))",
+      "exit": "Int"
+    },
+    {
+      "wordId": 18,
+      "name": "Real",
+      "type": "Tipo primitivo",
+      "description": "Mostrar somente os números reais na tela.",
+      "synonyms": "Double, Float",
+      "portugol": "programa {\nfuncao inicio() {\nreal salario = 5800.5, altura = 1.63\nescreva(\"SALARIO = \", salario, \"\n\")\nescreva(\"ALTURA = \", altura, \"\n\")\n}\n}",
+      "cSharp": "using System;\nnamespace Programa {\nclass Program { \nstatic void Main(string[] args) { \ndouble salario = 5800.5, altura = 1.63;\nConsole.WriteLine($\"SALARIO = {salario}\");\nConsole.WriteLine($\"ALTURA = {altura}\");\n}\n}\n}",
+      "java": "import java.util.Locale; \npublic class Main { \npublic static void main(String[] args) { \nLocale.setDefault(Locale.US);\ndouble salario = 5800.5, altura = 1.63;\nSystem.out.println(\"SALARIO = \" + String.format(\"%.2f\", salario));\n}\n}",
+      "python": "salario = 5800.5\naltura = 1.63\nprint(f\"SALARIO = {salario:.2f}\")print(f\"ALTURA = {altura:.2f}\")",
+      "exit": "SALARIO = 5800.50\nALTURA = 1.63"
+    },
+    {
+      "wordId": 19,
+      "name": "Menor",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores para identificar se o valor é menor.",
+      "synonyms": "<",
+      "portugol": "programa {\nfuncao inicio() {\ninteiro hora\nescreva(\"Digite uma hora do dia: \")\nleia(hora)\nse (hora < 12) {\nescreva(\"Bom dia!\n\")\n }\n senao {\n escreva(\"Boa tarde!\n\")\n  }\n }\n\n}",
+      "cSharp": "using System;\n  namespace Programa {\n     class Program {\n         static void Main(string[] args) {\n              int hora;\n             Console.Write(\"Digite uma hora do dia: \");\n             hora = int.Parse(Console.ReadLine());\n             if (hora < 12) {\n                 Console.WriteLine(\"Bom dia!\");\n             }\n             else {\n                 Console.WriteLine(\"Boa tarde!\");\n             }\n         }\n    }\n}",
+      "java": "public class Main {\n public static void main(String[] args) {\n Scanner sc = new Scanner(System.in);\n int hora;\n System.out.print(\"Digite uma hora do dia: \");\n hora = sc.nextInt();\n if (hora < 12) {\n System.out.println(\"Bom dia!\");\n}\nelse {\nSystem.out.println(\"Boa tarde!\");\n}\nsc.close();\n}\n}",
+      "python": "hora = int(input(\"Digite uma hora do dia: \"))\n if hora < 12:\n print(\"Bom dia!\")\n else:\n print(\"Boa tarde!\")",
+      "exit": "Bom dia!"
+    },
+    {
+      "wordId": 20,
+      "name": "Maior",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores para identificar se o valor é maior.",
+      "synonyms": ">",
+      "portugol": "programa {\nfuncao inicio() {\ninteiro quantidade = 2\nse (quantidade > 0) {\nescreva(quantidade)\n}\n}\n}",
+      "cSharp": "using System;\n                  namespace maior;\n                  public class Maior {\n                      public static void Main(string[] args) {\n                          int quantidade = 2;\n                          if (quantidade > 0) {\n                              Console.WriteLine(quantidade);\n                          }\n                      }\n}",
+      "java": "public class Maior {\n public static void main(String[] args) {\nint quantidade = 2;\nif (quantidade > 0) {\nSystem.out.println(quantidade);\n}\n}",
+      "python": "quantidade = 2\nif quantidade > 0:\n    print(quantidade)",
+      "exit": "2"
+    },
+    {
+      "wordId": 21,
+      "name": "Maior ou igual",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores para identificar se o valor é maior ou igual.",
+      "synonyms": ">=",
+      "portugol": "programa {\nfuncao inicio() {\nreal nota1 = 8.0, nota2 = 8.0, notaFinal = (nota1 + nota2) / 2\n                  se (notaFinal >= 6.0) {\n                      escreva(notaFinal, \" Aprovado!\")\n    }\n  }\n}\n",
+      "cSharp": "using System;\nusing System.Globalization;\nnamespace maiorIgual;\npublic class MaiorIgual {\n    public static void Main(string[] args) {\n        CultureInfo ci = CultureInfo.InvariantCulture;\n        double nota1 = 8.0, nota2 = 8.0, notaFinal = (nota1 + nota2) / 2;\n        if (notaFinal >= 6.0) {\n            Console.WriteLine($\"{notaFinal.ToString(\"F1\", ci)}, Aprovado!\");\n        }\n    }\n}",
+      "java": "import java.util.Locale;\npublic class MaiorIgual {\npublic static void main(String[] args) {\n Locale.setDefault(Locale.US);\ndouble nota1 = 8.0, nota2 = 8.0, notaFinal = (nota1 + nota2) / 2;\nif (notaFinal >= 6.0) {\nSystem.out.println(String.format(\"%.1f\", notaFinal) + \", \" + \"Aprovado!\");\n}\n}",
+      "python": "nota1 = 8.0\n                nota2 = 8.0\n                notaFinal = (nota1 + nota2) / 2.0\n                if notaFinal >= 6.0:\n                    print(f\"{notaFinal}, Aprovado!\")",
+      "exit": "8.0, Aprovado!"
+    }
+  ]
 }
