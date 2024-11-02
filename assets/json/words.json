@@ -239,6 +239,30 @@
       "java": "import java.util.Locale;\npublic class MaiorIgual {\npublic static void main(String[] args) {\n Locale.setDefault(Locale.US);\ndouble nota1 = 8.0, nota2 = 8.0, notaFinal = (nota1 + nota2) / 2;\nif (notaFinal >= 6.0) {\nSystem.out.println(String.format(\"%.1f\", notaFinal) + \", \" + \"Aprovado!\");\n}\n}",
       "python": "nota1 = 8.0\n                nota2 = 8.0\n                notaFinal = (nota1 + nota2) / 2.0\n                if notaFinal >= 6.0:\n                    print(f\"{notaFinal}, Aprovado!\")",
       "exit": "8.0, Aprovado!"
+    },
+    {
+      "wordId": 22,
+      "name": "Menor ou igual",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores para identificar se o valor é menor ou igual.",
+      "synonyms": "<=",
+      "portugol": "programa {\n  funcao inicio() {\n    real salario1 = 1500.50, salario2 = 4000.00\n    se (salario1 <= 2000.00) {\n      escreva(salario1)\n    }\n    senao se (salario2 <= 2000.00) {\n      escreva(salario2)\n    }\n  }\n}",
+      "cSharp": "using System;\nusing System.Globalization;\n      namespace menorIgual;\npublic class MenorIgual {\n    public static void Main(string[] args) {\n        CultureInfo ci = CultureInfo.InvariantCulture;\n        double salario1 = 1500.50, salario2 = 4000.00;\n        if (salario1 <= 1500.50) {\n            Console.WriteLine(salario1.ToString(\"F1\", ci));\n        }\n        else if (salario2 <= 1500.50) {\n            Console.WriteLine(salario2.ToString(\"F1\", ci));\n        }\n    }\n}",
+      "java": "import java.util.Locale;\npublic class MenorIgual {\npublic static void main(String[] args) {\nLocale.setDefault(Locale.US);\ndouble salario1 = 1500.50;\ndouble salario2 = 4000.00;\nif (salario1 <= 1500.50) {\nSystem.out.println(String.format(\"%.1f\", salario1));\n}\nelse if (salario2 <= 1500.50) {\nSystem.out.println(String.format(\"%.1f\", salario2));\n}\n}\n}",
+      "python": "salario1, salario2 = 2000, 4000\nif salario1 <= 1500.50:\nprint(f\"{salario1: .1f}\")\nelif salario2 <= 1500.50:\nprint(f\"{salario2: .1f}\")",
+      "exit": "1500.5"
+    },
+    {
+      "wordId": 23,
+      "name": "Igual",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores para identificar se o valor é igual.",
+      "synonyms": "==",
+      "portugol": "programa {\n  funcao inicio() {\n    cadeia nome = \"Pedro\"\n    se (nome == \"Maria\") {\n      escreva(nome)\n    }\n    senao {\n      escreva(\"Falso\")\n    }\n  }\n}",
+      "cSharp": "using System;\nnamespace igual;\npublic class Igual {\n    public static void Main(string[] args) {\n        string nome = \"Pedro\";\n        if (nome == \"Maria\") {\n            Console.WriteLine(nome);\n        }\n        else {\n            Console.WriteLine(\"Falso\");\n        }\n    }\n}",
+      "java": "public class Igual{\npublic static void main(String[] args){\nString nome = \"Pedro\";\nif (nome == \"Maria\") {\nSystem.out.println(nome);\n}\nelse {\nSystem.out.println(\"Falso\");\n}\n}",
+      "python": "nome = \"Pedro\"\nif nome == \"Maria\":\n    print(nome)\nelse:\n    print(\"Falso\")",
+      "exit": "Falso"
     }
   ]
 }
