@@ -29,7 +29,7 @@
       "name": "Adição",
       "type": "Operador aritmético",
       "description": "Operador para somar as variáveis.",
-      "synonyms": "+, Sum",
+      "synonyms": "+",
       "portugol": "programa {\n funcao inicio() {\n inteiro a = 1\n inteiro b = 2\n  escreva(a + b)\n  }\n}",
       "cSharp": "int a = 1, b= 2;\nConsole.WriteLine(a + b);",
       "java": "public class Soma {\npublic static void main(String[] args) {\nint a = 1;\nint b = 2;\nint total = (a + b);\n\tSystem.out.println(+total);\n}\n}",
@@ -122,7 +122,7 @@
     },
     {
       "wordId": 11,
-      "name": "List",
+      "name": "Lista",
       "type": "Coleção",
       "description": "Uma lista armazena vários dados usando [] e a separação por vírgula,.",
       "synonyms": "ArrayList, []",
@@ -263,6 +263,54 @@
       "java": "public class Igual{\npublic static void main(String[] args){\nString nome = \"Pedro\";\nif (nome == \"Maria\") {\nSystem.out.println(nome);\n}\nelse {\nSystem.out.println(\"Falso\");\n}\n}",
       "python": "nome = \"Pedro\"\nif nome == \"Maria\":\n    print(nome)\nelse:\n    print(\"Falso\")",
       "exit": "Falso"
+    },
+    {
+      "wordId": 24,
+      "name": "Diferente",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores para identificar se o valor é diferente.",
+      "synonyms": "!=",
+      "portugol": "programa {\nfuncao inicio() {\ninteiro idade = 20\ninteiro condicao = 25\nse (idade != condicao) {\nescreva(\"A idade \", idade, \" é diferente de idade \", condicao, \"!\")\n}\nsenao {\nescreva(\"Idade é igual\")}\n}\n",
+      "cSharp": "using System;\nusing System.Globalization;\nnamespace diferente;\npublic class Diferente {\npublic static void Main(string[] args) {\nint idade = 20;\nint condicao = 25;\nif (idade != condicao) {\nSystem.Console.WriteLine($\"A idade {idade} é diferente de idade {condicao}!\");\n}\nelse {\nSystem.Console.WriteLine(\"Idade é igual\");\n}\n}\n}",
+      "java": "public class Diferente {\npublic static void main(String[] args) {\nint idade = 20;\nint condicao = 25;\nif(idade != condicao) {\nSystem.out.print(\"A idade \" + idade + \" é diferente de idade \" + condicao + \"!\");\n}\nelse{\nSystem.out.print(\"A idade é igual\");\n}\n}\n}",
+      "python": "idade = 20\ncondicao = 25\nif idade != condicao:\n    print(f\"A idade {idade} é diferente de idade {condicao}!\")\nelse:\n    print(\"A idade é igual\")",
+      "exit": "A idade 20 é diferente de idade 25!"
+    },
+    {
+      "wordId": 25,
+      "name": "E",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores para identificar se os valores analisados são verdadeiros ou falsos.",
+      "synonyms": "&&, and",
+      "portugol": "programa {\n funcao inicio() {\nreal salario = 3650.40\ncadeia nome = \"Taylor\"\nse (nome == \"Taylor\" e salario > 3500.00) {\nescreva(nome, \", \", salario) }\nsenao {\nescreva(\"As informações estão incorretas!\")}\n}",
+      "cSharp": "using System;\nusing System.Globalization;\nnamespace e;\npublic class E {\npublic static void Main(string[] args){\ndouble salario = 3650.40;\nstring nome = \"Taylor\";\nCultureInfo ci = CultureInfo.InvariantCulture;\nif (nome == \"Taylor\" && salario > 3500.00){\nConsole.WriteLine($\"{nome}, {salario.ToString(\"F2\", ci)}\");\n}\nelse        {\nConsole.WriteLine(\"As informações estão incorretas!\");\n}\n}\n}",
+      "java": "import java.util.Locale;\npublic class E {\npublic static void main(String[] args) {\nLocale.setDefault(Locale.US);\ndouble salario = 3650.40;\nString nome = \"Taylor\";\nif (nome == \"Taylor\" && salario > 3500.00) {\nSystem.out.println(nome + \", \" + String.format(\"%.2f\", salario));\n}\n}\n}",
+      "python": "salario = 3650.40\nnome = \"Taylor\"\nif nome == \"Taylor\" and salario > 3500.00:\n    print(f\"{nome}, {salario:.2f}\")\nelse:\n    print(\"As informações estão incorretas!\")",
+      "exit": "Taylor, 3650.40"
+    },
+    {
+      "wordId": 26,
+      "name": "Ou",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores para identificar se pelo menos um dos valores analisados são verdadeiros ou falsos.",
+      "synonyms": "||, or",
+      "portugol": "programa {\nfuncao inicio() {\ninteiro idade = 65\ncadeia cnh = \"Não\"\nse (idade >= 60 ou cnh == \"Sim\") {\nescreva(\"Idade da pessoa: \", idade, \" anos\nDocumento CNH: \", cnh)}\n}\n}",
+      "cSharp": "using System;\nusing System.Globalization;\nnamespace ou;\npublic class Ou {\npublic static void Main(string[] args) {\nint idade = 65;\nstring cnh = \"Não\";\nif (idade >= 60 || cnh == \"Sim\") {\nConsole.WriteLine($\"Idade da pessoa: {idade} anos\nDocumento CNH: {cnh}\"); }\n}\n}",
+      "java": "public class Ou {\npublic static void main(String[] args) {\nint idade = 65;\nString cnh = \"Não\";\nif (idade >= 60 || cnh == \"Sim\") {\nSystem.out.println(\"Idade da pessoa: \" + idade + \" anos\" + \"\nDocumento CNH: \" + cnh);}\n}\n}",
+      "python": "idade = 65\ncnh = \"Não\"\nif idade >= 60 or cnh == \"Sim\":    print(f\"Idade da pessoa: {idade} anos\nDocumento CNH: {cnh}\")",
+      "exit": "Idade da pessoa: 65 anos\nDocumento CNH: Não"
+    },
+    {
+      "wordId": 27,
+      "name": "Não",
+      "type": "Operador comparativo",
+      "description": "Comparar os valores e converter invertamente as condições que são verdadeiro para falso e falso para verdadeiro.",
+      "synonyms": "!, not",
+      "portugol": "programa {\nfuncao inicio() {\ncaracter j1 = 'c'\ncaracter j2 = 'c'\nlogico porta = j1 == j2\nse (porta) {\nescreva(\"VERDADEIRO = \", porta, \"\n\" , \"FALSO = \", nao porta) }\n }\n}",
+      "cSharp": "using System;\nusing System.Globalization;\nnamespace nao;\npublic class Nao {\n    public static void Main(string[] args)    {\n        char j1 = 'c', j2 = 'c';\n        bool porta = j1 == j2;\n        if (porta)        {\n            Console.WriteLine($\"VERDADEIRO = {porta}\nFALSO = {!porta}\");        }\n    }\n}",
+      "java": "public class Nao {\npublic static void main(String[] args) {\nchar j1 = 'c', j2 = 'c';\nboolean porta = j1 == j2;\nif (porta) {\nSystem.out.println(\"VERDADEIRO = \" + porta + \"\nFALSO = \" + !porta);\n}\n}\n}",
+      "python": "j1, j2 = 'c', 'c'\nporta = j1 == j2\nif porta:\n    print(f\"VERDADEIRO = {porta}\nFALSO = {not porta}\")",
+      "exit": "VERDADEIRO = verdadeiro\nFALSO = falso\n\nVERDADEIRO = true\nFALSO = false\n\nVERDADEIRO = True\nFALSO = False"
     }
   ]
 }
