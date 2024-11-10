@@ -124,7 +124,7 @@
       "wordId": 11,
       "name": "Lista",
       "type": "Coleção",
-      "description": "Uma lista armazena vários dados usando [] e a separação por vírgula,.",
+      "description": "Uma lista armazena vários dados usando [] e a separação por vírgula ,.",
       "synonyms": "ArrayList, []",
       "portugol": "escreva(\"Olá, mundo!\")",
       "python": "list = ['João', 'Maria', 'Pedro']\nprint(list[0:3])",
@@ -311,6 +311,42 @@
       "java": "public class Nao {\npublic static void main(String[] args) {\nchar j1 = 'c', j2 = 'c';\nboolean porta = j1 == j2;\nif (porta) {\nSystem.out.println(\"VERDADEIRO = \" + porta + \"\nFALSO = \" + !porta);\n}\n}\n}",
       "python": "j1, j2 = 'c', 'c'\nporta = j1 == j2\nif porta:\n    print(f\"VERDADEIRO = {porta}\nFALSO = {not porta}\")",
       "exit": "VERDADEIRO = verdadeiro\nFALSO = falso\n\nVERDADEIRO = true\nFALSO = false\n\nVERDADEIRO = True\nFALSO = False"
+    },
+    {
+      "wordId": 28,
+      "name": "Caractere",
+      "type": "Tipo",
+      "description": "Armazenar uma letra de caractere.",
+      "synonyms": "Caracter, Char",
+      "portugol": "programa {\nfuncao inicio() {\ncaracter letra = 'a'\ncadeia letra1 = \"abacate\"\nescreva(letra, \"\n\")\nescreva(letra1) }\n}",
+      "cSharp": "using System;\nusing System.Globalization;\nnamespace caractere;\npublic class Caractere {\n    public static void Main(string[] args) {\n        char letra = 'a';\n        string letra1 = \"abacate\";\n        Console.WriteLine(letra);\n        Console.WriteLine(letra1);\n    }\n}",
+      "java": "public class Caractere {\npublic static void main(String[] args) {\nchar letra = 'a';\nString letra1 = \"abacate\";\nSystem.out.println(letra);\nSystem.out.println(letra1);\n}\n}",
+      "python": "letra = \"a\"\nletra1 = \"abacate\"\nprint(letra)\nprint(letra1)",
+      "exit": "a\nabacate"
+    },
+    {
+      "wordId": 29,
+      "name": "Vetor",
+      "type": "Coleção",
+      "description": "Armazenar uma lista de valores que não podem ser alterados.",
+      "synonyms": "",
+      "portugol": "programa {\nfuncao inicio() {\ncaracter letras[3] = {'a', 'b', 'c'}\npara (inteiro i = 0; i < 3; i++) {\nescreva(letras[i], \"\n\")\n}\n}\n}",
+      "cSharp": "using System;\nusing System.Globalization;\nnamespace vetor;\npublic class Vetor {\n    public static void Main(string[] args) {\n        char[] letras = {'a', 'b', 'c'};\n        for (int i = 0; i < 3; i++) {\n            Console.WriteLine(letras[i]);\n}\n}\n}",
+      "java": "public class Vetor {\npublic static void main(String[] args) {\nchar[] letras = {'a', 'b', 'c'};\nfor (int i = 0; i < 3; i++) {\nSystem.out.println(letras[i]);\n}\n}\n}",
+      "python": "vet: [float] = [0 for x in range(0, 3)]\nvet = ('a', 'b', 'c')\nfor i in range(0, 3):\n    print(f\"{vet[i]}\")",
+      "exit": "a\nb\nc\n\nOBS: No Python é usada uma variante do vetor!"
+    },
+    {
+      "wordId": 30,
+      "name": "Matrizes",
+      "type": "Coleção",
+      "description": "Armazenar uma lista de valores que não podem ser alterados.",
+      "synonyms": "",
+      "portugol": "programa {\nfuncao inicio() {\ncaracter letras[3][3] = {{'a', 'b', 'c'},\n{'d', 'e', 'f'},\n{'g', 'h', 'i'}}\npara (inteiro i = 0; i < 3; i++) {\npara (inteiro j = 0; j < 3; j++) {\nescreva(letras[i][j],\"\n\")}\n}\n}\n}",
+      "cSharp": "using System;\nusing System.Globalization;\nnamespace matriz;\npublic class Matriz {\n    public static void Main(string[] args) {\n        char[,] letras = new char[3, 3] { { 'a', 'b', 'c' }, { 'd', 'e', 'f' }, { 'g', 'h', 'i' }};\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < 3; j++) {\n                Console.WriteLine(letras[i, j]);\n            }\n        }\n    }\n}",
+      "java": "public class Matriz {\npublic static void main(String[] args) {\nchar letras[][]  = {{'a', 'b', 'c'},\n{'d', 'e', 'f'},\n{'g', 'h', 'i'}};\nfor (int i = 0; i < 3; i++) {\nfor (int j = 0; j < 3; j++) {\nSystem.out.println(letras[i][j]);\n}\n}\n}\n}",
+      "python": "mat: [[int]] = [[0 for x in range(0, 3)] for x in range(0, 3)]\nmat = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]\nfor i in range(0, 3):\n for j in range(0, 3):\n        print(f\"{mat[i][j]}\")",
+      "exit": "a\nb\nc\nd\ne\nf\ng\nh\ni\n\nOBS: No Python é usada uma variante da matriz!"
     }
   ]
 }
