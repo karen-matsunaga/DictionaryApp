@@ -7,6 +7,7 @@ import 'package:dictionary/views/home/menu_view.dart';
 import 'package:dictionary/widgets/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart' as provider;
+import 'package:substring_highlight/substring_highlight.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,6 +26,9 @@ class _HomePageState extends State<HomePage> {
 
   // FUNÇÃO DA BARRA DE PESQUISA DAS PALAVRAS DO APLICATIVO
   // CONTROLADOR DEVERÁ ARMAZENAR A PALAVRA QUE O USUÁRIO DIGITOU
+
+  late TextEditingController searchController;
+
   final _searchController = TextEditingController();
 
   // RETORNAR OS FILTROS DAS PALAVRAS COM BASE NO CONTROLADOR
@@ -58,6 +62,9 @@ class _HomePageState extends State<HomePage> {
     // LISTA DE TODAS AS PALAVRAS DO ARQUIVO words.json
     final wordsProvider = provider.Provider.of<WordsProvider>(context);
 
+    final allWords =
+        provider.Provider.of<WordsProvider>(context, listen: false).words;
+
     // Design da HOMEPAGE
     return Scaffold(
       // APPBAR personalizada do aplicativo
@@ -74,6 +81,73 @@ class _HomePageState extends State<HomePage> {
       // Design da BARRA DE PESQUISA para pesquisar as palavras
       body: Column(
         children: [
+          // BARRA DE PESQUISA - ATUAL
+/*           Autocomplete(
+            optionsBuilder: (TextEditingValue textEditingValue) {
+              if (textEditingValue.text.isEmpty) {
+                return const Iterable<String>.empty();
+              } else {
+                return allWords.where((word) =>
+                    word.name.contains(textEditingValue.text.toLowerCase()));
+              }
+            },
+            optionsViewBuilder:
+                (context, Function(String) onSelected, options) {
+              return Material(
+                elevation: 4,
+                child: ListView.separated(
+                  padding: EdgeInsets.zero,
+                  itemBuilder: (context, index) {
+                    final option = options.elementAt(index);
+
+                    return ListTile(
+                      title: SubstringHighlight(
+                        text: option.toString(),
+                        term: searchController.text,
+                        textStyleHighlight:
+                            const TextStyle(fontWeight: FontWeight.w700),
+                      ),
+                      subtitle: const Text("This is subtitle"),
+                      onTap: () {
+                        onSelected(option.toString());
+                      },
+                    );
+                  },
+                  separatorBuilder: (context, index) => const Divider(),
+                  itemCount: options.length,
+                ),
+              );
+            },
+            onSelected: (selectedString) {},
+            fieldViewBuilder:
+                (context, searchController, focusNode, onEditingComplete) {
+              this.searchController = searchController;
+
+              return TextField(
+                controller: searchController,
+                focusNode: focusNode,
+                onEditingComplete: onEditingComplete,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: Colors.grey[300]!),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: Colors.grey[300]!),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: Colors.grey[300]!),
+                  ),
+                  hintText: "Search",
+                  prefixIcon: const Icon(Icons.search),
+                ),
+              );
+            },
+          ), */
+
+          // BARRA DE PESQUISA - ANTIGA
           Center(
             child: PreferredSize(
               preferredSize: const Size(50.0, 50.0),
