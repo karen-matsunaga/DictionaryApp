@@ -176,9 +176,9 @@
       "synonyms": "String, Cadeia",
       "portugol": "programa {\n  funcao inicio() {\ncadeia nome\n escreva(\"Digite um nome: \")\nleia(nome)\n   escreva(\"O nome digitado foi: \", nome)\n}\n}",
       "cSharp": "using System;\nnamespace Texto {\nclass String{\nstatic void Main(string[] args){\nConsole.Write(\"Digite o seu nome: \");\nstring? name = Console.ReadLine();\nConsole.WriteLine($\"O nome digitado foi: {name}\");\n}\n}\n}\n",
-      "java": "public class Name { public static void main(String[] args) { ... } }",
+      "java": "import java.util.Scanner;\npublic class Texto{\npublic static void main(String[] args) {\nScanner s = new Scanner(System.in);\nSystem.out.print(\"Digite o seu nome: \");\nString nome = s.nextLine();\nSystem.out.println(\"O nome digitado foi: \" + nome);\ns.close();\n}\n}",
       "python": "name = input('Digite o seu nome: ')\nprint(f'O nome digitado foi: {name}')",
-      "exit": "Exemplo"
+      "exit": "O nome digitado foi: Exemplo"
     },
     {
       "wordId": 16,

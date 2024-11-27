@@ -24,10 +24,10 @@ class _HomePageState extends State<HomePage> {
     provider.Provider.of<WordsProvider>(context, listen: false).loadWords();
   }
 
+/*   late TextEditingController searchController; */
+
   // FUNÇÃO DA BARRA DE PESQUISA DAS PALAVRAS DO APLICATIVO
   // CONTROLADOR DEVERÁ ARMAZENAR A PALAVRA QUE O USUÁRIO DIGITOU
-
-  late TextEditingController searchController;
 
   final _searchController = TextEditingController();
 
@@ -83,12 +83,15 @@ class _HomePageState extends State<HomePage> {
         children: [
           // BARRA DE PESQUISA - ATUAL
 /*           Autocomplete(
-            optionsBuilder: (TextEditingValue textEditingValue) {
-              if (textEditingValue.text.isEmpty) {
+            optionsBuilder: (TextEditingValue keyword) {
+              if (keyword.text.isEmpty) {
+                // SE NÃO ENCONTRAR AS PALAVRAS EXIBIRA UMA LISTA VAZIA
                 return const Iterable<String>.empty();
               } else {
-                return allWords.where((word) =>
-                    word.name.contains(textEditingValue.text.toLowerCase()));
+                // SE ENCONTRAR AS PALAVRAS EXIBIRA UMA LISTA COM PALAVRAS PRÓXIMAS DO PESQUISADO
+                return allWords.where((word) => word.name
+                    .toLowerCase()
+                    .contains(keyword.text.toLowerCase()));
               }
             },
             optionsViewBuilder:
@@ -97,24 +100,26 @@ class _HomePageState extends State<HomePage> {
                 elevation: 4,
                 child: ListView.separated(
                   padding: EdgeInsets.zero,
+                  itemCount: options.length,
                   itemBuilder: (context, index) {
                     final option = options.elementAt(index);
-
+                    // SUBTÍTULO DA PALAVRA
                     return ListTile(
                       title: SubstringHighlight(
                         text: option.toString(),
                         term: searchController.text,
-                        textStyleHighlight:
-                            const TextStyle(fontWeight: FontWeight.w700),
+                        textStyleHighlight: const TextStyle(
+                            color: Colors.amber, fontWeight: FontWeight.w700),
                       ),
-                      subtitle: const Text("This is subtitle"),
                       onTap: () {
-                        onSelected(option.toString());
+                        Navigator.of(context).pushNamed(
+                          '/search',
+                          arguments: jsonEncode(option),
+                        );
                       },
                     );
                   },
                   separatorBuilder: (context, index) => const Divider(),
-                  itemCount: options.length,
                 ),
               );
             },
@@ -123,6 +128,7 @@ class _HomePageState extends State<HomePage> {
                 (context, searchController, focusNode, onEditingComplete) {
               this.searchController = searchController;
 
+              // BARRA DE PESQUISA
               return TextField(
                 controller: searchController,
                 focusNode: focusNode,
