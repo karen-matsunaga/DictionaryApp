@@ -1,13 +1,11 @@
 import 'dart:convert';
-import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/controllers/words_provider.dart';
-import 'package:dictionary/models/words.dart';
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/models/models.dart';
+import 'package:dictionary/views/views.dart';
+import 'package:dictionary/widgets/widgets.dart';
 import 'package:dictionary/utils/constants.dart';
-import 'package:dictionary/views/home/menu_view.dart';
-import 'package:dictionary/widgets/custom_appbar_widget.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart' as provider;
-import 'package:substring_highlight/substring_highlight.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,10 +19,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    provider.Provider.of<WordsProvider>(context, listen: false).loadWords();
+    Provider.of<WordsProvider>(context, listen: false).loadWords();
   }
-
-/*   late TextEditingController searchController; */
 
   // FUNÇÃO DA BARRA DE PESQUISA DAS PALAVRAS DO APLICATIVO
   // CONTROLADOR DEVERÁ ARMAZENAR A PALAVRA QUE O USUÁRIO DIGITOU
@@ -36,8 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   // MÉTODO PARA FILTRAR AS PALAVRAS
   void _runFilter(String searchKeyword) {
-    final allWords =
-        provider.Provider.of<WordsProvider>(context, listen: false).words;
+    final allWords = Provider.of<WordsProvider>(context, listen: false).words;
     List<Words> results = [];
 
     // SE O RESULTADO NÃO EXSITE
@@ -60,10 +55,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // LISTA DE TODAS AS PALAVRAS DO ARQUIVO words.json
-    final wordsProvider = provider.Provider.of<WordsProvider>(context);
-
-    final allWords =
-        provider.Provider.of<WordsProvider>(context, listen: false).words;
+    final wordsProvider = Provider.of<WordsProvider>(context);
 
     // Design da HOMEPAGE
     return Scaffold(
@@ -71,7 +63,7 @@ class _HomePageState extends State<HomePage> {
       appBar: PreferredSize(
         preferredSize: sized,
         child: CustomAppbarWidget(
-          title: "códex do programador",
+          title: "",
         ),
       ),
 
@@ -81,79 +73,7 @@ class _HomePageState extends State<HomePage> {
       // Design da BARRA DE PESQUISA para pesquisar as palavras
       body: Column(
         children: [
-          // BARRA DE PESQUISA - ATUAL
-/*           Autocomplete(
-            optionsBuilder: (TextEditingValue keyword) {
-              if (keyword.text.isEmpty) {
-                // SE NÃO ENCONTRAR AS PALAVRAS EXIBIRA UMA LISTA VAZIA
-                return const Iterable<String>.empty();
-              } else {
-                // SE ENCONTRAR AS PALAVRAS EXIBIRA UMA LISTA COM PALAVRAS PRÓXIMAS DO PESQUISADO
-                return allWords.where((word) => word.name
-                    .toLowerCase()
-                    .contains(keyword.text.toLowerCase()));
-              }
-            },
-            optionsViewBuilder:
-                (context, Function(String) onSelected, options) {
-              return Material(
-                elevation: 4,
-                child: ListView.separated(
-                  padding: EdgeInsets.zero,
-                  itemCount: options.length,
-                  itemBuilder: (context, index) {
-                    final option = options.elementAt(index);
-                    // SUBTÍTULO DA PALAVRA
-                    return ListTile(
-                      title: SubstringHighlight(
-                        text: option.toString(),
-                        term: searchController.text,
-                        textStyleHighlight: const TextStyle(
-                            color: Colors.amber, fontWeight: FontWeight.w700),
-                      ),
-                      onTap: () {
-                        Navigator.of(context).pushNamed(
-                          '/search',
-                          arguments: jsonEncode(option),
-                        );
-                      },
-                    );
-                  },
-                  separatorBuilder: (context, index) => const Divider(),
-                ),
-              );
-            },
-            onSelected: (selectedString) {},
-            fieldViewBuilder:
-                (context, searchController, focusNode, onEditingComplete) {
-              this.searchController = searchController;
-
-              // BARRA DE PESQUISA
-              return TextField(
-                controller: searchController,
-                focusNode: focusNode,
-                onEditingComplete: onEditingComplete,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.grey[300]!),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.grey[300]!),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: Colors.grey[300]!),
-                  ),
-                  hintText: "Search",
-                  prefixIcon: const Icon(Icons.search),
-                ),
-              );
-            },
-          ), */
-
-          // BARRA DE PESQUISA - ANTIGA
+          // BARRA DE PESQUISA
           Center(
             child: PreferredSize(
               preferredSize: const Size(50.0, 50.0),
@@ -167,13 +87,12 @@ class _HomePageState extends State<HomePage> {
                   decoration: InputDecoration(
                     fillColor: Theme.of(context).inputDecorationTheme.fillColor,
                     hintStyle: TextStyle(
-                        fontSize: provider.Provider.of<FontSizeConfig>(context)
-                            .fontSize),
+                        fontSize:
+                            Provider.of<FontSizeConfig>(context).fontSize),
                     // ICONES DE PESQUISA e FECHAR da barra de pesquisa
                     prefixIcon: Icon(
                       Icons.search_rounded,
-                      size: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize,
+                      size: Provider.of<FontSizeConfig>(context).fontSize,
                       color: Theme.of(context).iconTheme.color,
                     ),
                     hintText: 'Search',
@@ -193,6 +112,7 @@ class _HomePageState extends State<HomePage> {
 
           // EXIBIÇÃO DE TODAS AS PALAVRAS DO words.json
           Expanded(
+            // LISTA DE TODAS AS PALAVRAS
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: filteredWords.isNotEmpty
@@ -202,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                 final word = filteredWords.isNotEmpty
                     ? filteredWords[index]
                     : wordsProvider.words[index];
-
+                // RETORNA A PALAVRA E O TIPO EM FORMATO DE CARTA
                 return Card(
                   margin: EdgeInsets.all(15.0),
                   color: Theme.of(context).colorScheme.primaryContainer,
@@ -214,8 +134,7 @@ class _HomePageState extends State<HomePage> {
                         word.name,
                         style: TextStyle(
                             fontSize:
-                                provider.Provider.of<FontSizeConfig>(context)
-                                    .fontSize,
+                                Provider.of<FontSizeConfig>(context).fontSize,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -226,8 +145,7 @@ class _HomePageState extends State<HomePage> {
                         word.type,
                         style: TextStyle(
                             fontSize:
-                                provider.Provider.of<FontSizeConfig>(context)
-                                    .fontSize,
+                                Provider.of<FontSizeConfig>(context).fontSize,
                             fontWeight: FontWeight.bold),
                       ),
                     ),

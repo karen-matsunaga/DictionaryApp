@@ -1,9 +1,8 @@
-import 'package:dictionary/controllers/favorite_provider.dart';
-import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/widgets/custom_appbar_widget.dart';
-import 'package:provider/provider.dart' as provider;
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/views/views.dart';
+import 'package:dictionary/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:dictionary/utils/constants.dart';
-import 'package:dictionary/views/home/menu_view.dart';
 import 'package:flutter/material.dart';
 
 class FavoritePage extends StatelessWidget {
@@ -44,8 +43,7 @@ class FavoritePage extends StatelessWidget {
                 leading: Text(
                   word,
                   style: TextStyle(
-                    fontSize:
-                        provider.Provider.of<FontSizeConfig>(context).fontSize,
+                    fontSize: Provider.of<FontSizeConfig>(context).fontSize,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -61,14 +59,12 @@ class FavoritePage extends StatelessWidget {
                       ? Icon(
                           Icons.favorite,
                           color: favoriteIcon,
-                          size: provider.Provider.of<FontSizeConfig>(context)
-                              .fontSize,
+                          size: Provider.of<FontSizeConfig>(context).fontSize,
                         )
                       // QUANDO A PALAVRA É DESMARCADA AUTOMATICAMENTE É REMOVIDA DA LISTA
                       : Icon(Icons.favorite_border,
                           color: favoriteIcon,
-                          size: provider.Provider.of<FontSizeConfig>(context)
-                              .fontSize),
+                          size: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
               );
             },

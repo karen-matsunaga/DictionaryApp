@@ -1,7 +1,7 @@
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/widgets/widgets.dart';
 import 'package:dictionary/main.dart';
-import 'package:dictionary/widgets/custom_logo_widget.dart';
-import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -48,8 +48,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize:
-                        provider.Provider.of<FontSizeConfig>(context).fontSize),
+                    fontSize: Provider.of<FontSizeConfig>(context).fontSize),
               ),
 
               // ESPAÇAMENTO ENTRE LINHA

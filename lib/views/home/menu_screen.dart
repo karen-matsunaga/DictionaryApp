@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:dictionary/controllers/user_provider.dart';
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/views/views.dart';
+import 'package:dictionary/widgets/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:dictionary/widgets/custom_exit_widget.dart';
-import 'package:dictionary/widgets/custom_user_widget.dart';
-import 'package:dictionary/widgets/custom_icon_widget.dart';
-import 'package:dictionary/views/login/login_screen.dart';
-import 'package:dictionary/views/home/home_screen.dart';
-import 'package:dictionary/views/profile/fav_screen.dart';
-import 'package:dictionary/views/profile/config_view.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});

@@ -1,13 +1,10 @@
 import 'dart:convert';
-import 'package:dictionary/controllers/favorite_provider.dart';
-import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/controllers/words_provider.dart';
-import 'package:dictionary/widgets/custom_appbar_widget.dart';
-import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/models/words.dart';
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/models/models.dart';
+import 'package:dictionary/views/views.dart';
+import 'package:dictionary/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:dictionary/utils/constants.dart';
-import 'package:dictionary/widgets/custom_box_widget.dart';
-import 'package:dictionary/views/home/menu_view.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -29,7 +26,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   void initState() {
     super.initState();
-    provider.Provider.of<WordsProvider>(context, listen: false).loadWords();
+    Provider.of<WordsProvider>(context, listen: false).loadWords();
   }
 
   // CARREGAR OS DADOS DA PALAVRA ESPECÍFICA
@@ -55,7 +52,7 @@ class _SearchPageState extends State<SearchPage> {
     var appBar = PreferredSize(
       preferredSize: sized,
       child: CustomAppbarWidget(
-        title: "códex do programador",
+        title: "",
       ),
     );
     var size = MediaQuery.of(context).size;
@@ -92,16 +89,14 @@ class _SearchPageState extends State<SearchPage> {
                   word!.name,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
 
                 // DESCRIÇÃO DA PALAVRA
                 subtitle: Text(
                   '${word!.description}\nSinônimos: ${word!.synonyms}',
                   style: TextStyle(
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
 
                 // ICONE BOTÃO PARA ADICIONAR OU REMOVER A PALAVRA NA LISTA DE FAVORITO
@@ -114,15 +109,13 @@ class _SearchPageState extends State<SearchPage> {
                       ? Icon(
                           Icons.favorite,
                           color: favoriteIcon,
-                          size: provider.Provider.of<FontSizeConfig>(context)
-                              .fontSize,
+                          size: Provider.of<FontSizeConfig>(context).fontSize,
                         )
                       // PALAVRA NÃO ADICIONADA NOS FAVORITOS
                       : Icon(
                           Icons.favorite_border,
                           color: favoriteIcon,
-                          size: provider.Provider.of<FontSizeConfig>(context)
-                              .fontSize,
+                          size: Provider.of<FontSizeConfig>(context).fontSize,
                         ),
                 ),
               ),

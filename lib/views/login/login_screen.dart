@@ -1,19 +1,10 @@
-import 'package:dictionary/controllers/user_provider.dart';
-import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/home/home_screen.dart';
-import 'package:dictionary/widgets/custom_pass_widget.dart';
-import 'package:dictionary/widgets/custom_logo_widget.dart';
-import 'package:dictionary/views/login/signup_screen.dart';
-import 'package:dictionary/models/dbhelper.dart';
-import 'package:dictionary/widgets/custom_button_widget.dart';
-import 'package:dictionary/widgets/custom_form_widget.dart';
-import 'package:dictionary/widgets/custom_msg_widget.dart';
-import 'package:dictionary/widgets/custom_exit_widget.dart';
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/models/models.dart';
+import 'package:dictionary/views/views.dart';
+import 'package:dictionary/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/controllers/fontsize_provider.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -32,8 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   bool isLoginTrue = false;
 
   // BANCO DE DADOS
-  late final dbHelper =
-      provider.Provider.of<DatabaseHelper>(context, listen: false);
+  late final dbHelper = Provider.of<DatabaseHelper>(context, listen: false);
 
   // FUNÇÃO LOGIN PARA VERIFICAÇÃO DOS DADOS
   login() async {
@@ -44,13 +34,11 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
     if (response == true) {
-      // SHARED PREFERENCES
+      // SALVAR O USUÁRIO LOGADO ATRAVÉS DO SHARED PREFERENCES
       final userProvider = Provider.of<UserProvider>(context, listen: false);
       await userProvider.saveUserData(
           emailController.text, passwordController.text);
       await userProvider.loadUserData();
-
-      // ADICIONAR O SAVE DO ARQUIVO WORDS.JSON
 
       // SE OS DADOS ESTIVEREM CORRETOS
       if (!mounted) return;
@@ -112,10 +100,10 @@ class _LoginPageState extends State<LoginPage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
 
+                // LOGOTIPO DO APP
                 const LogoApp(),
 
                 // ENTRADA DE DADOS CAMPO E-MAIL
@@ -143,6 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                 CustomLetter(
                   message: 'Não possui conta?',
                   text: 'Criar conta'.toUpperCase(),
+                  // DIRECIONAR PARA O CADASTRAMENTO DA CONTA
                   callBack: () {
                     Navigator.push(
                       context,
@@ -182,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     : const SizedBox(),
 
-                // SAIR DO APLICATIVO
+                // OPÇÃO PARA SAIR DO APLICATIVO
                 CustomExit(
                   message: 'Você tem certeza que deseja sair do aplicativo?',
                   callBack: () {

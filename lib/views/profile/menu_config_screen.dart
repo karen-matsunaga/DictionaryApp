@@ -1,7 +1,6 @@
+import 'package:dictionary/views/views.dart';
+import 'package:dictionary/widgets/widgets.dart';
 import 'package:dictionary/utils/constants.dart';
-import 'package:dictionary/widgets/custom_appbar_widget.dart';
-import 'package:dictionary/views/home/menu_view.dart';
-import 'package:dictionary/views/profile/config_screen.dart';
 import 'package:flutter/material.dart';
 
 class MenuConfigurationPage extends StatelessWidget {

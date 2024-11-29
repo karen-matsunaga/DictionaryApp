@@ -1,15 +1,10 @@
-import 'package:dictionary/models/dbhelper.dart';
-import 'package:dictionary/models/users.dart';
-import 'package:dictionary/widgets/custom_button_widget.dart';
-import 'package:dictionary/widgets/custom_form_widget.dart';
-import 'package:dictionary/widgets/custom_msg_widget.dart';
-import 'package:dictionary/widgets/custom_logo_widget.dart';
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/models/models.dart';
+import 'package:dictionary/views/views.dart';
+import 'package:dictionary/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:dictionary/utils/constants.dart';
-import 'package:dictionary/views/login/login_screen.dart';
-import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/widgets/custom_pass_widget.dart';
+import 'package:provider/provider.dart';
 
 class AccountCreatePage extends StatefulWidget {
   const AccountCreatePage({Key? key}) : super(key: key);
@@ -81,8 +76,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
   final formKey = GlobalKey<FormState>();
 
   // BANCO DE DADOS
-  late final dbHelper =
-      provider.Provider.of<DatabaseHelper>(context, listen: false);
+  late final dbHelper = Provider.of<DatabaseHelper>(context, listen: false);
 
   // CADASTRO DA CONTA
   signUp() async {
@@ -132,8 +126,7 @@ class _AccountCreatePageState extends State<AccountCreatePage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
 
                 const LogoApp(),
