@@ -1,6 +1,6 @@
 // CLASSE WORDS QUE SERÃO ARMAZENADOS OS DADOS NO ARQUIVO JSON
-
 class Words {
+  // TIPO DE CADA VARIÁVEL
   final String name,
       type,
       description,
@@ -15,6 +15,7 @@ class Words {
   Words(this.wordId, this.name, this.type, this.description, this.synonyms,
       this.portugol, this.python, this.cSharp, this.java, this.exit);
 
+  // ARQUIVO JSON
   factory Words.fromJson(Map<String, dynamic> json) {
     return Words(
       json['wordId'] ?? 0,
@@ -30,6 +31,7 @@ class Words {
     );
   }
 
+  // CONVERSÃO DO ARQUIVO JSON
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['wordId'] = this.wordId;
