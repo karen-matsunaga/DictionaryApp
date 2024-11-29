@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:dictionary/controllers/favorite_provider.dart';
-import 'package:dictionary/controllers/user_provider.dart';
-import 'package:dictionary/controllers/words_provider.dart';
-import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:dictionary/controllers/theme_provider.dart';
-import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/controllers/custom_theme.dart';
-import 'package:dictionary/models/dbhelper.dart';
-import 'package:dictionary/models/users.dart';
-import 'package:dictionary/views/home/menu_view.dart';
-import 'package:dictionary/views/profile/config_view.dart';
-import 'package:dictionary/views/login/signup_screen.dart';
-import 'package:dictionary/views/home/search_screen.dart';
-import 'package:dictionary/views/login/login_screen.dart';
-import 'package:dictionary/views/home/home_screen.dart';
-import 'package:dictionary/views/login/splash_screen.dart';
-import 'package:dictionary/views/profile/fav_screen.dart';
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/models/models.dart';
+import 'package:dictionary/views/views.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,24 +20,21 @@ void main() async {
   FavoriteProvider();
   // Aqui rodamos o app dentro do Provider onde serão carregadas as configurações salvas pelo Shared Preferences, Provider e SQFLite
   runApp(
-    provider.MultiProvider(
+    MultiProvider(
         providers: [
           // TAMANHO DA FONTE
-          provider.ChangeNotifierProvider(
-              create: (context) => FontSizeConfig()),
+          ChangeNotifierProvider(create: (context) => FontSizeConfig()),
           // TEMA LIGHT/DARK
-          provider.ChangeNotifierProvider(
-              create: (context) => DynamicDarkMode()),
+          ChangeNotifierProvider(create: (context) => DynamicDarkMode()),
           // USUÁRIO LOGADO
-          provider.ChangeNotifierProvider(
+          ChangeNotifierProvider(
               create: (context) => UserProvider()..loadUserData()),
           // CARREGAMENTO DAS PALAVRAS DA CLASSE WORDS BASEADO NO WORDS.JSON
-          provider.ChangeNotifierProvider(create: (context) => WordsProvider()),
+          ChangeNotifierProvider(create: (context) => WordsProvider()),
           // BANCO DE DADOS SQFLITE ATIVADO
-          provider.Provider<DatabaseHelper>.value(value: dbHelper),
+          Provider<DatabaseHelper>.value(value: dbHelper),
           // TODAS AS PALAVRAS NO FAVORITO
-          provider.ChangeNotifierProvider(
-              create: (context) => FavoriteProvider()),
+          ChangeNotifierProvider(create: (context) => FavoriteProvider()),
         ],
         // ABERTURA DO APLICATIVO
         child: const CodexProgramador()),
@@ -62,7 +46,7 @@ class CodexProgramador extends StatelessWidget {
   const CodexProgramador({super.key, Users? loggedInUser});
   @override
   Widget build(BuildContext context) {
-    return provider.Consumer<DynamicDarkMode>(
+    return Consumer<DynamicDarkMode>(
       builder: (context, DynamicDarkMode themeProvider, child) {
         // Rotas
         return MaterialApp(
@@ -104,7 +88,7 @@ class InitialScreen extends StatefulWidget {
 class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
-    return provider.Consumer<UserProvider>(
+    return Consumer<UserProvider>(
       builder: (context, userProvider, child) {
         if (userProvider.email == null) {
           // SE TIVER LOGADO

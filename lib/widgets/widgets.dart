@@ -1,0 +1,10 @@
+export 'package:dictionary/widgets/custom_appbar_widget.dart';
+export 'package:dictionary/widgets/custom_box_widget.dart';
+export 'package:dictionary/widgets/custom_button_widget.dart';
+export 'package:dictionary/widgets/custom_exit_widget.dart';
+export 'package:dictionary/widgets/custom_form_widget.dart';
+export 'package:dictionary/widgets/custom_icon_widget.dart';
+export 'package:dictionary/widgets/custom_logo_widget.dart';
+export 'package:dictionary/widgets/custom_msg_widget.dart';
+export 'package:dictionary/widgets/custom_pass_widget.dart';
+export 'package:dictionary/widgets/custom_user_widget.dart';
