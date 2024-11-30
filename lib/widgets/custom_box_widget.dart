@@ -1,5 +1,5 @@
-import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:provider/provider.dart' as provider;
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class CustomBox extends StatelessWidget {
@@ -35,8 +35,7 @@ class CustomBox extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                   maxLines: 1,
                 ),
               ),
@@ -50,8 +49,7 @@ class CustomBox extends StatelessWidget {
                   code,
                   textAlign: TextAlign.justify,
                   style: TextStyle(
-                      fontSize: provider.Provider.of<FontSizeConfig>(context)
-                          .fontSize),
+                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
               ),
             ],

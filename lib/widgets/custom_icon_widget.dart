@@ -1,6 +1,6 @@
-import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/controllers/controllers.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart' as provider;
+import 'package:provider/provider.dart';
 
 class IconDrawer extends StatelessWidget {
   final IconData icon;
@@ -21,7 +21,7 @@ class IconDrawer extends StatelessWidget {
       // CONTEÚDO DOS ICONES
       leading: Icon(
         icon,
-        size: provider.Provider.of<FontSizeConfig>(context).fontSize,
+        size: Provider.of<FontSizeConfig>(context).fontSize,
         color: Theme.of(context).listTileTheme.iconColor,
       ),
       // CONTEÚDO DOS TEXTOS
@@ -30,7 +30,7 @@ class IconDrawer extends StatelessWidget {
         style: TextStyle(
             letterSpacing: 1,
             fontWeight: FontWeight.bold,
-            fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize),
+            fontSize: Provider.of<FontSizeConfig>(context).fontSize),
       ),
       onTap: callback,
     );

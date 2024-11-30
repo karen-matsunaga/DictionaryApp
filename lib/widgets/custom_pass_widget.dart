@@ -1,12 +1,11 @@
-import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/controllers/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class PasswordForm extends StatefulWidget {
   // ATRIBUTOS DA CLASSE PASSWORDFIELD
   final TextEditingController controller;
-  final String label;
-  final String hint;
+  final String label, hint;
   final Function(String?) validator;
 
   const PasswordForm(

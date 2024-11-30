@@ -1,4 +1,4 @@
-import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/controllers/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,6 +1,6 @@
+import 'package:dictionary/controllers/controllers.dart';
 import 'package:dictionary/utils/constants.dart';
-import 'package:provider/provider.dart' as provider;
-import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class CustomLetter extends StatefulWidget {
@@ -28,8 +28,7 @@ class _CustomLetterState extends State<CustomLetter> {
           widget.message,
           style: TextStyle(
               letterSpacing: 2,
-              fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize /
-                  1.50),
+              fontSize: Provider.of<FontSizeConfig>(context).fontSize / 1.50),
         ),
 
         // ESPAÇAMENTO DOS LADOS
@@ -43,8 +42,7 @@ class _CustomLetterState extends State<CustomLetter> {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               letterSpacing: 2,
-              fontSize:
-                  provider.Provider.of<FontSizeConfig>(context).fontSize / 1.50,
+              fontSize: Provider.of<FontSizeConfig>(context).fontSize / 1.50,
             ),
           ),
         ),

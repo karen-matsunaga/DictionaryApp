@@ -1,5 +1,4 @@
-import 'package:dictionary/widgets/custom_button_widget.dart';
-import 'package:dictionary/widgets/custom_icon_widget.dart';
+import 'package:dictionary/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class CustomExit extends StatefulWidget {

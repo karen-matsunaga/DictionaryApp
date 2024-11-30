@@ -1,5 +1,5 @@
-import 'package:dictionary/controllers/fontsize_provider.dart';
-import 'package:provider/provider.dart' as provider;
+import 'package:dictionary/controllers/controllers.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppbarWidget extends StatelessWidget {
@@ -18,7 +18,7 @@ class CustomAppbarWidget extends StatelessWidget {
         title.toUpperCase(),
         style: TextStyle(
           letterSpacing: 1,
-          fontSize: provider.Provider.of<FontSizeConfig>(context).fontSize,
+          fontSize: Provider.of<FontSizeConfig>(context).fontSize,
           fontWeight: FontWeight.bold,
         ),
       ),

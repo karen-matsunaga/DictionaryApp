@@ -1,11 +1,10 @@
-import 'package:dictionary/controllers/fontsize_provider.dart';
+import 'package:dictionary/controllers/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CustomForm extends StatefulWidget {
   final TextEditingController controller;
-  final String label;
-  final String hint;
+  final String label, hint;
   final Function(String?) validator;
   final TextInputType textInputType;
   final Icon icon;
