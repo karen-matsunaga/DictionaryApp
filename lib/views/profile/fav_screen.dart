@@ -1,17 +1,38 @@
 import 'package:dictionary/controllers/controllers.dart';
+import 'package:dictionary/models/models.dart';
 import 'package:dictionary/views/views.dart';
 import 'package:dictionary/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
-class FavoritePage extends StatelessWidget {
+class FavoritePage extends StatefulWidget {
   FavoritePage({super.key});
+
+  @override
+  State<FavoritePage> createState() => _FavoritePageState();
+}
+
+class _FavoritePageState extends State<FavoritePage> {
+  // EXIBIÇÃO DO ID ESPECÍFICO
+  var wordName = "";
+  Words? word;
+
+  // INICIAR TODA VEZ QUE ACESSAR O APLICATIVO
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<WordsProvider>(context, listen: false).loadWords();
+  }
 
   @override
   Widget build(BuildContext context) {
     final favoriteProvider = FavoriteProvider.of(context);
     final words = favoriteProvider.words;
+    final wordsProvider = Provider.of<WordsProvider>(context).words;
+
+    // LISTA DE TODAS AS PALAVRAS DO ARQUIVO words.json
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -37,11 +58,18 @@ class FavoritePage extends StatelessWidget {
             itemCount: words.length,
             itemBuilder: (context, int index) {
               // RETORNAR CADA PALAVRA POR MEIO DO INDEX
-              final word = words[index];
+              // final word = words[index];
+
+              // final word =
+              //     words.sort((a, b) => a.toString().compareTo(b.toString()));
+
+              final word = words.elementAt(index);
+
+              // EXPERIMENTO
               // Retornar todos os comandos favoritos salvos no botão de pesquisa
               return ListTile(
                 leading: Text(
-                  word,
+                  word.toString(),
                   style: TextStyle(
                     fontSize: Provider.of<FontSizeConfig>(context).fontSize,
                     fontWeight: FontWeight.bold,
@@ -52,10 +80,10 @@ class FavoritePage extends StatelessWidget {
                 trailing: IconButton(
                   onPressed: () {
                     // EXCLUSÃO DO ITEM NA LISTA DOS FAVORITOS
-                    favoriteProvider.toggleFavorite(word);
+                    favoriteProvider.toggleFavorite(word.toString());
                   },
                   // A PALAVRA ADICIONADA AUTOMATICAMENTE É ALOCADA NA LISTA
-                  icon: favoriteProvider.isExist(word)
+                  icon: favoriteProvider.isExist(word.toString())
                       ? Icon(
                           Icons.favorite,
                           color: favoriteIcon,
@@ -66,6 +94,14 @@ class FavoritePage extends StatelessWidget {
                           color: favoriteIcon,
                           size: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
+                onTap: () {
+                  if (word.toString().contains(wordsProvider[index].name)) {
+                    Navigator.of(context).pushNamed(
+                      '/search',
+                      arguments: jsonEncode(wordsProvider[index]),
+                    );
+                  }
+                },
               );
             },
           ),
