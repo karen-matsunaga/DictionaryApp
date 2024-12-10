@@ -1,5 +1,3 @@
-import 'package:dictionary/controllers/controllers.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class CustomBox extends StatelessWidget {
@@ -33,9 +31,10 @@ class CustomBox extends StatelessWidget {
                 child: Text(
                   title.toUpperCase(),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+                  // style: TextStyle(
+                  //     fontWeight: FontWeight.bold,
+                  //     fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.0),
                   maxLines: 1,
                 ),
               ),
@@ -48,8 +47,10 @@ class CustomBox extends StatelessWidget {
                 child: Text(
                   code,
                   textAlign: TextAlign.justify,
-                  style: TextStyle(
-                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+                  // style:
+                  // TextStyle(
+                  //     fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+                  style: TextStyle(fontSize: 12.0),
                 ),
               ),
             ],
