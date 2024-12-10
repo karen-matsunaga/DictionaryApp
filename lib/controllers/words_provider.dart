@@ -6,7 +6,6 @@ import 'package:dictionary/models/words.dart';
 
 class WordsProvider with ChangeNotifier {
   List<Words> _words = [];
-
   List<Words> get words => _words;
 
   Future<void> loadWords() async {
