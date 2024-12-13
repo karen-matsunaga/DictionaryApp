@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:dictionary/controllers/controllers.dart';
 import 'package:dictionary/models/models.dart';
 import 'package:dictionary/views/views.dart';
@@ -6,6 +5,7 @@ import 'package:dictionary/widgets/widgets.dart';
 import 'package:dictionary/utils/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -41,8 +41,11 @@ class _HomePageState extends State<HomePage> {
     } else {
       // SE EXISTIR OS RESULTADOS
       results = allWords
-          .where((element) =>
-              element.name.toLowerCase().contains(searchKeyword.toLowerCase()))
+          .where((element) => ((
+                (element.name).toLowerCase(),
+                (element.synonyms).toLowerCase(),
+                (element.type).toLowerCase()
+              ).toString().contains(searchKeyword.toLowerCase())))
           .toList();
     }
 
@@ -81,6 +84,9 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(10.0),
                 // BARRA DE PESQUISA DESIGN
                 child: TextField(
+                  // ATUALIZAÇÃO EM TEMPO REAL DA PESQUISA
+                  onChanged: _runFilter,
+                  // DESIGN DA BARRA DE PESQUISA
                   cursorColor: Theme.of(context).colorScheme.onPrimary,
                   controller: _searchController,
                   keyboardType: TextInputType.text,
@@ -167,5 +173,12 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  // LIMPAR A PESQUISA REALIZADA
+  @override
+  void dispose() {
+    _searchController.clear();
+    super.dispose();
   }
 }

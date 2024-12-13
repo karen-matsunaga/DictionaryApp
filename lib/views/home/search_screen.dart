@@ -78,76 +78,109 @@ class _SearchPageState extends State<SearchPage> {
           width: size.width,
           padding: const EdgeInsets.all(20),
           // COLUNA
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // DESCRIÇÃO DETALHADA DAS PALAVRAS
-              ListTile(
-                // NOME E SINÔNIMOS DA PALAVRA
-                title: Text(
-                  word!.name,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+          child: SelectionArea(
+            onSelectionChanged: (value) => context,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                // DESCRIÇÃO DETALHADA DAS PALAVRAS
+                ListTile(
+                  // NOME E SINÔNIMOS DA PALAVRA
+                  title: TextSelectionTheme(
+                    data: TextSelectionThemeData(
+                        selectionColor: textSelection,
+                        selectionHandleColor: handleColorText),
+                    child: SelectableText(
+                      cursorColor: textSelection,
+                      word!.name,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize:
+                              Provider.of<FontSizeConfig>(context).fontSize),
+                    ),
+                  ),
+
+                  // DESCRIÇÃO DA PALAVRA
+                  subtitle: TextSelectionTheme(
+                    data: TextSelectionThemeData(
+                        selectionColor: Colors.amber,
+                        selectionHandleColor: Colors.red),
+                    child: SelectableText(
+                      '${word!.description}\nSinônimos: ${word!.synonyms}',
+                      style: TextStyle(
+                          fontSize:
+                              Provider.of<FontSizeConfig>(context).fontSize),
+                    ),
+                  ),
+
+                  // ICONE BOTÃO PARA ADICIONAR OU REMOVER A PALAVRA NA LISTA DE FAVORITO
+                  trailing: IconButton(
+                    onPressed: () {
+                      favoriteProvider.toggleFavorite(word!.name);
+                    },
+                    icon: favoriteProvider.isExist(word!.name)
+                        // PALAVRA ADICIONADA NOS FAVORITOS
+                        ? Icon(
+                            Icons.favorite,
+                            color: favoriteIcon,
+                            size: Provider.of<FontSizeConfig>(context).fontSize,
+                          )
+                        // PALAVRA NÃO ADICIONADA NOS FAVORITOS
+                        : Icon(
+                            Icons.favorite_border,
+                            color: favoriteIcon,
+                            size: Provider.of<FontSizeConfig>(context).fontSize,
+                          ),
+                  ),
                 ),
+                // CÓDIGO DAS PALAVRAS EM SUAS RESPECTIVAS LINGUAGENS DE PROGRAMAÇÃO
+                Expanded(
+                  child: ListView(
+                    children: <Widget>[
+                      // Refatoração da box Portugol
+                      CustomBox(
+                          title: 'portugol',
+                          code: word!.portugol,
+                          width: size.width,
+                          color:
+                              Theme.of(context).colorScheme.primaryContainer),
 
-                // DESCRIÇÃO DA PALAVRA
-                subtitle: Text(
-                  '${word!.description}\nSinônimos: ${word!.synonyms}',
-                  style: TextStyle(
-                      fontSize: Provider.of<FontSizeConfig>(context).fontSize),
+                      // Refatoração da box C#
+                      CustomBox(
+                          title: 'c#',
+                          code: word!.cSharp,
+                          width: size.width,
+                          color:
+                              Theme.of(context).colorScheme.primaryContainer),
+
+                      // Refatoração da box JAVA
+                      CustomBox(
+                        title: 'java',
+                        code: word!.java,
+                        width: size.width,
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                      ),
+
+                      // Refatoração da box PYTHON
+                      CustomBox(
+                        title: 'python',
+                        code: word!.python,
+                        width: size.width,
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                      ),
+
+                      // Refatoração da quarta box SAÍDA DE DADOS
+                      CustomBox(
+                          title: 'saída',
+                          code: word!.exit,
+                          width: size.width,
+                          color: whiteBorder),
+                    ],
+                  ),
                 ),
-
-                // ICONE BOTÃO PARA ADICIONAR OU REMOVER A PALAVRA NA LISTA DE FAVORITO
-                trailing: IconButton(
-                  onPressed: () {
-                    favoriteProvider.toggleFavorite(word!.name);
-                  },
-                  icon: favoriteProvider.isExist(word!.name)
-                      // PALAVRA ADICIONADA NOS FAVORITOS
-                      ? Icon(
-                          Icons.favorite,
-                          color: favoriteIcon,
-                          size: Provider.of<FontSizeConfig>(context).fontSize,
-                        )
-                      // PALAVRA NÃO ADICIONADA NOS FAVORITOS
-                      : Icon(
-                          Icons.favorite_border,
-                          color: favoriteIcon,
-                          size: Provider.of<FontSizeConfig>(context).fontSize,
-                        ),
-                ),
-              ),
-              // CÓDIGO DAS PALAVRAS EM SUAS RESPECTIVAS LINGUAGENS DE PROGRAMAÇÃO
-              Expanded(
-                child: ListView(
-                  children: <Widget>[
-                    // Refatoração da box Portugol
-                    CustomBox(
-                        title: 'portugol',
-                        code: word!.portugol,
-                        width: size.width),
-
-                    // Refatoração da box C#
-                    CustomBox(
-                        title: 'c#', code: word!.cSharp, width: size.width),
-
-                    // Refatoração da box JAVA
-                    CustomBox(
-                        title: 'java', code: word!.java, width: size.width),
-
-                    // Refatoração da box PYTHON
-                    CustomBox(
-                        title: 'python', code: word!.python, width: size.width),
-
-                    // Refatoração da quarta box SAÍDA DE DADOS
-                    CustomBox(
-                        title: 'saída', code: word!.exit, width: size.width),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

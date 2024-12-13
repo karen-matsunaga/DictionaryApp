@@ -28,13 +28,18 @@ class _UserDrawerState extends State<UserDrawer> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Bem-vindo, ${widget.email}!',
-              maxLines: 1,
-              style: TextStyle(
-                letterSpacing: 2,
-                fontWeight: FontWeight.bold,
-                fontSize: Provider.of<FontSizeConfig>(context).fontSize / 1.4,
+            TextSelectionTheme(
+              data: TextSelectionThemeData(
+                  selectionColor: Colors.amber,
+                  selectionHandleColor: Colors.red),
+              child: SelectableText(
+                'Bem-vindo, ${widget.email}!',
+                maxLines: 1,
+                style: TextStyle(
+                  letterSpacing: 2,
+                  fontWeight: FontWeight.bold,
+                  fontSize: Provider.of<FontSizeConfig>(context).fontSize / 1.5,
+                ),
               ),
             ),
           ],

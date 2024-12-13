@@ -55,7 +55,7 @@ ThemeData lightTheme = ThemeData(
     onPrimaryContainer: lightText,
 
     // BOTOES
-    secondary: buttonLight,
+    secondary: whiteBorder,
     onSecondary: lightText,
 
     // FUNDO DA BORDA

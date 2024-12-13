@@ -58,18 +58,12 @@ class _FavoritePageState extends State<FavoritePage> {
             itemCount: words.length,
             itemBuilder: (context, int index) {
               // RETORNAR CADA PALAVRA POR MEIO DO INDEX
-              // final word = words[index];
-
-              // final word =
-              //     words.sort((a, b) => a.toString().compareTo(b.toString()));
-
-              final word = words.elementAt(index);
-
+              var word = words[index];
               // EXPERIMENTO
               // Retornar todos os comandos favoritos salvos no botão de pesquisa
               return ListTile(
                 leading: Text(
-                  word.toString(),
+                  word,
                   style: TextStyle(
                     fontSize: Provider.of<FontSizeConfig>(context).fontSize,
                     fontWeight: FontWeight.bold,
@@ -80,10 +74,10 @@ class _FavoritePageState extends State<FavoritePage> {
                 trailing: IconButton(
                   onPressed: () {
                     // EXCLUSÃO DO ITEM NA LISTA DOS FAVORITOS
-                    favoriteProvider.toggleFavorite(word.toString());
+                    favoriteProvider.toggleFavorite(word);
                   },
                   // A PALAVRA ADICIONADA AUTOMATICAMENTE É ALOCADA NA LISTA
-                  icon: favoriteProvider.isExist(word.toString())
+                  icon: favoriteProvider.isExist(word)
                       ? Icon(
                           Icons.favorite,
                           color: favoriteIcon,
@@ -95,11 +89,16 @@ class _FavoritePageState extends State<FavoritePage> {
                           size: Provider.of<FontSizeConfig>(context).fontSize),
                 ),
                 onTap: () {
-                  if (word.toString().contains(wordsProvider[index].name)) {
-                    Navigator.of(context).pushNamed(
-                      '/search',
-                      arguments: jsonEncode(wordsProvider[index]),
-                    );
+                  for (int i = 0; i < words.length; i++) {
+                    String word = words[i];
+                    if (word
+                        .toLowerCase()
+                        .contains(wordsProvider[index].name.toLowerCase())) {
+                      Navigator.of(context).pushNamed(
+                        '/search',
+                        arguments: jsonEncode(wordsProvider[index]),
+                      );
+                    }
                   }
                 },
               );

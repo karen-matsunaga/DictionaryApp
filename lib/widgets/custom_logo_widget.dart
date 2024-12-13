@@ -11,7 +11,7 @@ class LogoApp extends StatelessWidget {
       height: 100,
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.tertiary,
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(10)),
 
       // IMAGEM DA LOGO

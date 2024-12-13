@@ -69,6 +69,11 @@ Color darkSearch = Color.fromRGBO(255, 255, 255, 0.58);
 Color lightIconBorder = Color.fromRGBO(255, 255, 255, 0.512);
 Color blackIconBorder = Color.fromRGBO(240, 235, 235, 0.861);
 
+// BORDA DA SAIDA DA PALAVRA E CONTROLADORES DO LOGIN
+Color whiteBorder = Colors.white54;
+Color textSelection = Colors.amber;
+Color handleColorText = Colors.blue.shade300;
+
 // ESPAÇO DA COLUNA DO COMPONENTE
 SizedBox spaceColumn = SizedBox(height: 20);
 
