@@ -2,12 +2,12 @@
 
 Integrantes: Christian Matsunaga e Karen Matsunaga
 
-## Projeto: Dicionário de Tecnologia da Informação para aprendizagem de linguagem de programação.
+## Projeto: Glossário de Tecnologia da Informação para aprendizagem de linguagem de programação.
 
 Disciplina: Trabalho de Graduação II
 
 ### Objetivos:
-* :blue_book: O projeto é um dicionário de linguagem de programação voltado para iniciantes da área de TI que necessitam a aprendizagem das ferramentas de forma mais prática com diversas linguagens de programação como Python, C# e Java as quais são mostradas os códigos das suas respectivas sintaxes que resultam a resposta final idênticas, mas com diversas possibilidades distintas;
+* :blue_book: O projeto é um glossário de linguagem de programação voltado para iniciantes da área de TI que necessitam a aprendizagem das ferramentas de forma mais prática com diversas linguagens de programação como Python, C# e Java as quais são mostradas os códigos das suas respectivas sintaxes que resultam a resposta final idênticas, mas com diversas possibilidades distintas;
 * :mobile_phone_off: Foco na portabilidade para facilitar nos estudos e não requer internet para realizar as consultas das linguagens de programação;
 
 ### Ferramentas:
